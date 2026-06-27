@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html class="js" lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#a40e0e">
+  <link rel="canonical" href="https://rusticonobre.com.br/">
+  <title>Bancos - Nobre Rústico</title>
+  <meta name="description" content="Bancos rústicos e planejados da Nobre Rústico.">
+
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#01040b;line-height:1.5}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .text-center{text-align:center}
+    .btn{display:inline-block;background:#a40e0e;color:#fff;padding:12px 35px;border-radius:30px;text-decoration:none;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;transition:0.3s;border:none;cursor:pointer}
+    .btn:hover{background:#cc1111}
+    
+    .top-bar{background:#1a1a1a;color:#999;padding:8px 0;font-size:13px}
+    .top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .top-bar a{color:#999;margin-left:12px;text-decoration:none}
+    .top-bar a:hover{color:#fff}
+    .top-bar i{color:#b8956a;margin-right:4px}
+    
+    .header{background:#fff;padding:15px 0;border-bottom:2px solid #e8e0d8}
+    .header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    
+    .header-logo{display:flex;align-items:center;gap:12px}
+    .header-logo img{height:70px;width:auto;display:block}
+    .logo{font-size:28px;font-weight:700;color:#2c1810}
+    .logo span{color:#a40e0e}
+    .logo small{display:block;font-size:11px;font-weight:400;color:#888;letter-spacing:2px}
+    .header-right{display:flex;align-items:center;gap:18px}
+    .header-right a{color:#2c1810;font-size:18px;text-decoration:none}
+    .header-right a:hover{color:#a40e0e}
+    
+    .menu-toggle{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:5px;background:none;border:none}
+    .menu-toggle span{display:block;width:26px;height:3px;background:#2c1810;border-radius:2px;transition:0.3s}
+    .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    
+    .nav-menu{background:#fff;border-bottom:1px solid #e8e0d8;max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+    .nav-menu.open{max-height:600px}
+    .nav-menu ul{list-style:none;padding:10px 20px;margin:0}
+    .nav-menu ul li a{display:block;text-decoration:none;color:#2c1810;font-size:14px;padding:10px 15px;border-bottom:1px solid #f0ebe5;transition:0.3s}
+    .nav-menu ul li a:hover{background:#f5f0eb;color:#a40e0e;padding-left:20px}
+    .nav-menu ul li:last-child a{border-bottom:none}
+    
+    .announcement{background:#fc0000;color:#fff;text-align:center;padding:10px 0;font-weight:700}
+    .announcement a{color:#fff;text-decoration:none}
+    
+    .banner{background:#2c1810;color:#fff;text-align:center;padding:50px 0;margin-bottom:30px}
+    .banner h2{font-size:38px;font-weight:300}
+    .banner h2 strong{color:#ff6b35;font-weight:700}
+    .banner p{color:#ddd;font-size:18px;margin:10px 0 20px}
+    
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin:30px 0 18px;border-bottom:2px solid #e8e0d8;padding-bottom:8px}
+    .section-title h3{font-size:22px;font-weight:300;color:#2c1810}
+    .section-title h3 strong{font-weight:700}
+    .section-title a{color:#a40e0e;font-size:13px;font-weight:600;text-decoration:none}
+    .section-title a:hover{color:#2c1810}
+    
+    .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
+    .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
+    .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
+    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .product-image img{width:100%;height:100%;object-fit:cover}
+    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase}
+    .product-info{padding:10px 12px 6px;flex:1}
+    .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
+    .product-price{font-size:17px;font-weight:700;color:#2c1810}
+    .product-price .from{font-size:12px;font-weight:400;color:#888}
+    .product-old-price{font-size:13px;color:#999;text-decoration:line-through;margin-left:6px;font-weight:400}
+    
+    .product-footer{display:flex;justify-content:space-between;align-items:center;padding:6px 12px 12px;gap:5px}
+    .btn-left{display:inline-flex;align-items:center;gap:4px;background:#2c1810;color:#fff;padding:6px 12px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:600;border:none;cursor:pointer;transition:0.3s}
+    .btn-left:hover{background:#4a3228}
+    .btn-left i{font-size:11px}
+    .btn-right{display:inline-flex;align-items:center;gap:4px;background:#a40e0e;color:#fff;padding:6px 12px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer;transition:0.3s}
+    .btn-right:hover{background:#cc1111}
+    .btn-right i{font-size:11px}
+    
+    .testimonials{background:#fff;padding:35px 0;margin:25px 0;border-top:2px solid #e8e0d8;border-bottom:2px solid #e8e0d8}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+    .testimonial-item{text-align:center;padding:10px}
+    .testimonial-item .stars{color:#f1c40f;font-size:16px;margin-bottom:6px}
+    .testimonial-item .text{font-style:italic;color:#555;line-height:1.6;font-size:14px}
+    .testimonial-item .name{font-weight:700;color:#2c1810;margin-top:8px;font-size:13px}
+    
+    .footer{background:#1a1a1a;color:#aaa;padding:35px 0 15px}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;border-bottom:1px solid #333;padding-bottom:25px;margin-bottom:15px}
+    .footer h4{color:#fff;font-size:16px;margin-bottom:10px}
+    .footer p,.footer a{color:#aaa;line-height:1.8;font-size:13px;text-decoration:none;display:block}
+    .footer a:hover{color:#fff}
+    .footer .social a{display:inline-block;margin-right:12px;font-size:18px}
+    .footer-bottom{text-align:center;font-size:12px;color:#666}
+    
+    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
+    .modal.open{display:flex}
+    .modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;text-align:center}
+    .modal-content .close-btn{position:absolute;top:12px;right:16px;font-size:24px;background:none;border:none;cursor:pointer;color:#999;transition:0.3s}
+    .modal-content .close-btn:hover{color:#333}
+    .modal-content h3{color:#2c1810;margin-top:0;margin-bottom:10px;font-size:20px}
+    .modal-content .pix-key{background:#f5f0eb;padding:15px;border-radius:8px;font-size:18px;font-weight:700;color:#00875A;word-break:break-all;margin:15px 0}
+    .modal-content .copy-btn{background:#00875A;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:0.3s}
+    .modal-content .copy-btn:hover{background:#00A86B}
+    
+    .cartao-options{display:flex;flex-direction:column;gap:10px;margin:15px 0;text-align:left}
+    .cartao-options label{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #ddd;border-radius:6px;cursor:pointer;transition:0.3s}
+    .cartao-options label:hover{background:#f5f0eb}
+    .cartao-options input[type="radio"]{accent-color:#a40e0e;width:18px;height:18px}
+    
+    .text-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
+    .text-modal.open{display:flex}
+    .text-modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto}
+    .text-modal-content .close-btn{position:absolute;top:12px;right:16px;font-size:24px;background:none;border:none;cursor:pointer;color:#999;transition:0.3s}
+    .text-modal-content .close-btn:hover{color:#333}
+    .text-modal-content h3{color:#2c1810;margin-top:0;margin-bottom:5px;font-size:20px}
+    .text-modal-content .sub{color:#666;font-size:14px;margin-bottom:20px}
+    .text-modal-content label{display:block;font-weight:600;font-size:14px;color:#333;margin-bottom:4px}
+    .text-modal-content input,.text-modal-content textarea{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:6px;font-size:14px;margin-bottom:14px;box-sizing:border-box;font-family:Arial,sans-serif}
+    .text-modal-content textarea{height:80px;resize:vertical}
+    .text-modal-content .send-btn{width:100%;padding:12px;background:#a40e0e;color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;transition:0.3s}
+    .text-modal-content .send-btn:hover{background:#cc1111}
+    .text-modal-content .legal{font-size:11px;color:#888;line-height:1.5;margin-top:14px;text-align:center}
+    .text-modal-content .powered{text-align:center;font-size:12px;color:#aaa;margin-top:8px}
+    
+    @media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.banner h2{font-size:24px}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:10px;padding:6px 8px}}
+    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr !important;gap:10px}.product-image{height:150px}.product-name{font-size:12px}.product-price{font-size:15px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.banner h2{font-size:20px}.banner .btn{padding:10px 25px;font-size:12px}.modal-content,.text-modal-content{padding:20px}}
+    
+    @media (max-width: 768px) {
+        .header-logo img { height: 50px; }
+        .logo { font-size: 22px; }
+        .logo small { font-size: 9px; }
+        .header-logo { gap: 8px; }
+    }
+    @media (max-width: 480px) {
+        .header-logo img { height: 40px; }
+        .logo { font-size: 18px; }
+        .logo small { font-size: 8px; letter-spacing: 1px; }
+        .header-logo { gap: 6px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <i class="fas fa-phone"></i> (91) 99112-0652
+        <i class="fas fa-envelope" style="margin-left:15px;"></i> contato@rusticonobre.com
+      </div>
+      <div>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ANÚNCIO -->
+  <a href="entrega.html" class="announcement" style="display:block; background:#fc0000; color:#fff; text-align:center; padding:10px 0; font-weight:700; text-decoration:none; transition:0.3s;" onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#fc0000'">
+    🎉 Entrega em toda Castanhal e região! Clique aqui para mais detalhes!
+  </a>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="header-logo">
+        <img src="https://raw.githubusercontent.com/Waldemylson/Tv-online-gratis-xtreambr/refs/heads/main/HtmLa.jpg" alt="Logo Nobre Rústico">
+        <div class="logo">
+          Nobre <span>Rústico</span>
+          <small>MÓVEIS RÚSTICOS<br>&amp; PLANEJADOS</small>
+        </div>
+      </div>
+      <div class="header-right">
+        <a href="#"><i class="far fa-user"></i></a>
+        <a href="#"><i class="far fa-heart"></i></a>
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENU -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="aparadores.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
+      <li><a href="adegas.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
+      <li><a href="bancos.html"><i class="fas fa-chair"></i> Bancos</a></li>
+      <li><a href="#"><i class="fas fa-chair"></i> Cadeiras</a></li>
+      <li><a href="#"><i class="fas fa-archive"></i> Cômodas</a></li>
+      <li><a href="#"><i class="fas fa-bed"></i> Camas</a></li>
+      <li><a href="#"><i class="fas fa-cabinet-filing"></i> Cristaleiras</a></li>
+      <li><a href="#"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
+      <li><a href="#"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
+      <li><a href="#"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
+      <li><a href="#"><i class="fas fa-couch"></i> Sofás</a></li>
+      <li><a href="#"><i class="fas fa-tv"></i> Racks</a></li>
+      <li><a href="#"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
+      <li><a href="#"><i class="fas fa-rug"></i> Tapetes pele boi / Quadriculados</a></li>
+      <li><a href="#"><i class="fas fa-phone"></i> Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- BANNER -->
+  <section class="banner">
+    <div class="container">
+      <h2>BANCOS <strong>RÚSTICOS</strong></h2>
+      <p>Peças exclusivas para decorar sua casa com estilo</p>
+      <a href="#" class="btn">Ver Todos</a>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <div class="container">
+    <div class="section-title">
+      <h3>Nossa coleção de <strong>Bancos</strong></h3>
+      <a href="bancos.html">Página 1 →</a>
+    </div>
+
+    <div class="product-grid">
+      <!-- PRODUTO 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241307421.jpg" alt="Banco Rústico">
+          <span class="badge">DESTAQUE</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Rústico</div>
+          <div class="product-price">R$ 1.099,00 <span class="product-old-price">R$ 1.349,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241307422.jpg" alt="Banco Nobre">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Nobre</div>
+          <div class="product-price">R$ 1.199,00 <span class="product-old-price">R$ 1.349,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241308281.jpg" alt="Banco Farmhouse">
+          <span class="badge">PROMOÇÃO</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Farmhouse</div>
+          <div class="product-price">R$ 899,00 <span class="product-old-price">R$ 1.099,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241308282.jpg" alt="Banco Clássico">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Clássico</div>
+          <div class="product-price">R$ 1.499,00 <span class="product-old-price">R$ 1.699,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 5 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309481.jpg" alt="Banco Moderno">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Moderno</div>
+          <div class="product-price">R$ 1.299,00 <span class="product-old-price">R$ 1.499,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 6 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/2026062413094810.jpg" alt="Banco Rústico">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Rústico</div>
+          <div class="product-price">R$ 999,00 <span class="product-old-price">R$ 1.199,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 7 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/2026062413094811.jpg" alt="Banco Luxo">
+          <span class="badge">DESTAQUE</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Luxo</div>
+          <div class="product-price">R$ 1.599,00 <span class="product-old-price">R$ 1.899,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 8 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/2026062413094812.jpg" alt="Banco Colonial">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Colonial</div>
+          <div class="product-price">R$ 1.399,00 <span class="product-old-price">R$ 1.599,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 9 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/2026062413094813.jpg" alt="Banco Elegance">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Elegance</div>
+          <div class="product-price">R$ 1.799,00 <span class="product-old-price">R$ 2.099,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 10 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309484.jpg" alt="Banco Premium">
+          <span class="badge">PROMOÇÃO</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Banco Premium</div>
+          <div class="product-price">R$ 1.999,00 <span class="product-old-price">R$ 2.499,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGINAÇÃO -->
+    <div style="text-align:center; margin:40px 0; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+      <span style="background:#a40e0e; color:#fff; padding:8px 16px; border-radius:4px; font-weight:700;">1</span>
+      <a href="bancos-2.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">2</a>
+      <a href="bancos-3.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">3</a>
+      <a href="bancos-2.html" style="background:#2c1810; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">Próxima →</a>
+    </div>
+  </div>
+
+  <!-- DEPOIMENTOS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h3>O que nossos <strong>clientes dizem</strong></h3>
+        <a href="#">Ver todos →</a>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-item">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text">"Sempre confiei na Nobre Rústico! Ótimos preços, móveis de qualidade e atendimento amigável."</p>
+          <p class="name">— Cliente Fiel</p>
+        </div>
+        <div class="testimonial-item">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text">"Pessoas amigáveis e nada insistentes. Ótimo lugar, preços ainda melhores."</p>
+          <p class="name">— Cliente Satisfeito</p>
+        </div>
+        <div class="testimonial-item">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text">"Preços incríveis! Ninguém chegou perto deles, especialmente nesta temporada."</p>
+          <p class="name">— Cliente Entusiasta</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Nobre Rústico</h4>
+          <p>Castanhal - PA</p>
+          <p><i class="fas fa-phone"></i> (91) 99112-0652</p>
+          <p><i class="fas fa-envelope"></i> contato@rusticonobre.com</p>
+        </div>
+        <div>
+          <h4>Horário</h4>
+          <p>Segunda a Sábado</p>
+          <p><strong style="color:#fff;">9h - 18h</strong></p>
+          <p>Domingo: Fechado</p>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <a href="#">Sobre Nós</a>
+          <a href="#">Entregas</a>
+          <a href="#">Trocas</a>
+          <a href="#">Contato</a>
+        </div>
+        <div>
+          <h4>Redes Sociais</h4>
+          <div class="social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Nobre Rústico - Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+  <!-- BOTÕES FLUTUANTES -->
+  <style>
+  .floating-container{position:fixed;bottom:20px;left:0;right:0;z-index:9999;display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
+  .floating-container a,.floating-container button{pointer-events:auto}
+  .floating-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:600;color:#fff;border:none;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.25)}
+  .floating-btn:hover{transform:scale(1.05)}
+  .floating-btn svg{width:20px;height:20px;fill:currentColor}
+  .btn-whatsapp{background:#25D366}
+  .btn-whatsapp:hover{background:#1da851}
+  .btn-text-float{background:#a40e0e}
+  .btn-text-float:hover{background:#cc1111}
+  @media(max-width:480px){.floating-btn{padding:8px 14px;font-size:12px}.floating-btn svg{width:16px;height:16px}}
+  </style>
+
+  <div class="floating-container">
+    <a href="https://wa.me/5591991120652" target="_blank" class="floating-btn btn-whatsapp">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
+      WhatsApp
+    </a>
+    <button class="floating-btn btn-text-float" onclick="document.getElementById('textModal').classList.add('open')">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/>
+      </svg>
+      Texto
+    </button>
+  </div>
+
+  <!-- MODAIS -->
+  <div class="modal" id="pixModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="document.getElementById('pixModal').classList.remove('open')">&times;</button>
+      <h3><i class="fas fa-qrcode" style="color:#00875A;"></i> Pagamento PIX</h3>
+      <p>Copie a chave PIX abaixo e cole no seu banco:</p>
+      <div class="pix-key">xtreambr@gmail.com</div>
+      <button class="copy-btn" onclick="copiarChavePix()"><i class="fas fa-copy"></i> Copiar chave</button>
+      <p style="font-size:12px;color:#888;margin-top:15px;">Após o pagamento, entre em contato pelo WhatsApp para confirmar seu pedido.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="cartaoModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="document.getElementById('cartaoModal').classList.remove('open')">&times;</button>
+      <h3><i class="fas fa-credit-card" style="color:#a40e0e;"></i> Pagamento com Cartão</h3>
+      <p>Selecione a forma de pagamento:</p>
+      <div class="cartao-options">
+        <label>
+          <input type="radio" name="pagamento" value="credito" checked>
+          <span><strong>Cartão de Crédito</strong> <small>(até 12x c/juros)</small></span>
+        </label>
+        <label>
+          <input type="radio" name="pagamento" value="debito">
+          <span><strong>Cartão de Débito</strong> <small>(à vista)</small></span>
+        </label>
+      </div>
+      <button class="btn" style="width:100%;" onclick="alert('Redirecionando para pagamento...')">Continuar</button>
+      <p style="font-size:12px;color:#888;margin-top:10px;">Pagamento seguro processado por nosso parceiro.</p>
+    </div>
+  </div>
+
+  <div class="text-modal" id="textModal">
+    <div class="text-modal-content">
+      <button class="close-btn" onclick="document.getElementById('textModal').classList.remove('open')">&times;</button>
+      <h3>Envie uma mensagem</h3>
+      <p class="sub">Preencha seus dados e nossa equipe responderá em breve.</p>
+      <form id="textForm" onsubmit="sendTextMessage(event)">
+        <label for="textName">Nome</label>
+        <input type="text" id="textName" placeholder="Seu nome completo" required>
+        <label for="textPhone">Celular</label>
+        <input type="tel" id="textPhone" placeholder="(91) 99999-9999" required>
+        <label for="textMessage">Mensagem</label>
+        <textarea id="textMessage" placeholder="Escreva sua mensagem aqui..." required></textarea>
+        <button type="submit" class="send-btn">Enviar</button>
+      </form>
+      <p class="legal">Ao clicar em enviar, você autoriza a Nobre Rústico a enviar mensagens para o número informado para fins informativos. Mensagens e dados podem ser cobrados. Digite AJUDA para ajuda e SAIR para cancelar.</p>
+      <p class="powered">Site com envio de texto</p>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('navMenu').classList.toggle('open');
+    });
+
+    document.querySelectorAll('.modal, .text-modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('open');
+        }
+      });
+    });
+
+    function copiarChavePix() {
+      const chave = 'xtreambr@gmail.com';
+      navigator.clipboard.writeText(chave).then(() => {
+        alert('Chave PIX copiada!');
+      }).catch(() => {
+        prompt('Copie manualmente:', chave);
+      });
+    }
+
+    function sendTextMessage(event) {
+      event.preventDefault();
+      const name = document.getElementById('textName').value;
+      const message = document.getElementById('textMessage').value;
+      const numero = '5591991120652';
+      const texto = `Olá! Meu nome é ${name}.%0A%0A${message}`;
+      const url = `https://wa.me/${numero}?text=${texto}`;
+      document.getElementById('textModal').classList.remove('open');
+      window.open(url, '_blank');
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</body>
+</html>
