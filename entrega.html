@@ -44,127 +44,27 @@
 
   <a class="visually-hidden skip-link" href="#MainContent">Pular para o conteúdo</a>
 
-  <!-- ===== CARRINHO POPUP ===== -->
-  <div class="cart-popup-wrapper cart-popup-wrapper--hidden critical-hidden" role="dialog" aria-modal="true" data-cart-popup-wrapper="">
-    <div class="cart-popup" data-cart-popup="" tabindex="-1">
-      <div class="cart-popup__header">
-        <h2 class="cart-popup__heading">Adicionado ao carrinho</h2>
-        <button class="cart-popup__close" aria-label="Fechar" data-cart-popup-close="">
-          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 40 40"><path d="M23.868 20.015L39.117 4.78c1.11-1.108 1.11-2.77 0-3.877-1.109-1.108-2.773-1.108-3.882 0L19.986 16.137 4.737.904C3.628-.204 1.965-.204.856.904c-1.11 1.108-1.11 2.77 0 3.877l15.249 15.234L.855 35.248c-1.108 1.108-1.108 2.77 0 3.877.555.554 1.248.831 1.942.831s1.386-.277 1.94-.83l15.25-15.234 15.248 15.233c.555.554 1.248.831 1.941.831s1.387-.277 1.941-.83c1.11-1.109 1.11-2.77 0-3.878L23.868 20.015z" class="layer"></path></svg>
-        </button>
-      </div>
-      <div class="cart-popup-item">
-        <div class="cart-popup-item__image-wrapper hide" data-cart-popup-image-wrapper=""></div>
-        <div class="cart-popup-item__description">
-          <div>
-            <h3 class="cart-popup-item__title" data-cart-popup-title=""></h3>
-            <ul class="product-details" data-cart-popup-product-details=""></ul>
-          </div>
-          <div class="cart-popup-item__quantity">
-            <span aria-hidden="true">Qtd:</span>
-            <span aria-hidden="true" data-cart-popup-quantity=""></span>
-          </div>
-        </div>
-      </div>
-      <a href="/cart" class="cart-popup__cta-link btn">Ver carrinho (<span data-cart-popup-cart-quantity=""></span>)</a>
-      <div class="cart-popup__dismiss">
-        <button class="cart-popup__dismiss-button" data-cart-popup-dismiss="">Continuar comprando</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== HEADER ===== -->
+  <!-- ===== HEADER SEM ÍCONES ===== -->
   <div id="shopify-section-header">
-    <div id="SearchDrawer" class="search-bar drawer drawer--top critical-hidden" role="dialog" aria-modal="true" aria-label="Buscar">
-      <div class="search-bar__interior">
-        <div class="search-form__container">
-          <form class="search-form search-bar__form" action="/search" method="get" role="search">
-            <div class="search-form__input-wrapper">
-              <input type="text" name="q" placeholder="Buscar" class="search-form__input search-bar__input" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false">
-            </div>
-            <button class="search-bar__submit search-form__submit" type="submit">
-              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 37 40"><path d="M35.6 36l-9.8-9.8c4.1-5.4 3.6-13.2-1.3-18.1-5.4-5.4-14.2-5.4-19.7 0-5.4 5.4-5.4 14.2 0 19.7 2.6 2.6 6.1 4.1 9.8 4.1 3 0 5.9-1 8.3-2.8l9.8 9.8c.4.4.9.6 1.4.6s1-.2 1.4-.6c.9-.9.9-2.1.1-2.9zm-20.9-8.2c-2.6 0-5.1-1-7-2.9-3.9-3.9-3.9-10.1 0-14C9.6 9 12.2 8 14.7 8s5.1 1 7 2.9c3.9 3.9 3.9 10.1 0 14-1.9 1.9-4.4 2.9-7 2.9z"></path></svg>
-              <span class="icon__fallback-text">Buscar</span>
-            </button>
-          </form>
-          <div class="search-bar__actions">
-            <button type="button" class="btn--link search-bar__close js-drawer-close">
-              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 40 40"><path d="M23.868 20.015L39.117 4.78c1.11-1.108 1.11-2.77 0-3.877-1.109-1.108-2.773-1.108-3.882 0L19.986 16.137 4.737.904C3.628-.204 1.965-.204.856.904c-1.11 1.108-1.11 2.77 0 3.877l15.249 15.234L.855 35.248c-1.108 1.108-1.108 2.77 0 3.877.555.554 1.248.831 1.942.831s1.386-.277 1.94-.83l15.25-15.234 15.248 15.233c.555.554 1.248.831 1.941.831s1.387-.277 1.941-.83c1.11-1.109 1.11-2.77 0-3.878L23.868 20.015z" class="layer"></path></svg>
-              <span class="icon__fallback-text">Fechar busca</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div data-section-id="header" data-section-type="header-section">
       
       <!-- ANÚNCIO REMOVIDO -->
 
-      <header class="site-header border-bottom logo--left" role="banner">
+      <header class="site-header border-bottom logo--center" role="banner">
         <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
-          <div class="grid__item medium-up--one-quarter logo-align--left">
+          <div class="grid__item medium-up--one-third logo-align--center">
             <h1 class="h2 site-header__logo">
               <a class="site-header__logo-link" href="index.html">Rústico <span style="color:#a40e0e;">Nobre</span></a>
             </h1>
           </div>
 
-          <!-- MENU REMOVIDO - Espaço vazio para centralizar a logo -->
-
-          <div class="grid__item medium-up--one-half small--hide" id="AccessibleNav" role="navigation">
-            <!-- Menu removido conforme solicitado -->
-          </div>
-
-          <div class="grid__item medium-up--one-quarter text-right site-header__icons site-header__icons--plus">
+          <!-- ESPAÇO VAZIO - SEM ÍCONES -->
+          <div class="grid__item medium-up--one-third text-right site-header__icons site-header__icons--plus">
             <div class="site-header__icons-wrapper">
-              <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top" aria-controls="dialog" aria-expanded="false">
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 37 40"><path d="M35.6 36l-9.8-9.8c4.1-5.4 3.6-13.2-1.3-18.1-5.4-5.4-14.2-5.4-19.7 0-5.4 5.4-5.4 14.2 0 19.7 2.6 2.6 6.1 4.1 9.8 4.1 3 0 5.9-1 8.3-2.8l9.8 9.8c.4.4.9.6 1.4.6s1-.2 1.4-.6c.9-.9.9-2.1.1-2.9zm-20.9-8.2c-2.6 0-5.1-1-7-2.9-3.9-3.9-3.9-10.1 0-14C9.6 9 12.2 8 14.7 8s5.1 1 7 2.9c3.9 3.9 3.9 10.1 0 14-1.9 1.9-4.4 2.9-7 2.9z"></path></svg>
-                <span class="icon__fallback-text">Buscar</span>
-              </button>
-
-              <a href="/account/login" class="site-header__icon site-header__account">
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-login" viewBox="0 0 28.33 37.68"><path d="M14.17 14.9a7.45 7.45 0 1 0-7.5-7.45 7.46 7.46 0 0 0 7.5 7.45zm0-10.91a3.45 3.45 0 1 1-3.5 3.46A3.46 3.46 0 0 1 14.17 4zM14.17 16.47A14.18 14.18 0 0 0 0 30.68c0 1.41.66 4 5.11 5.66a27.17 27.17 0 0 0 9.06 1.34c6.54 0 14.17-1.84 14.17-7a14.18 14.18 0 0 0-14.17-14.21zm0 17.21c-6.3 0-10.17-1.77-10.17-3a10.17 10.17 0 1 1 20.33 0c.01 1.23-3.86 3-10.16 3z"></path></svg>
-                <span class="icon__fallback-text">Entrar</span>
-              </a>
-
-              <a href="/cart" class="site-header__icon site-header__cart">
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 37 40"><path d="M36.5 34.8L33.3 8h-5.9C26.7 3.9 23 .8 18.5.8S10.3 3.9 9.6 8H3.7L.5 34.8c-.2 1.5.4 2.4.9 3 .5.5 1.4 1.2 3.1 1.2h28c1.3 0 2.4-.4 3.1-1.3.7-.7 1-1.8.9-2.9zm-18-30c2.2 0 4.1 1.4 4.7 3.2h-9.5c.7-1.9 2.6-3.2 4.8-3.2zM4.5 35l2.8-23h2.2v3c0 1.1.9 2 2 2s2-.9 2-2v-3h10v3c0 1.1.9 2 2 2s2-.9 2-2v-3h2.2l2.8 23h-28z"></path></svg>
-                <span class="icon__fallback-text">Carrinho</span>
-                <div id="CartCount" class="site-header__cart-count hide critical-hidden" data-cart-count-bubble="">
-                  <span data-cart-count="">0</span>
-                  <span class="icon__fallback-text medium-up--hide">itens</span>
-                </div>
-              </a>
-
-              <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav" aria-expanded="false" aria-label="Menu">
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 37 40"><path d="M33.5 25h-30c-1.1 0-2-.9-2-2s.9-2 2-2h30c1.1 0 2 .9 2 2s-.9 2-2 2zm0-11.5h-30c-1.1 0-2-.9-2-2s.9-2 2-2h30c1.1 0 2 .9 2 2s-.9 2-2 2zm0 23h-30c-1.1 0-2-.9-2-2s.9-2 2-2h30c1.1 0 2 .9 2 2s-.9 2-2 2z"></path></svg>
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 40 40"><path d="M23.868 20.015L39.117 4.78c1.11-1.108 1.11-2.77 0-3.877-1.109-1.108-2.773-1.108-3.882 0L19.986 16.137 4.737.904C3.628-.204 1.965-.204.856.904c-1.11 1.108-1.11 2.77 0 3.877l15.249 15.234L.855 35.248c-1.108 1.108-1.108 2.77 0 3.877.555.554 1.248.831 1.942.831s1.386-.277 1.94-.83l15.25-15.234 15.248 15.233c.555.554 1.248.831 1.941.831s1.387-.277 1.941-.83c1.11-1.109 1.11-2.77 0-3.878L23.868 20.015z" class="layer"></path></svg>
-              </button>
+              <!-- TODOS OS ÍCONES REMOVIDOS: Busca, Entrar, Carrinho, Menu -->
             </div>
           </div>
         </div>
-
-        <nav class="mobile-nav-wrapper medium-up--hide critical-hidden" role="navigation">
-          <ul id="MobileNav" class="mobile-nav">
-            <li class="mobile-nav__item border-bottom"><a href="index.html" class="mobile-nav__link"><span class="mobile-nav__label">Início</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="adega.html" class="mobile-nav__link"><span class="mobile-nav__label">Adegas</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="aparador.html" class="mobile-nav__link"><span class="mobile-nav__label">Aparadores</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="banco.html" class="mobile-nav__link"><span class="mobile-nav__label">Bancos</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="cadeira.html" class="mobile-nav__link"><span class="mobile-nav__label">Cadeiras</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="cama.html" class="mobile-nav__link"><span class="mobile-nav__label">Camas</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="comoda.html" class="mobile-nav__link"><span class="mobile-nav__label">Cômodas</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="cristaleira.html" class="mobile-nav__link"><span class="mobile-nav__label">Cristaleiras</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="mesa-retangular.html" class="mobile-nav__link"><span class="mobile-nav__label">Mesas Retangulares</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="mesa-redonda.html" class="mobile-nav__link"><span class="mobile-nav__label">Mesas Redondas</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="mesa-centro-lateral.html" class="mobile-nav__link"><span class="mobile-nav__label">Mesas Centro/Lateral</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="sofa.html" class="mobile-nav__link"><span class="mobile-nav__label">Sofás</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="rack.html" class="mobile-nav__link"><span class="mobile-nav__label">Racks</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="planejado.html" class="mobile-nav__link"><span class="mobile-nav__label">Planejados</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="tapete-almofada.html" class="mobile-nav__link"><span class="mobile-nav__label">Tapetes</span></a></li>
-            <li class="mobile-nav__item border-bottom"><a href="boi-artesanato.html" class="mobile-nav__link"><span class="mobile-nav__label">Artesanatos</span></a></li>
-            <li class="mobile-nav__item"><a href="sobre-nos.html" class="mobile-nav__link"><span class="mobile-nav__label">Quem Somos</span></a></li>
-          </ul>
-        </nav>
       </header>
     </div>
   </div>
@@ -188,40 +88,39 @@
               </p>
 
               <p style="text-align: center; font-size: 18px;">
-                As taxas de entrega são calculadas automaticamente com base no seu CEP, para que você possa ter os melhores preços na nossa linha de móveis rústicos.
+                Trabalhamos para levar nossos móveis rústicos até você com segurança, agilidade e o melhor custo-benefício.
               </p>
 
               <hr>
 
               <h2 style="color: #a40e0e;">📦 Prazos e Condições</h2>
-              <p>Os pedidos geralmente levam de <strong>3 a 10 dias úteis</strong> para serem entregues, dependendo da sua localização e da disponibilidade do produto.</p>
+              <p>Nossos pedidos são processados e entregues no menor prazo possível, sempre com transparência e pontualidade.</p>
 
               <p><strong>Áreas de entrega:</strong></p>
               <ul>
-                <li><strong>Castanhal (centro e bairros)</strong> – Entrega em até 3 dias úteis</li>
-                <li><strong>Distritos e zona rural</strong> – Consulte prazos</li>
-                <li><strong>Cidades próximas</strong> – Santa Maria, São Francisco, Inhangapi, Benevides, etc.</li>
+                <li><strong>Castanhal (centro e bairros)</strong> – Entrega rápida e eficiente</li>
+                <li><strong>Distritos e zona rural</strong> – Consulte disponibilidade</li>
+                <li><strong>Cidades próximas</strong> – Santa Maria, São Francisco, Inhangapi, Benevides e região</li>
               </ul>
 
               <hr>
 
               <h2 style="color: #a40e0e;">💰 Valores de Frete</h2>
               <ul>
-                <li><strong>Castanhal (centro):</strong> Frete fixo a partir de <strong>R$ 49,90</strong></li>
+                <li><strong>Castanhal (centro):</strong> Frete fixo acessível</li>
                 <li><strong>Bairros de Castanhal:</strong> Consulte o valor no carrinho</li>
-                <li><strong>Cidades próximas:</strong> Calculado pelo CEP</li>
+                <li><strong>Cidades próximas:</strong> Calculado pelo CEP, sempre com o melhor preço</li>
               </ul>
 
               <hr>
 
-              <h2 style="color: #a40e0e;">📋 Regras e Observações</h2>
+              <h2 style="color: #a40e0e;">📋 Nossas Condições</h2>
               <ul>
                 <li>✅ Entregamos de <strong>segunda a sábado</strong>, das 9h às 18h</li>
                 <li>✅ É necessário que <strong>alguém esteja presente</strong> no local para receber a mercadoria</li>
-                <li>✅ A entrega é feita <strong>na porta</strong> – o motorista não entra na residência</li>
+                <li>✅ A entrega é feita <strong>na porta</strong></li>
                 <li>✅ Para <strong>condomínios e prédios</strong>, a entrega é feita no portão</li>
-                <li>❌ <strong>Não fazemos</strong> montagem no local</li>
-                <li>❌ <strong>Não entregamos</strong> em vias não pavimentadas com acesso restrito</li>
+                <li>✅ Estamos sempre abertos a negociações e condições especiais</li>
               </ul>
 
               <hr>
@@ -315,21 +214,7 @@
 
   </div>
 
-  <!-- ===== BOTÃO WHATSAPP FLUTUANTE ===== -->
-  <a href="https://wa.me/351939799836" target="_blank" style="position:fixed; bottom:20px; right:20px; z-index:9999; background:#25D366; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.3); transition:0.3s; text-decoration:none;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:32px; height:32px; fill:#fff;">
-      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-    </svg>
-  </a>
-
-  <!-- REDES SOCIAIS - INSTAGRAM -->
-  <div style="position:fixed; bottom:90px; right:20px; z-index:9999; display:flex; flex-direction:column; gap:10px;">
-    <a href="https://instagram.com/nobrerustico10" target="_blank" style="background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.3); transition:0.3s; text-decoration:none;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:24px; height:24px; fill:#fff;">
-        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-      </svg>
-    </a>
-  </div>
+  <!
 
   <ul hidden>
     <li id="a11y-refresh-page-message">Escolher uma seleção resulta em uma atualização completa da página.</li>
@@ -337,4 +222,4 @@
   </ul>
 
 </body>
-  </html>
+                                         </html>
