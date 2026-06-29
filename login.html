@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="js" lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#a40e0e">
+  <link rel="canonical" href="https://rusticonobre.com.br/">
+  <title>Minha Conta - Nobre Rústico</title>
+  <meta name="description" content="Nobre Rústico é a maior loja de móveis rústicos, farmhouse e decoração da região de Castanhal-PA.">
+
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#01040b;line-height:1.5}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .text-center{text-align:center}
+    .btn{display:inline-block;background:#a40e0e;color:#fff;padding:12px 35px;border-radius:30px;text-decoration:none;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;transition:0.3s;border:none;cursor:pointer}
+    .btn:hover{background:#cc1111}
+    
+    /* TOP BAR */
+    .top-bar{background:#1a1a1a;color:#999;padding:8px 0;font-size:13px}
+    .top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .top-bar a{color:#999;margin-left:12px;text-decoration:none}
+    .top-bar a:hover{color:#fff}
+    .top-bar i{color:#b8956a;margin-right:4px}
+    
+    /* HEADER */
+    .header{background:#fff;padding:15px 0;border-bottom:2px solid #e8e0d8}
+    .header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    
+    .header-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .header-logo img {
+        height: 70px;
+        width: auto;
+        display: block;
+    }
+    
+    .logo{font-size:28px;font-weight:700;color:#2c1810}
+    .logo span{color:#a40e0e}
+    .logo small{display:block;font-size:11px;font-weight:400;color:#888;letter-spacing:2px}
+    
+    .header-right{display:flex;align-items:center;gap:18px}
+    .header-right a{color:#2c1810;font-size:18px;text-decoration:none}
+    .header-right a:hover{color:#a40e0e}
+    
+    /* MENU HAMBURGUER */
+    .menu-toggle{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:5px;background:none;border:none}
+    .menu-toggle span{display:block;width:26px;height:3px;background:#2c1810;border-radius:2px;transition:0.3s}
+    .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    
+    .nav-menu{background:#fff;border-bottom:1px solid #e8e0d8;max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+    .nav-menu.open{max-height:600px}
+    .nav-menu ul{list-style:none;padding:10px 20px;margin:0}
+    .nav-menu ul li a{display:block;text-decoration:none;color:#2c1810;font-size:14px;padding:10px 15px;border-bottom:1px solid #f0ebe5;transition:0.3s}
+    .nav-menu ul li a:hover{background:#f5f0eb;color:#a40e0e;padding-left:20px}
+    .nav-menu ul li:last-child a{border-bottom:none}
+    
+    /* ANÚNCIO */
+    .announcement{background:#fc0000;color:#fff;text-align:center;padding:10px 0;font-weight:700}
+    .announcement a{color:#fff;text-decoration:none}
+    
+    /* ===== LOGIN (ESTILO RUSTIC) ===== */
+    .login-wrapper{max-width:400px;margin:40px auto;padding:0 20px}
+    .login-wrapper h1{text-align:center;font-size:26px;font-weight:400;margin-bottom:20px;color:#2c1810}
+    .login-wrapper label{display:block;font-size:13px;font-weight:600;margin-bottom:4px;color:#2c1810}
+    .login-wrapper input{width:100%;padding:10px 12px;border:1px solid #909090;border-radius:2px;font-size:14px;margin-bottom:12px;background:#fcfaf8}
+    .login-wrapper input:focus{border-color:#a40e0e;outline:none;box-shadow:0 0 0 3px rgba(164,14,14,0.08)}
+    .login-wrapper .btn-login{width:100%;padding:12px;background:#a40e0e;color:#fff;border:none;border-radius:2px;font-size:14px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px}
+    .login-wrapper .btn-login:hover{background:#cc1111}
+    .login-wrapper .links{text-align:center;margin-top:12px}
+    .login-wrapper .links a{color:#a40e0e;text-decoration:none;font-size:14px;font-weight:600}
+    .login-wrapper .links a:hover{text-decoration:underline}
+    .login-wrapper .links p{margin:6px 0}
+    .login-divider{height:1px;background:#e8e0d8;margin:15px 0}
+    
+    /* ===== RODAPÉ (ESTILO RUSTIC TRADUZIDO) ===== */
+    .footer{background:#1a1a1a;color:#aaa;padding:35px 0 15px}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;border-bottom:1px solid #333;padding-bottom:25px;margin-bottom:15px}
+    .footer h4{color:#fff;font-size:16px;margin-bottom:10px}
+    .footer p,.footer a{color:#aaa;line-height:1.8;font-size:13px;text-decoration:none;display:block}
+    .footer a:hover{color:#fff}
+    .footer .social a{display:inline-block;margin-right:12px;font-size:18px}
+    .footer-bottom{text-align:center;font-size:12px;color:#666}
+    
+    /* BOTÕES FLUTUANTES */
+    .floating-container{position:fixed;bottom:20px;left:0;right:0;z-index:9999;display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
+    .floating-container a,.floating-container button{pointer-events:auto}
+    .floating-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:600;color:#fff;border:none;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.25)}
+    .floating-btn:hover{transform:scale(1.05)}
+    .floating-btn svg{width:20px;height:20px;fill:currentColor}
+    .btn-whatsapp{background:#25D366}
+    .btn-whatsapp:hover{background:#1da851}
+    .btn-text-float{background:#a40e0e}
+    .btn-text-float:hover{background:#cc1111}
+    @media(max-width:480px){.floating-btn{padding:8px 14px;font-size:12px}.floating-btn svg{width:16px;height:16px}}
+    
+    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}}
+    
+    @media (max-width: 768px) {
+        .header-logo img { height: 50px; }
+        .logo { font-size: 22px; }
+        .logo small { font-size: 9px; }
+        .header-logo { gap: 8px; }
+    }
+    @media (max-width: 480px) {
+        .header-logo img { height: 40px; }
+        .logo { font-size: 18px; }
+        .logo small { font-size: 8px; letter-spacing: 1px; }
+        .header-logo { gap: 6px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <i class="fas fa-phone"></i> (91) 99112-0652
+        <i class="fas fa-envelope" style="margin-left:15px;"></i> contato@rusticonobre.com.br
+      </div>
+      <div>
+        <a href="https://instagram.com/nobrerustico10"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/5591991120652"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ===== ANÚNCIO ===== -->
+  <a href="#" class="announcement" style="display:block; background:#fc0000; color:#fff; text-align:center; padding:10px 0; font-weight:700; text-decoration:none; transition:0.3s;" onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#fc0000'">
+    🎉 Entrega em toda Castanhal e região! Clique aqui para mais detalhes!
+  </a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container">
+      <div class="header-logo">
+        <img src="https://raw.githubusercontent.com/Waldemylson/Tv-online-gratis-xtreambr/refs/heads/main/HtmLa.jpg" alt="Logo Nobre Rústico">
+        <div class="logo">
+          Nobre <span>Rústico</span>
+          <small>MÓVEIS RÚSTICOS<br>&amp; PLANEJADOS</small>
+        </div>
+      </div>
+      <div class="header-right">
+        <a href="#"><i class="far fa-user"></i></a>
+        <a href="#"><i class="far fa-heart"></i></a>
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MENU ===== -->
+    <!-- ===== MENU ===== -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
+      <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
+      <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
+      <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
+      <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
+      <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
+      <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
+      <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
+      <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
+      <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
+      <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
+      <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
+      <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
+      <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
+      <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
+      <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
+      <li><a href="#"><i class="fas fa-phone"></i> Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== LOGIN ===== -->
+  <div class="login-wrapper">
+    <h1>Login</h1>
+
+    <form onsubmit="event.preventDefault(); alert('Redirecionando para área do cliente...')">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" placeholder="seu@email.com">
+
+      <label for="password">Senha</label>
+      <input type="password" id="password" placeholder="Digite sua senha">
+
+      <div class="links">
+        <p><a href="#" onclick="alert('Enviamos um link para seu e-mail')">Esqueceu sua senha?</a></p>
+      </div>
+
+      <button type="submit" class="btn-login">Entrar</button>
+
+      <div class="login-divider"></div>
+
+      <div class="links">
+        <p><a href="#" onclick="alert('Redirecionando para cadastro...')">Criar conta</a></p>
+      </div>
+    </form>
+  </div>
+
+  <!-- ===== RODAPÉ (ESTILO RUSTIC TRADUZIDO) ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- INFORMAÇÕES DA LOJA -->
+        <div>
+          <h4>Nobre Rústico</h4>
+          <p>Castanhal - PA</p>
+          <p><strong style="color:#fff;">(91) 99112-0652</strong></p>
+          <p><strong style="color:#fff;">Segunda a Sábado 9h - 18h</strong></p>
+          <p><strong style="color:#fff;">Domingo: Fechado</strong></p>
+        </div>
+
+        <!-- LINKS RÁPIDOS -->
+        <div>
+          <h4>Links rápidos</h4>
+          <a href="#">Informações de Entrega</a>
+          <a href="#">Fale Conosco</a>
+          <a href="#">Sobre Nós</a>
+          <a href="#">Termos e Condições</a>
+          <a href="#">Como Chegar</a>
+        </div>
+
+        <!-- NEWSLETTER -->
+        <div>
+          <h4>Newsletter</h4>
+          <p style="color:#aaa;font-size:13px;margin-bottom:10px;">Receba ofertas exclusivas no seu e-mail:</p>
+          <div style="display:flex;max-width:300px;">
+            <input type="email" placeholder="Seu e-mail" style="flex:1;padding:10px 14px;border:1px solid #444;border-radius:4px 0 0 4px;font-size:13px;background:#222;color:#fff;">
+            <button style="padding:10px 20px;background:#a40e0e;color:#fff;border:none;border-radius:0 4px 4px 0;font-weight:700;cursor:pointer;">Assinar</button>
+          </div>
+        </div>
+
+        <!-- REDES SOCIAIS -->
+        <div>
+          <h4>Redes Sociais</h4>
+          <div class="social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+  <!-- RODAPÉ INFERIOR COM BANDEIRAS -->
+      <div style="border-top:1px solid #333;padding-top:20px;margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:15px;font-size:12px;color:#666;">
+  <ul style="display:flex;gap:8px;list-style:none;padding:0;margin:0;flex-wrap:wrap;align-items:center;">
+    <li style="background:#fff;border:1px solid #ddd;border-radius:4px;padding:4px 10px;font-size:11px;font-weight:600;color:#555;display:flex;align-items:center;gap:4px;height:30px;"><i class="fab fa-cc-visa" style="color:#1A1F71;"></i> VISA</li>
+    <li style="background:#fff;border:1px solid #ddd;border-radius:4px;padding:4px 10px;font-size:11px;font-weight:600;color:#555;display:flex;align-items:center;gap:4px;height:30px;"><i class="fab fa-cc-mastercard" style="color:#EB001B;"></i> MC</li>
+    <li style="background:#32bccd;border:1px solid #32bccd;border-radius:4px;padding:4px 10px;font-size:11px;font-weight:700;color:#fff;display:flex;align-items:center;height:30px;">PIX</li>
+  </ul>
+  <span style="display:inline-block; white-space:nowrap;">© 2026 <a href="#" style="color:#666;text-decoration:none;">Nobre Rústico</a> - Todos os direitos reservados.</span>
+</div>
+
+  <!-- ===== SCRIPT DO MENU ===== -->
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('navMenu').classList.toggle('open');
+    });
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</body>
+  </html>
