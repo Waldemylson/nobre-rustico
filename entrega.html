@@ -5,221 +5,368 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#a40e0e">
-  
-  <link rel="canonical" href="https://rusticonobre.com.br/pages/entrega">
-  
-  <title>Entrega em Castanhal e Região – Rústico Nobre</title>
-  
-  <meta name="description" content="Entregamos em toda Castanhal e região! Consulte nossas condições de entrega, prazos e valores para móveis rústicos de qualidade.">
+  <link rel="canonical" href="https://rusticonobre.com.br/">
+  <title>Nobre Rústico - Móveis Rústicos &amp; Planejados</title>
+  <meta name="description" content="Nobre Rústico é a maior loja de móveis rústicos, farmhouse e decoração da região de Castanhal-PA, oferecendo os melhores preços e qualidade.">
 
   <style>
-    :root {
-      --color-text: #01040b;
-      --color-body-text: #0e0d0d;
-      --color-sale-text: #a40e0e;
-      --color-btn-primary: #a40e0e;
-      --color-btn-primary-text: #ffffff;
-      --color-body: #ffffff;
-      --color-bg: #ffffff;
-      --color-border: #e4e4e4;
-      --font-stack-header: "Fjalla One", sans-serif;
-      --font-stack-body: Archivo, sans-serif;
-      --font-size-base: 18;
+    *{box-sizing:border-box}body{margin:0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#01040b;line-height:1.5}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .text-center{text-align:center}
+    .btn{display:inline-block;background:#a40e0e;color:#fff;padding:12px 35px;border-radius:30px;text-decoration:none;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;transition:0.3s;border:none;cursor:pointer}
+    .btn:hover{background:#cc1111}
+    
+    .top-bar{background:#1a1a1a;color:#999;padding:8px 0;font-size:13px}
+    .top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .top-bar a{color:#999;margin-left:12px;text-decoration:none}
+    .top-bar a:hover{color:#fff}
+    .top-bar i{color:#b8956a;margin-right:4px}
+    
+    .header{background:#fff;padding:15px 0;border-bottom:2px solid #e8e0d8}
+    .header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    
+    .header-logo{display:flex;align-items:center;gap:12px}
+    .header-logo img{height:70px;width:auto;display:block}
+    .logo{font-size:28px;font-weight:700;color:#2c1810}
+    .logo span{color:#a40e0e}
+    .logo small{display:block;font-size:11px;font-weight:400;color:#888;letter-spacing:2px}
+    .header-right{display:flex;align-items:center;gap:18px}
+    .header-right a{color:#2c1810;font-size:18px;text-decoration:none}
+    .header-right a:hover{color:#a40e0e}
+    
+    .menu-toggle{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:5px;background:none;border:none}
+    .menu-toggle span{display:block;width:26px;height:3px;background:#2c1810;border-radius:2px;transition:0.3s}
+    .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    
+    .nav-menu{background:#fff;border-bottom:1px solid #e8e0d8;max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+    .nav-menu.open{max-height:600px}
+    .nav-menu ul{list-style:none;padding:10px 20px;margin:0}
+    .nav-menu ul li a{display:block;text-decoration:none;color:#2c1810;font-size:14px;padding:10px 15px;border-bottom:1px solid #f0ebe5;transition:0.3s}
+    .nav-menu ul li a:hover{background:#f5f0eb;color:#a40e0e;padding-left:20px}
+    .nav-menu ul li:last-child a{border-bottom:none}
+    
+    .page-title{text-align:center;padding:30px 0 10px}
+    .page-title h1{font-size:32px;color:#2c1810;font-weight:300}
+    .page-title h1 strong{font-weight:700;color:#a40e0e}
+    
+    .rte{max-width:800px;margin:0 auto 40px;padding:0 20px}
+    .rte h2{color:#a40e0e;font-size:22px;margin-top:30px}
+    .rte ul{list-style:none;padding:0}
+    .rte ul li{padding:8px 0;border-bottom:1px solid #f0ebe5}
+    .rte ul li:last-child{border-bottom:none}
+    .rte hr{border:none;border-top:2px solid #e8e0d8;margin:30px 0}
+    
+    .footer{background:#1a1a1a;color:#aaa;padding:35px 0 15px}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;border-bottom:1px solid #333;padding-bottom:25px;margin-bottom:15px}
+    .footer h4{color:#fff;font-size:16px;margin-bottom:10px}
+    .footer p,.footer a{color:#aaa;line-height:1.8;font-size:13px;text-decoration:none;display:block}
+    .footer a:hover{color:#fff}
+    .footer .social a{display:inline-block;margin-right:12px;font-size:18px}
+    .footer-bottom{text-align:center;font-size:12px;color:#666}
+    
+    .btn-entrega{display:inline-block;background:#a40e0e;color:#fff;padding:14px 40px;border-radius:30px;text-decoration:none;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:1px;transition:0.3s;border:none;cursor:pointer;margin-top:20px}
+    .btn-entrega:hover{background:#cc1111}
+    
+    @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}.page-title h1{font-size:24px}.rte{padding:0 15px}}
+    @media(max-width:480px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}}
+    
+    @media (max-width: 768px) {
+        .header-logo img { height: 50px; }
+        .logo { font-size: 22px; }
+        .logo small { font-size: 9px; }
+        .header-logo { gap: 8px; }
     }
-
-    *{box-sizing:border-box}body{margin:0;background-color:#fff;font-family:var(--font-stack-body);font-size:calc(var(--font-size-base)*1px);color:var(--color-text);line-height:1.5;-webkit-font-smoothing:antialiased}.border-bottom{border-bottom:1px solid var(--color-border)}.btn--link{background:0 0;border:0;margin:0;color:var(--color-text);text-align:left}.text-right{text-align:right}.icon{display:inline-block;width:20px;height:20px;vertical-align:middle;fill:currentColor}.visually-hidden{position:absolute!important;overflow:hidden;clip:rect(0 0 0 0);height:1px;width:1px;margin:-1px;padding:0;border:0}.list--inline{padding:0;margin:0}.list--inline>li{display:inline-block;margin-bottom:0;vertical-align:middle}a{color:var(--color-text);text-decoration:none}.h1,.h2,h1,h2{margin:0 0 17.5px;font-family:var(--font-stack-header);font-style:normal;font-weight:400;line-height:1.2;overflow-wrap:break-word}.h1,h1{font-size:37px;text-transform:none;letter-spacing:0}.h2,h2{font-size:21px;text-transform:uppercase;letter-spacing:.1em}p{color:var(--color-body-text);margin:0 0 19.44px}.grid{list-style:none;margin:0;padding:0;margin-left:-30px}.grid::after{content:'';display:table;clear:both}.grid__item{float:left;padding-left:30px;width:100%}@media only screen and (max-width:749px){.grid{margin-left:-22px}.grid__item{padding-left:22px}.h1,h1{font-size:35px}.h2,h2{font-size:19px}p{font-size:calc(17/18*1em)}}@media only screen and (min-width:750px){.medium-up--five-sixths{width:83.33333%}.medium-up--push-one-twelfth{left:8.33333%;position:relative}.medium-up--one-half{width:50%}}.site-header{position:relative;background-color:#fff}.site-header__logo{margin:15px 0}.site-header__logo-link{display:inline-block;word-break:break-word}.site-header__icons{position:relative;white-space:nowrap}.site-header__icons-wrapper{display:flex;width:100%;align-items:center;justify-content:flex-end}.site-header__account,.site-header__cart,.site-header__search{position:relative}.site-header__cart-count{display:flex;align-items:center;justify-content:center;position:absolute;right:.4rem;top:.2rem;font-weight:700;background-color:#a40e0e;color:#fff;border-radius:50%;min-width:1em;height:1em}.site-header__cart-count span{font-family:HelveticaNeue,Helvetica,Arial,sans-serif;font-size:11px;line-height:1}.site-nav{position:relative;padding:0;text-align:center;margin:25px 0}.site-nav a{padding:3px 10px}.site-nav__link{display:block;white-space:nowrap}.site-nav__label{border-bottom:1px solid transparent}.site-nav__link--button{border:none;background:0 0;padding:3px 10px}.site-header__mobile-nav{z-index:11;position:relative;background-color:#fff}.main-content{opacity:1}.critical-hidden{display:none}.page-width{max-width:1200px;margin:0 auto;padding:0 55px}@media only screen and (max-width:749px){.page-width{padding:0 22px}}.section-header{margin-bottom:35px}.section-header h1{text-align:center}.rte{margin-bottom:35px}.rte img{height:auto;max-width:100%}.text-center{text-align:center}.btn{display:inline-block;background:#a40e0e;color:#fff;padding:10px 18px;border-radius:2px;text-decoration:none;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;transition:.3s;border:0;cursor:pointer}.btn:hover{background:#cc1111;color:#fff}.btn--link{background:0 0;border:0;color:var(--color-text)}.site-footer{color:#333;background-color:#f6f6f6;padding:45px 0 20px}.site-footer__hr{border-bottom:1px solid #ddd;margin:0}.site-footer__content{display:flex;flex-wrap:wrap}.site-footer__item{flex:1 1 25%;padding:0 15px;margin-bottom:30px}.site-footer__item-inner--newsletter{width:100%}.site-footer h4{color:#333;font-size:16px;margin-bottom:12px}.site-footer p,.site-footer a{color:#333;line-height:1.8;font-size:14px;text-decoration:none}.site-footer a:hover{color:#5a5858}.site-footer__linklist{list-style:none;padding:0}.site-footer__linklist-item{padding:0}.site-footer__linklist-item a{display:block;padding:2px 0}.site-footer__newsletter .input-group{display:flex;width:100%}.site-footer__newsletter .input-group__field{flex:1;padding:10px 15px;border:1px solid #ddd;border-radius:2px 0 0 2px;font-size:14px;outline:0}.site-footer__newsletter .btn{border-radius:0 2px 2px 0;padding:10px 20px;background:#a40e0e;color:#fff;border:0;cursor:pointer}.site-footer__payment-icons{margin-top:10px}.payment-icons .payment-icon{display:inline-block;margin-right:5px}.site-footer__icon-list{list-style:none;padding:0;margin:0}.site-footer__copyright-content{font-size:13px;color:#666}.grid--footer-float-right{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.site-footer-item-center-vertically{align-self:center}.site-footer-item-align-right{text-align:right}.site-footer-item-tall{padding:15px 0}@media only screen and (max-width:749px){.site-header__icons{padding-right:13px}.site-header__icon{padding:10px 11px;display:inline-block;vertical-align:middle;margin:0}.site-header__logo{padding-left:22px;text-align:left}.site-header__logo img{margin:0}.site-header__cart-count{top:7px;right:0;min-width:19px;height:19px}.site-header__cart-count span{font-size:12px;padding:.25em 6px}.site-footer__content{flex-direction:column}.site-footer__item{flex:1 1 100%;padding:0}.site-footer__item:last-child{margin-bottom:0}.grid--footer-float-right{flex-direction:column;text-align:center}.site-footer-item-align-right{text-align:center}.site-footer__copyright-content--powered-by{display:block;margin-top:5px}}
-  </style>
-
-  <style>
-    /* Cores personalizadas */
-    .btn, .site-header__cart-count { background-color: #a40e0e; }
-    .btn:hover { background-color: #cc1111; }
-    .price--on-sale .price-item--sale { color: #a40e0e; }
-    a, .section-title a { color: #a40e0e; }
-    a:hover { color: #2c1810; }
+    @media (max-width: 480px) {
+        .header-logo img { height: 40px; }
+        .logo { font-size: 18px; }
+        .logo small { font-size: 8px; letter-spacing: 1px; }
+        .header-logo { gap: 6px; }
+    }
   </style>
 </head>
 
 <body>
 
-  <a class="visually-hidden skip-link" href="#MainContent">Pular para o conteúdo</a>
-
-  <!-- ===== HEADER SEM ÍCONES ===== -->
-  <div id="shopify-section-header">
-    <div data-section-id="header" data-section-type="header-section">
-      
-      <!-- ANÚNCIO REMOVIDO -->
-
-      <header class="site-header border-bottom logo--center" role="banner">
-        <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
-          <div class="grid__item medium-up--one-third logo-align--center">
-            <h1 class="h2 site-header__logo">
-              <a class="site-header__logo-link" href="index.html">Rústico <span style="color:#a40e0e;">Nobre</span></a>
-            </h1>
-          </div>
-
-          <!-- ESPAÇO VAZIO - SEM ÍCONES -->
-          <div class="grid__item medium-up--one-third text-right site-header__icons site-header__icons--plus">
-            <div class="site-header__icons-wrapper">
-              <!-- TODOS OS ÍCONES REMOVIDOS: Busca, Entrar, Carrinho, Menu -->
-            </div>
-          </div>
-        </div>
-      </header>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <i class="fas fa-phone"></i> (91) 99112-0652
+        <i class="fas fa-envelope" style="margin-left:15px;"></i> rusticosmoveis12@gmail.com
+      </div>
+      <div>
+        <a href="https://instagram.com/nobrerustico10" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/351939799836" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
     </div>
   </div>
 
-  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
-  <div class="page-container drawer-page-content" id="PageContainer">
-    <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
-      
-      <div class="page-width">
-        <div class="grid">
-          <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-            
-            <div class="section-header text-center">
-              <h1>Entrega em Castanhal e Região</h1>
-            </div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="header-logo">
+        <img src="https://raw.githubusercontent.com/Waldemylson/Tv-online-gratis-xtreambr/refs/heads/main/HtmLa.jpg" alt="Logo Nobre Rústico">
+        <div class="logo">
+          Nobre <span>Rústico</span>
+          <small>MÓVEIS RÚSTICOS<br>&amp; PLANEJADOS</small>
+        </div>
+      </div>
+      <div class="header-right">
+        <a href="#"><i class="far fa-user"></i></a>
+        <a href="#"><i class="far fa-heart"></i></a>
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-            <div class="rte">
-              
-              <p style="text-align: center; font-size: 20px; font-weight: 700; color: #a40e0e;">
-                🚚 Entregamos em toda Castanhal e região!
-              </p>
+  <!-- MENU -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
+      <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
+      <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
+      <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
+      <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
+      <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
+      <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
+      <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
+      <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
+      <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
+      <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
+      <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
+      <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
+      <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
+      <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
+      <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
+      <li><a href="#"><i class="fas fa-phone"></i> Contato</a></li>
+    </ul>
+  </nav>
 
-              <p style="text-align: center; font-size: 18px;">
-                Trabalhamos para levar nossos móveis rústicos até você com segurança, agilidade e o melhor custo-benefício.
-              </p>
+  <!-- CONTEÚDO -->
+  <div class="container">
+    <div class="page-title">
+      <h1>📦 <strong>Entrega</strong> em Castanhal e Região</h1>
+    </div>
 
-              <hr>
+    <div class="rte">
+      <p style="text-align: center; font-size: 20px; font-weight: 700; color: #a40e0e;">
+        🚚 Entregamos em toda Castanhal e região!
+      </p>
 
-              <h2 style="color: #a40e0e;">📦 Prazos e Condições</h2>
-              <p>Nossos pedidos são processados e entregues no menor prazo possível, sempre com transparência e pontualidade.</p>
+      <p style="text-align: center; font-size: 18px;">
+        Trabalhamos para levar nossos móveis rústicos até você com segurança, agilidade e o melhor custo-benefício.
+      </p>
 
-              <p><strong>Áreas de entrega:</strong></p>
-              <ul>
-                <li><strong>Castanhal (centro e bairros)</strong> – Entrega rápida e eficiente</li>
-                <li><strong>Distritos e zona rural</strong> – Consulte disponibilidade</li>
-                <li><strong>Cidades próximas</strong> – Santa Maria, São Francisco, Inhangapi, Benevides e região</li>
-              </ul>
+      <hr>
 
-              <hr>
+      <h2>📦 Prazos e Condições</h2>
+      <p>Nossos pedidos são processados e entregues no menor prazo possível, sempre com transparência e pontualidade.</p>
 
-              <h2 style="color: #a40e0e;">💰 Valores de Frete</h2>
-              <ul>
-                <li><strong>Castanhal (centro):</strong> Frete fixo acessível</li>
-                <li><strong>Bairros de Castanhal:</strong> Consulte o valor no carrinho</li>
-                <li><strong>Cidades próximas:</strong> Calculado pelo CEP, sempre com o melhor preço</li>
-              </ul>
+      <p><strong>Áreas de entrega:</strong></p>
+      <ul>
+        <li><strong>Castanhal (centro e bairros)</strong> – Entrega rápida e eficiente</li>
+        <li><strong>Distritos e zona rural</strong> – Consulte disponibilidade</li>
+        <li><strong>Cidades próximas</strong> – Santa Maria, São Francisco, Inhangapi, Benevides e região</li>
+      </ul>
 
-              <hr>
+      <hr>
 
-              <h2 style="color: #a40e0e;">📋 Nossas Condições</h2>
-              <ul>
-                <li>✅ Entregamos de <strong>segunda a sábado</strong>, das 9h às 18h</li>
-                <li>✅ É necessário que <strong>alguém esteja presente</strong> no local para receber a mercadoria</li>
-                <li>✅ A entrega é feita <strong>na porta</strong></li>
-                <li>✅ Para <strong>condomínios e prédios</strong>, a entrega é feita no portão</li>
-                <li>✅ Estamos sempre abertos a negociações e condições especiais</li>
-              </ul>
+      <h2>💰 Valores de Frete</h2>
+      <ul>
+        <li><strong>Castanhal (centro):</strong> Frete fixo acessível</li>
+        <li><strong>Bairros de Castanhal:</strong> Consulte o valor no carrinho</li>
+        <li><strong>Cidades próximas:</strong> Calculado pelo CEP, sempre com o melhor preço</li>
+      </ul>
 
-              <hr>
+      <hr>
 
-              <h2 style="color: #a40e0e;">❓ Dúvidas?</h2>
-              <p style="font-size: 18px;">
-                Entre em contato conosco pelo WhatsApp:<br>
-                <a href="https://wa.me/351939799836" target="_blank" style="font-size: 22px; font-weight: 700; color: #25D366;">
-                  📱 +351 939 799 836
-                </a>
-              </p>
+      <h2>📋 Nossas Condições</h2>
+      <ul>
+        <li>✅ Entregamos de <strong>segunda a sábado</strong>, das 9h às 18h</li>
+        <li>✅ É necessário que <strong>alguém esteja presente</strong> no local para receber a mercadoria</li>
+        <li>✅ A entrega é feita <strong>na porta</strong></li>
+        <li>✅ Para <strong>condomínios e prédios</strong>, a entrega é feita no portão</li>
+        <li>✅ Estamos sempre abertos a negociações e condições especiais</li>
+      </ul>
 
-              <p style="text-align: center; margin-top: 30px;">
-                <a href="index.html" class="btn">Ver Produtos</a>
-              </p>
+      <hr>
 
-            </div>
+      <h2>❓ Dúvidas?</h2>
+      <p style="font-size: 18px; text-align: center;">
+        Entre em contato conosco pelo WhatsApp:<br>
+        <a href="https://wa.me/351939799836" target="_blank" style="font-size: 22px; font-weight: 700; color: #25D366;">
+          📱 +351 939 799 836
+        </a>
+      </p>
 
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="btn-entrega">← Voltar para Produtos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Nobre Rústico</h4>
+          <p>Castanhal - PA</p>
+          <p><i class="fas fa-phone"></i> +351 939 799 836</p>
+          <p><i class="fas fa-envelope"></i> rusticosmoveis12@gmail.com</p>
+        </div>
+        <div>
+          <h4>Horário</h4>
+          <p>Segunda a Sábado</p>
+          <p><strong style="color:#fff;">9h - 18h</strong></p>
+          <p>Domingo: Fechado</p>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <a href="sobre-nos.html">Sobre Nós</a>
+          <a href="entrega.html">Entregas</a>
+          <a href="#">Trocas</a>
+          <a href="#">Contato</a>
+        </div>
+        <div>
+          <h4>Redes Sociais</h4>
+          <div class="social">
+            <a href="https://instagram.com/nobrerustico10" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/351939799836" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
-
-    </main>
-
-    <!-- ===== RODAPÉ ===== -->
-    <div id="shopify-section-footer">
-      <footer class="site-footer critical-hidden" role="contentinfo">
-        <div class="page-width">
-          <div class="site-footer__content">
-            
-            <div class="site-footer__item site-footer__item--one-quarter">
-              <div class="site-footer__item-inner site-footer__item-inner--text">
-                <h4>Rústico Nobre</h4>
-                <div class="site-footer__rte">
-                  <p><strong>Castanhal - PA</strong></p>
-                  <p><strong>+351 939 799 836</strong></p>
-                  <p><strong>Segunda a Sábado - 9h às 18h</strong></p>
-                  <p><strong>Domingo: Fechado</strong></p>
-                  <p><strong>Email: rusticosmoveis12@gmail.com</strong></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="site-footer__item site-footer__item--one-quarter">
-              <div class="site-footer__item-inner site-footer__item-inner--link_list">
-                <h4>Links Rápidos</h4>
-                <ul class="site-footer__linklist">
-                  <li class="site-footer__linklist-item"><a href="sobre-nos.html">Sobre Nós</a></li>
-                  <li class="site-footer__linklist-item"><a href="entrega.html">Entregas</a></li>
-                  <li class="site-footer__linklist-item"><a href="#">Trocas e Devoluções</a></li>
-                  <li class="site-footer__linklist-item"><a href="#">Contato</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="site-footer__item site-footer__item--one-quarter site-footer-newsletter__one-half">
-              <div class="site-footer__item-inner site-footer__item-inner--newsletter">
-                <h4>Newsletter</h4>
-                <div class="site-footer__newsletter">
-                  <form method="post" action="/contact#ContactFooter" id="ContactFooter" accept-charset="UTF-8" class="contact-form">
-                    <input type="hidden" name="form_type" value="customer">
-                    <input type="hidden" name="utf8" value="✓">
-                    <input type="hidden" name="contact[tags]" value="newsletter">
-                    <div class="input-group">
-                      <input type="email" name="contact[email]" id="ContactFooter-email" class="input-group__field newsletter__input" value="" placeholder="Seu e-mail" required>
-                      <span class="input-group__btn">
-                        <button type="submit" class="btn newsletter__submit" name="commit">
-                          <span>Inscrever</span>
-                        </button>
-                      </span>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <hr class="site-footer__hr">
-
-        <div class="page-width">
-          <div class="grid grid--no-gutters small--text-center grid--footer-float-right">
-            <div class="grid__item small--one-whole site-footer-item-align-right">
-              <small class="site-footer__copyright-content">© 2026, <a href="index.html" title="">Rústico Nobre</a></small>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <div class="footer-bottom">&copy; 2026 Nobre Rústico - Todos os direitos reservados.</div>
     </div>
+  </footer>
 
+  <!-- BOTÕES FLUTUANTES -->
+  <style>
+  .floating-container{position:fixed;bottom:20px;left:0;right:0;z-index:9999;display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
+  .floating-container a,.floating-container button{pointer-events:auto}
+  .floating-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:600;color:#fff;border:none;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.25)}
+  .floating-btn:hover{transform:scale(1.05)}
+  .floating-btn svg{width:20px;height:20px;fill:currentColor}
+  .btn-whatsapp{background:#25D366}
+  .btn-whatsapp:hover{background:#1da851}
+  .btn-text-float{background:#a40e0e}
+  .btn-text-float:hover{background:#cc1111}
+  @media(max-width:480px){.floating-btn{padding:8px 14px;font-size:12px}.floating-btn svg{width:16px;height:16px}}
+  </style>
+
+  <div class="floating-container">
+    <a href="https://wa.me/351939799836" target="_blank" class="floating-btn btn-whatsapp">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
+      WhatsApp
+    </a>
+    <button class="floating-btn btn-text-float" onclick="document.getElementById('textModal').classList.add('open')">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/>
+      </svg>
+      Texto
+    </button>
   </div>
 
-  <!
+  <!-- MODAIS -->
+  <div class="modal" id="pixModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="document.getElementById('pixModal').classList.remove('open')">&times;</button>
+      <h3><i class="fas fa-qrcode" style="color:#00875A;"></i> Pagamento PIX</h3>
+      <p>Copie a chave PIX abaixo e cole no seu banco:</p>
+      <div class="pix-key">xtreambr@gmail.com</div>
+      <button class="copy-btn" onclick="copiarChavePix()"><i class="fas fa-copy"></i> Copiar chave</button>
+      <p style="font-size:12px;color:#888;margin-top:15px;">Após o pagamento, entre em contato pelo WhatsApp para confirmar seu pedido.</p>
+    </div>
+  </div>
 
-  <ul hidden>
-    <li id="a11y-refresh-page-message">Escolher uma seleção resulta em uma atualização completa da página.</li>
-    <li id="a11y-selection-message">Pressione a tecla espaço e depois as setas para fazer uma seleção.</li>
-  </ul>
+  <div class="modal" id="cartaoModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="document.getElementById('cartaoModal').classList.remove('open')">&times;</button>
+      <h3><i class="fas fa-credit-card" style="color:#a40e0e;"></i> Pagamento com Cartão</h3>
+      <p>Selecione a forma de pagamento:</p>
+      <div class="cartao-options">
+        <label>
+          <input type="radio" name="pagamento" value="credito" checked>
+          <span><strong>Cartão de Crédito</strong> <small>(até 12x c/juros)</small></span>
+        </label>
+        <label>
+          <input type="radio" name="pagamento" value="debito">
+          <span><strong>Cartão de Débito</strong> <small>(à vista)</small></span>
+        </label>
+      </div>
+      <button class="btn" style="width:100%;" onclick="alert('Redirecionando para pagamento...')">Continuar</button>
+      <p style="font-size:12px;color:#888;margin-top:10px;">Pagamento seguro processado por nosso parceiro.</p>
+    </div>
+  </div>
+
+  <div class="text-modal" id="textModal">
+    <div class="text-modal-content">
+      <button class="close-btn" onclick="document.getElementById('textModal').classList.remove('open')">&times;</button>
+      <h3>Envie uma mensagem</h3>
+      <p class="sub">Preencha seus dados e nossa equipe responderá em breve.</p>
+      <form id="textForm" onsubmit="sendTextMessage(event)">
+        <label for="textName">Nome</label>
+        <input type="text" id="textName" placeholder="Seu nome completo" required>
+        <label for="textPhone">Celular</label>
+        <input type="tel" id="textPhone" placeholder="(91) 99999-9999" required>
+        <label for="textMessage">Mensagem</label>
+        <textarea id="textMessage" placeholder="Escreva sua mensagem aqui..." required></textarea>
+        <button type="submit" class="send-btn">Enviar</button>
+      </form>
+      <p class="legal">Ao clicar em enviar, você autoriza a Nobre Rústico a enviar mensagens para o número informado para fins informativos. Mensagens e dados podem ser cobrados. Digite AJUDA para ajuda e SAIR para cancelar.</p>
+      <p class="powered">Site com envio de texto</p>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('navMenu').classList.toggle('open');
+    });
+
+    document.querySelectorAll('.modal, .text-modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('open');
+        }
+      });
+    });
+
+    function copiarChavePix() {
+      const chave = 'xtreambr@gmail.com';
+      navigator.clipboard.writeText(chave).then(() => {
+        alert('Chave PIX copiada!');
+      }).catch(() => {
+        prompt('Copie manualmente:', chave);
+      });
+    }
+
+    function sendTextMessage(event) {
+      event.preventDefault();
+      const name = document.getElementById('textName').value;
+      const message = document.getElementById('textMessage').value;
+      const numero = '351939799836';
+      const texto = `Olá! Meu nome é ${name}.%0A%0A${message}`;
+      const url = `https://wa.me/${numero}?text=${texto}`;
+      document.getElementById('textModal').classList.remove('open');
+      window.open(url, '_blank');
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </body>
-                                         </html>
+</html>
