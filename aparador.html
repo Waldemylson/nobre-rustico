@@ -50,10 +50,105 @@
     .announcement{background:#fc0000;color:#fff;text-align:center;padding:10px 0;font-weight:700}
     .announcement a{color:#fff;text-decoration:none}
     
-    .banner{background:#2c1810;color:#fff;text-align:center;padding:50px 0;margin-bottom:30px}
-    .banner h2{font-size:38px;font-weight:300}
-    .banner h2 strong{color:#ff6b35;font-weight:700}
-    .banner p{color:#ddd;font-size:18px;margin:10px 0 20px}
+    /* ===== CARROSSEL SEM RETÂNGULO E SEM BOTÃO ===== */
+    .banner-carrossel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    .carrossel-container {
+      position: relative;
+      width: 100%;
+    }
+    .carrossel-slides {
+      display: flex;
+      width: 100%;
+      height: 500px;
+    }
+    .carrossel-slide {
+      flex: 0 0 100%;
+      height: 100%;
+      position: relative;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .carrossel-slide.active {
+      display: flex;
+    }
+    .carrossel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carrossel-texto {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+      width: 90%;
+      max-width: 700px;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+    .carrossel-texto h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      letter-spacing: 1px;
+    }
+    .carrossel-texto h2 strong {
+      color: #ff6b35;
+    }
+    .carrossel-texto p {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 400;
+    }
+    .carrossel-texto .btn {
+      display: none;
+    }
+    .carrossel-indicadores {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+    .carrossel-indicadores .indicador {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .carrossel-indicadores .indicador.ativo {
+      background: #a40e0e;
+    }
+    .carrossel-indicadores .indicador:hover {
+      background: #a40e0e;
+    }
+
+    @media(max-width:768px) {
+      .carrossel-slides { height: 400px; }
+      .carrossel-texto h2 { font-size: 28px; }
+      .carrossel-texto p { font-size: 16px; }
+      .carrossel-texto { bottom: 40px; }
+    }
+    @media(max-width:480px) {
+      .carrossel-slides { height: 350px; }
+      .carrossel-texto h2 { font-size: 22px; }
+      .carrossel-texto p { font-size: 14px; }
+      .carrossel-texto { bottom: 30px; }
+    }
     
     .section-title{display:flex;justify-content:space-between;align-items:center;margin:30px 0 18px;border-bottom:2px solid #e8e0d8;padding-bottom:8px}
     .section-title h3{font-size:22px;font-weight:300;color:#2c1810}
@@ -153,12 +248,12 @@
     <div class="container">
       <div>
         <i class="fas fa-phone"></i> (91) 99112-0652
-        <i class="fas fa-envelope" style="margin-left:15px;"></i> contato@rusticonobre.com
+        <i class="fas fa-envelope" style="margin-left:15px;"></i> rusticosmoveis12@gmail.com
       </div>
       <div>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/rusticonobre10"><i class="fab fa-instagram"></i></a>
+         <a href="https://wa.me/351939799836
+         "><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
@@ -214,12 +309,66 @@
       </ul>
 </nav>
 
-  <!-- BANNER -->
-  <section class="banner">
-    <div class="container">
-      <h2>APARADORES <strong>RÚSTICOS</strong></h2>
-      <p>Peças exclusivas para decorar sua casa com estilo</p>
-      <a href="#" class="btn">Ver Todos</a>
+  <!-- ===== CARROSSEL COM 5 SLIDES ===== -->
+  <section class="banner-carrossel">
+    <div class="carrossel-container">
+      <div class="carrossel-slides">
+
+        <!-- Slide 1 -->
+        <div class="carrossel-slide active">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
+          <div class="carrossel-texto">
+            <h2>TAPETES PREMIUM  <strong>PELE NATURAL</strong></h2>
+            <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carrossel-slide">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
+          <div class="carrossel-texto">
+            <h2>BOI MIJA PINHA<strong>TUNEL CACHAÇA</strong></h2>
+            <p>Peças exclusivas capacidade 2 litros</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carrossel-slide">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato">
+          <div class="carrossel-texto">
+            <h2>LADRÍLIO <strong>HIDRÁULICO</strong></h2>
+            <p>Para pisos /paredes/móveis demoliçao</p>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carrossel-slide">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg">
+          <div class="carrossel-texto">
+            <h2>MÓVEIS <strong>PLANEJADOS</strong></h2>
+            <p>Sob medida para o seu espaço</p>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carrossel-slide">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
+          <div class="carrossel-texto">
+            <h2>APARADORES <strong>RÚSTICOS</strong></h2>
+            <p>Peças exclusivas para sua decoração</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bolinhas de navegação (5) -->
+      <div class="carrossel-indicadores">
+        <span class="indicador ativo" onclick="mudarSlide(0)"></span>
+        <span class="indicador" onclick="mudarSlide(1)"></span>
+        <span class="indicador" onclick="mudarSlide(2)"></span>
+        <span class="indicador" onclick="mudarSlide(3)"></span>
+        <span class="indicador" onclick="mudarSlide(4)"></span>
+      </div>
     </div>
   </section>
 
@@ -440,7 +589,7 @@
           <h4>Nobre Rústico</h4>
           <p>Castanhal - PA</p>
           <p><i class="fas fa-phone"></i> (91) 99112-0652</p>
-          <p><i class="fas fa-envelope"></i> contato@rusticonobre.com</p>
+          <p><i class="fas fa-envelope"></i> rusticosmoveis12@gmail.com</p>
         </div>
         <div>
           <h4>Horário</h4>
@@ -451,16 +600,13 @@
         <div>
           <h4>Links</h4>
           <a href="sobre-nos.html">Sobre Nós</a>
-          <a href="entrega.html">Entregas</a>
-          <a href="#">Trocas</a>
-          <a href="#">Contato</a>
+          <a href="entrega.html">Entregas</>
         </div>
         <div>
           <h4>Redes Sociais</h4>
           <div class="social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/rusticonobre10"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/351939799836"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
@@ -582,9 +728,43 @@
       document.getElementById('textModal').classList.remove('open');
       window.open(url, '_blank');
     }
+
+    // ===== CARROSSEL AUTOMÁTICO =====
+    let slideAtual = 0;
+    const slides = document.querySelectorAll('.carrossel-slide');
+    const indicadores = document.querySelectorAll('.indicador');
+    let intervalo;
+
+    function mostrarSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      indicadores.forEach((ind, i) => {
+        ind.classList.toggle('ativo', i === index);
+      });
+      slideAtual = index;
+    }
+
+    function mudarSlide(index) {
+      clearInterval(intervalo);
+      mostrarSlide(index);
+      iniciarAutoSlide();
+    }
+
+    function proximoSlide() {
+      const proximo = (slideAtual + 1) % slides.length;
+      mostrarSlide(proximo);
+    }
+
+    function iniciarAutoSlide() {
+      intervalo = setInterval(proximoSlide, 5000);
+    }
+
+    mostrarSlide(0);
+    iniciarAutoSlide();
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </body>
-            </html>
+  </html>
