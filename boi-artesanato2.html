@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#a40e0e">
   <link rel="canonical" href="https://rusticonobre.com.br/">
-  <title>Boi Mija Pinga / Artesanatos - Nobre Rústico</title>
+  <title>Boi Mija Pinga / Artesanatos - Página 2 | Nobre Rústico</title>
   <meta name="description" content="Artesanatos e peças decorativas rústicas da Nobre Rústico.">
 
   <style>
@@ -50,10 +50,24 @@
     .announcement{background:#fc0000;color:#fff;text-align:center;padding:10px 0;font-weight:700}
     .announcement a{color:#fff;text-decoration:none}
     
-    .banner{background:#2c1810;color:#fff;text-align:center;padding:50px 0;margin-bottom:30px}
-    .banner h2{font-size:38px;font-weight:300}
-    .banner h2 strong{color:#ff6b35;font-weight:700}
-    .banner p{color:#ddd;font-size:18px;margin:10px 0 20px}
+    /* ===== CARROSSEL ===== */
+    .banner-carrossel{position:relative;width:100%;overflow:hidden;margin-bottom:30px}
+    .carrossel-container{position:relative;width:100%}
+    .carrossel-slides{display:flex;width:100%;height:500px}
+    .carrossel-slide{flex:0 0 100%;height:100%;position:relative;display:none;align-items:center;justify-content:center}
+    .carrossel-slide.active{display:flex}
+    .carrossel-slide img{width:100%;height:100%;object-fit:cover}
+    .carrossel-texto{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;text-shadow:0 2px 15px rgba(0,0,0,0.9);width:90%;max-width:700px;padding:0;background:transparent;border-radius:0}
+    .carrossel-texto h2{font-size:42px;font-weight:700;margin:0 0 8px 0;letter-spacing:1px}
+    .carrossel-texto h2 strong{color:#ff6b35}
+    .carrossel-texto p{font-size:20px;margin:0;font-weight:400}
+    .carrossel-texto .btn{display:none}
+    .carrossel-indicadores{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10}
+    .carrossel-indicadores .indicador{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:0.3s}
+    .carrossel-indicadores .indicador.ativo{background:#a40e0e}
+    .carrossel-indicadores .indicador:hover{background:#a40e0e}
+    @media(max-width:768px){.carrossel-slides{height:400px}.carrossel-texto h2{font-size:28px}.carrossel-texto p{font-size:16px}.carrossel-texto{bottom:40px}}
+    @media(max-width:480px){.carrossel-slides{height:350px}.carrossel-texto h2{font-size:22px}.carrossel-texto p{font-size:14px}.carrossel-texto{bottom:30px}}
     
     .section-title{display:flex;justify-content:space-between;align-items:center;margin:30px 0 18px;border-bottom:2px solid #e8e0d8;padding-bottom:8px}
     .section-title h3{font-size:22px;font-weight:300;color:#2c1810}
@@ -69,6 +83,7 @@
     .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase}
     .product-info{padding:10px 12px 6px;flex:1}
     .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
+    .product-dimensao{font-size:11px;color:#777;margin:2px 0 4px 0;line-height:1.3}
     .product-price{font-size:17px;font-weight:700;color:#2c1810}
     .product-price .from{font-size:12px;font-weight:400;color:#888}
     .product-old-price{font-size:13px;color:#999;text-decoration:line-through;margin-left:6px;font-weight:400}
@@ -127,8 +142,8 @@
     .text-modal-content .powered{text-align:center;font-size:12px;color:#aaa;margin-top:8px}
     
     @media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.banner h2{font-size:24px}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:10px;padding:6px 8px}}
-    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr !important;gap:10px}.product-image{height:150px}.product-name{font-size:12px}.product-price{font-size:15px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.banner h2{font-size:20px}.banner .btn{padding:10px 25px;font-size:12px}.modal-content,.text-modal-content{padding:20px}}
+    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:10px;padding:6px 8px}}
+    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr !important;gap:10px}.product-image{height:150px}.product-name{font-size:12px}.product-price{font-size:15px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.modal-content,.text-modal-content{padding:20px}}
     
     @media (max-width: 768px) {
         .header-logo img { height: 50px; }
@@ -152,19 +167,18 @@
     <div class="container">
       <div>
         <i class="fas fa-phone"></i> (91) 99112-0652
-        <i class="fas fa-envelope" style="margin-left:15px;"></i> contato@rusticonobre.com
+        <i class="fas fa-envelope" style="margin-left:15px;"></i> rusticosmoveis12@gmail.com
       </div>
       <div>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/nobrerustico10"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5591991120652"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
   
   <!-- ANÚNCIO -->
   <a href="entrega.html" class="announcement" style="display:block; background:#fc0000; color:#fff; text-align:center; padding:10px 0; font-weight:700; text-decoration:none; transition:0.3s;" onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#fc0000'">
-    🎉 Entrega em toda Castanhal e região! Clique aqui para mais detalhes!
+    🎉 Entrega em toda Belém e região! Clique aqui para mais detalhes!
   </a>
 
   <!-- HEADER -->
@@ -178,9 +192,9 @@
         </div>
       </div>
       <div class="header-right">
-        <a href="#"><i class="far fa-user"></i></a>
-        <a href="#"><i class="far fa-heart"></i></a>
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <a href="login.html"><i class="far fa-user"></i></a>
+        <a href="favorito.html"><i class="far fa-heart"></i></a>
+        <a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span>
           <span></span>
@@ -190,55 +204,110 @@
     </div>
   </header>
 
-  <!-- MENU CORRIGIDO -->
-<nav class="nav-menu" id="navMenu">
-  <ul>
-    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
-    <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
-    <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
-    <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
-    <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
-    <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
-    <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
-    <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
-    <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
-    <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
-    <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
-    <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
-    <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
-    <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
-    <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
-    <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
-    <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
-      </ul>
-</nav>
+  <!-- MENU -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
+      <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
+      <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
+      <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
+      <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
+      <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
+      <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
+      <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
+      <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
+      <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
+      <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
+      <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
+      <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
+      <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
+      <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
+      <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
+    </ul>
+  </nav>
 
-  <!-- BANNER -->
-  <section class="banner">
-    <div class="container">
-      <h2>BOI MIJA PINGA & <strong>ARTESANATOS</strong></h2>
-      <p>Peças exclusivas para decorar sua casa com estilo</p>
-      <a href="#" class="btn">Ver Todos</a>
+  <!-- ===== CARROSSEL IGUAL AO INDEX ===== -->
+  <section class="banner-carrossel">
+    <div class="carrossel-container">
+      <div class="carrossel-slides">
+
+        <!-- Slide 1 -->
+        <div class="carrossel-slide active">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
+          <div class="carrossel-texto">
+            <h2>TAPETES PREMIUM <strong>PELE NATURAL</strong></h2>
+            <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carrossel-slide">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
+          <div class="carrossel-texto">
+            <h2>BOI MIJA PINGA <strong>TUNEL CACHAÇA</strong></h2>
+            <p>Peças exclusivas capacidade 2 litros</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carrossel-slide">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Ladrilho Hidráulico">
+          <div class="carrossel-texto">
+            <h2>LADRILHO <strong>HIDRÁULICO</strong></h2>
+            <p>Para pisos / paredes / móveis demolição</p>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carrossel-slide">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg" alt="Móveis Planejados">
+          <div class="carrossel-texto">
+            <h2>MÓVEIS <strong>PLANEJADOS</strong></h2>
+            <p>Sob medida para o seu espaço</p>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carrossel-slide">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
+          <div class="carrossel-texto">
+            <h2>APARADORES <strong>RÚSTICOS</strong></h2>
+            <p>Peças exclusivas para sua decoração</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bolinhas de navegação -->
+      <div class="carrossel-indicadores">
+        <span class="indicador ativo" onclick="mudarSlide(0)"></span>
+        <span class="indicador" onclick="mudarSlide(1)"></span>
+        <span class="indicador" onclick="mudarSlide(2)"></span>
+        <span class="indicador" onclick="mudarSlide(3)"></span>
+        <span class="indicador" onclick="mudarSlide(4)"></span>
+      </div>
     </div>
   </section>
 
-  <!-- PRODUTOS -->
+  <!-- PRODUTOS - BOI MIJA PINGA PÁGINA 2 -->
   <div class="container">
     <div class="section-title">
-      <h3>Nossa coleção de <strong>Artesanatos</strong></h3>
-      <a href="artesanatos.html">Página 1 →</a>
+      <h3>Nossa coleção de <strong>Boi Mija Pinga</strong> <span style="font-size:14px;color:#888;font-weight:400;">- Página 2 de 2</span></h3>
+      <a href="boi-artesanato.html">← Página anterior</a>
     </div>
 
     <div class="product-grid">
-      <!-- PRODUTO 1 -->
+      <!-- BOI 6 - N-08 -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/2026062413094813.jpg" alt="Artesanato Rústico">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boipinga1.webp" alt="Boi Corote tonel/barril de cachaça N-08" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Artesanato Rústico</div>
-          <div class="product-price">R$ 1.099,00 <span class="product-old-price">R$ 1.349,00</span></div>
+          <div class="product-name">Boi Corote Tonel/Barril de Cachaça N-08</div>
+          <div class="product-dimensao">📏 A: 23cm × C: 41cm × L: 17cm | Capacidade: 2L</div>
+          <div class="product-price">R$ 840,00 <span class="product-old-price">R$ 970,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -246,30 +315,16 @@
         </div>
       </div>
 
-      <!-- PRODUTO 2 -->
+      <!-- BOI 7 - N-09 -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309484.jpg" alt="Artesanato Nobre">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Artesanato Nobre</div>
-          <div class="product-price">R$ 1.199,00 <span class="product-old-price">R$ 1.349,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 3 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309486.jpg" alt="Artesanato Farmhouse">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boipinga2.webp" alt="Boi Corote tonel/barril de cachaça N-09" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Artesanato Farmhouse</div>
-          <div class="product-price">R$ 899,00 <span class="product-old-price">R$ 1.099,00</span></div>
+          <div class="product-name">Boi Corote Tonel/Barril de Cachaça N-09</div>
+          <div class="product-dimensao">📏 A: 23cm × C: 41cm × L: 17cm | Capacidade: 2L</div>
+          <div class="product-price">R$ 840,00 <span class="product-old-price">R$ 970,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -277,14 +332,15 @@
         </div>
       </div>
 
-      <!-- PRODUTO 4 -->
+      <!-- BOI 8 - N-10 -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309488.jpg" alt="Artesanato Clássico">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boipinga3.webp" alt="Boi Corote tonel/barril de cachaça N-10" style="object-fit:contain;">
         </div>
         <div class="product-info">
-          <div class="product-name">Artesanato Clássico</div>
-          <div class="product-price">R$ 1.499,00 <span class="product-old-price">R$ 1.699,00</span></div>
+          <div class="product-name">Boi Corote Tonel/Barril de Cachaça N-10</div>
+          <div class="product-dimensao">📏 A: 23cm × C: 41cm × L: 17cm | Capacidade: 2L</div>
+          <div class="product-price">R$ 840,00 <span class="product-old-price">R$ 970,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -292,45 +348,16 @@
         </div>
       </div>
 
-      <!-- PRODUTO 5 -->
+      <!-- BOI 9 - N-11 -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309481.jpg" alt="Artesanato Moderno">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Artesanato Moderno</div>
-          <div class="product-price">R$ 1.299,00 <span class="product-old-price">R$ 1.499,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 6 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309482.jpg" alt="Artesanato Rústico">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Artesanato Rústico</div>
-          <div class="product-price">R$ 999,00 <span class="product-old-price">R$ 1.199,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 7 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309483.jpg" alt="Artesanato Luxo">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boipinga4.webp" alt="Boi Corote tonel/barril de cachaça N-11" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Artesanato Luxo</div>
-          <div class="product-price">R$ 1.599,00 <span class="product-old-price">R$ 1.899,00</span></div>
+          <div class="product-name">Boi Corote Tonel/Barril de Cachaça N-11</div>
+          <div class="product-dimensao">📏 A: 23cm × C: 41cm × L: 17cm | Capacidade: 2L</div>
+          <div class="product-price">R$ 840,00 <span class="product-old-price">R$ 970,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -338,45 +365,16 @@
         </div>
       </div>
 
-      <!-- PRODUTO 8 -->
+      <!-- BOI 10 - N-12 -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309485.jpg" alt="Artesanato Colonial">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Artesanato Colonial</div>
-          <div class="product-price">R$ 1.399,00 <span class="product-old-price">R$ 1.599,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 9 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309487.jpg" alt="Artesanato Elegance">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Artesanato Elegance</div>
-          <div class="product-price">R$ 1.799,00 <span class="product-old-price">R$ 2.099,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 10 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309489.jpg" alt="Artesanato Premium">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boipinga5.webp" alt="Boi Corote tonel/barril de cachaça N-12" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Artesanato Premium</div>
-          <div class="product-price">R$ 1.999,00 <span class="product-old-price">R$ 2.499,00</span></div>
+          <div class="product-name">Boi Corote Tonel/Barril de Cachaça N-12</div>
+          <div class="product-dimensao">📏 A: 23cm × C: 41cm × L: 17cm | Capacidade: 2L</div>
+          <div class="product-price">R$ 840,00 <span class="product-old-price">R$ 970,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -385,11 +383,12 @@
       </div>
     </div>
 
-    <!-- PAGINAÇÃO -->
+    <!-- PAGINAÇÃO - PÁGINA 2 -->
     <div style="text-align:center; margin:40px 0; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
-      <span style="background:#a40e0e; color:#fff; padding:8px 16px; border-radius:4px; font-weight:700;">1</span>
-      <a href="artesanatos-2.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">2</a>
-      <a href="artesanatos-2.html" style="background:#2c1810; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">Próxima →</a>
+      <a href="boi-artesanato.html" style="background:#2c1810; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">← Anterior</a>
+      <a href="boi-artesanato.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">1</a>
+      <span style="background:#a40e0e; color:#fff; padding:8px 16px; border-radius:4px; font-weight:700;">2</span>
+      <span style="background:#ccc; color:#999; padding:8px 16px; border-radius:4px; font-weight:600; cursor:default;">Próxima →</span>
     </div>
   </div>
 
@@ -398,7 +397,6 @@
     <div class="container">
       <div class="section-title">
         <h3>O que nossos <strong>clientes dizem</strong></h3>
-        <a href="#">Ver todos →</a>
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-item">
@@ -428,7 +426,7 @@
           <h4>Nobre Rústico</h4>
           <p>Castanhal - PA</p>
           <p><i class="fas fa-phone"></i> (91) 99112-0652</p>
-          <p><i class="fas fa-envelope"></i> contato@rusticonobre.com</p>
+          <p><i class="fas fa-envelope"></i> rusticosmoveis12@gmail.com</p>
         </div>
         <div>
           <h4>Horário</h4>
@@ -438,17 +436,14 @@
         </div>
         <div>
           <h4>Links</h4>
-          <a href="#">Sobre Nós</a>
-          <a href="#">Entregas</a>
-          <a href="#">Trocas</a>
-          <a href="#">Contato</a>
+          <a href="sobre-nos.html">Sobre Nós</a>
+          <a href="entrega.html">Entregas</a>
         </div>
         <div>
           <h4>Redes Sociais</h4>
           <div class="social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/nobrerustico10"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5591991120652"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
@@ -570,9 +565,43 @@
       document.getElementById('textModal').classList.remove('open');
       window.open(url, '_blank');
     }
+
+    // ===== CARROSSEL AUTOMÁTICO =====
+    let slideAtual = 0;
+    const slides = document.querySelectorAll('.carrossel-slide');
+    const indicadores = document.querySelectorAll('.indicador');
+    let intervalo;
+
+    function mostrarSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      indicadores.forEach((ind, i) => {
+        ind.classList.toggle('ativo', i === index);
+      });
+      slideAtual = index;
+    }
+
+    function mudarSlide(index) {
+      clearInterval(intervalo);
+      mostrarSlide(index);
+      iniciarAutoSlide();
+    }
+
+    function proximoSlide() {
+      const proximo = (slideAtual + 1) % slides.length;
+      mostrarSlide(proximo);
+    }
+
+    function iniciarAutoSlide() {
+      intervalo = setInterval(proximoSlide, 5000);
+    }
+
+    mostrarSlide(0);
+    iniciarAutoSlide();
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </body>
-</html>
+            </html>
