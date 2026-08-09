@@ -16,38 +16,24 @@
     .btn{display:inline-block;background:#a40e0e;color:#fff;padding:12px 35px;border-radius:30px;text-decoration:none;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;transition:0.3s;border:none;cursor:pointer}
     .btn:hover{background:#cc1111}
     
-    /* TOP BAR */
     .top-bar{background:#1a1a1a;color:#999;padding:8px 0;font-size:13px}
     .top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
     .top-bar a{color:#999;margin-left:12px;text-decoration:none}
     .top-bar a:hover{color:#fff}
     .top-bar i{color:#b8956a;margin-right:4px}
     
-    /* HEADER */
     .header{background:#fff;padding:15px 0;border-bottom:2px solid #e8e0d8}
     .header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
     
-    .header-logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    
-    .header-logo img {
-        height: 70px;
-        width: auto;
-        display: block;
-    }
-    
+    .header-logo{display:flex;align-items:center;gap:12px}
+    .header-logo img{height:70px;width:auto;display:block}
     .logo{font-size:28px;font-weight:700;color:#2c1810}
     .logo span{color:#a40e0e}
     .logo small{display:block;font-size:11px;font-weight:400;color:#888;letter-spacing:2px}
-    
     .header-right{display:flex;align-items:center;gap:18px}
     .header-right a{color:#2c1810;font-size:18px;text-decoration:none}
     .header-right a:hover{color:#a40e0e}
     
-    /* MENU HAMBURGUER */
     .menu-toggle{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:5px;background:none;border:none}
     .menu-toggle span{display:block;width:26px;height:3px;background:#2c1810;border-radius:2px;transition:0.3s}
     .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -61,111 +47,27 @@
     .nav-menu ul li a:hover{background:#f5f0eb;color:#a40e0e;padding-left:20px}
     .nav-menu ul li:last-child a{border-bottom:none}
     
-    /* ANÚNCIO */
     .announcement{background:#fc0000;color:#fff;text-align:center;padding:10px 0;font-weight:700}
     .announcement a{color:#fff;text-decoration:none}
     
-    /* ===== CARROSSEL SEM RETÂNGULO E SEM BOTÃO ===== */
-    .banner-carrossel {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      margin-bottom: 30px;
-    }
-    .carrossel-container {
-      position: relative;
-      width: 100%;
-    }
-    .carrossel-slides {
-      display: flex;
-      width: 100%;
-      height: 500px;
-    }
-    .carrossel-slide {
-      flex: 0 0 100%;
-      height: 100%;
-      position: relative;
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
-    .carrossel-slide.active {
-      display: flex;
-    }
-    .carrossel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .carrossel-texto {
-      position: absolute;
-      bottom: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      color: #fff;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.9);
-      width: 90%;
-      max-width: 700px;
-      padding: 0;
-      background: transparent;
-      border-radius: 0;
-    }
-    .carrossel-texto h2 {
-      font-size: 42px;
-      font-weight: 700;
-      margin: 0 0 8px 0;
-      letter-spacing: 1px;
-    }
-    .carrossel-texto h2 strong {
-      color: #ff6b35;
-    }
-    .carrossel-texto p {
-      font-size: 20px;
-      margin: 0;
-      font-weight: 400;
-    }
-    .carrossel-texto .btn {
-      display: none;
-    }
-    .carrossel-indicadores {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      z-index: 10;
-    }
-    .carrossel-indicadores .indicador {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .carrossel-indicadores .indicador.ativo {
-      background: #a40e0e;
-    }
-    .carrossel-indicadores .indicador:hover {
-      background: #a40e0e;
-    }
-
-    @media(max-width:768px) {
-      .carrossel-slides { height: 400px; }
-      .carrossel-texto h2 { font-size: 28px; }
-      .carrossel-texto p { font-size: 16px; }
-      .carrossel-texto { bottom: 40px; }
-    }
-    @media(max-width:480px) {
-      .carrossel-slides { height: 350px; }
-      .carrossel-texto h2 { font-size: 22px; }
-      .carrossel-texto p { font-size: 14px; }
-      .carrossel-texto { bottom: 30px; }
-    }
+    .banner-carrossel{position:relative;width:100%;overflow:hidden;margin-bottom:30px}
+    .carrossel-container{position:relative;width:100%}
+    .carrossel-slides{display:flex;width:100%;height:500px}
+    .carrossel-slide{flex:0 0 100%;height:100%;position:relative;display:none;align-items:center;justify-content:center}
+    .carrossel-slide.active{display:flex}
+    .carrossel-slide img{width:100%;height:100%;object-fit:cover}
+    .carrossel-texto{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;text-shadow:0 2px 15px rgba(0,0,0,0.9);width:90%;max-width:700px;padding:0;background:transparent;border-radius:0}
+    .carrossel-texto h2{font-size:42px;font-weight:700;margin:0 0 8px 0;letter-spacing:1px}
+    .carrossel-texto h2 strong{color:#ff6b35}
+    .carrossel-texto p{font-size:20px;margin:0;font-weight:400}
+    .carrossel-texto .btn{display:none}
+    .carrossel-indicadores{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10}
+    .carrossel-indicadores .indicador{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:0.3s}
+    .carrossel-indicadores .indicador.ativo{background:#a40e0e}
+    .carrossel-indicadores .indicador:hover{background:#a40e0e}
+    @media(max-width:768px){.carrossel-slides{height:400px}.carrossel-texto h2{font-size:28px}.carrossel-texto p{font-size:16px}.carrossel-texto{bottom:40px}}
+    @media(max-width:480px){.carrossel-slides{height:350px}.carrossel-texto h2{font-size:22px}.carrossel-texto p{font-size:14px}.carrossel-texto{bottom:30px}}
     
-    /* PRODUTOS */
     .section-title{display:flex;justify-content:space-between;align-items:center;margin:30px 0 18px;border-bottom:2px solid #e8e0d8;padding-bottom:8px}
     .section-title h3{font-size:22px;font-weight:300;color:#2c1810}
     .section-title h3 strong{font-weight:700}
@@ -180,6 +82,7 @@
     .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:3px;text-transform:uppercase}
     .product-info{padding:14px 16px 8px;flex:1}
     .product-name{font-size:15px;font-weight:600;color:#2c1810;margin-bottom:4px}
+    .product-dimensao{font-size:12px;color:#777;margin:4px 0}
     .product-price{font-size:20px;font-weight:700;color:#2c1810}
     .product-price .from{font-size:13px;font-weight:400;color:#888}
     .product-old-price{font-size:15px;color:#999;text-decoration:line-through;margin-left:8px;font-weight:400}
@@ -192,7 +95,6 @@
     .btn-right:hover{background:#cc1111}
     .btn-right i{font-size:13px}
     
-    /* DEPOIMENTOS */
     .testimonials{background:#fff;padding:35px 0;margin:25px 0;border-top:2px solid #e8e0d8;border-bottom:2px solid #e8e0d8}
     .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
     .testimonial-item{text-align:center;padding:10px}
@@ -200,7 +102,6 @@
     .testimonial-item .text{font-style:italic;color:#555;line-height:1.6;font-size:14px}
     .testimonial-item .name{font-weight:700;color:#2c1810;margin-top:8px;font-size:13px}
     
-    /* RODAPÉ */
     .footer{background:#1a1a1a;color:#aaa;padding:35px 0 15px}
     .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;border-bottom:1px solid #333;padding-bottom:25px;margin-bottom:15px}
     .footer h4{color:#fff;font-size:16px;margin-bottom:10px}
@@ -209,7 +110,6 @@
     .footer .social a{display:inline-block;margin-right:12px;font-size:18px}
     .footer-bottom{text-align:center;font-size:12px;color:#666}
     
-    /* MODAIS */
     .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
     .modal.open{display:flex}
     .modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;text-align:center}
@@ -291,9 +191,11 @@
           <small>MÓVEIS RÚSTICOS<br>&amp; PLANEJADOS</small>
         </div>
       </div>
-        <div class="header-right">
-  <a href="login.html"><i class="far fa-user"></i></a><a href="favorito.html"><i class="far fa-heart"></i></a>
-        <a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a> <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <div class="header-right">
+        <a href="login.html"><i class="far fa-user"></i></a>
+        <a href="favorito.html"><i class="far fa-heart"></i></a>
+        <a href="carrinho.html"><i class="fas fa-shopping-cart"></i></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
           <span></span>
           <span></span>
           <span></span>
@@ -302,35 +204,32 @@
     </div>
   </header>
 
-<!-- MENU CORRIGIDO -->
-<nav class="nav-menu" id="navMenu">
-  <ul>
-    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
-    <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
-    <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
-    <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
-    <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
-    <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
-    <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
-    <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
-    <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
-    <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
-    <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
-    <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
-    <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
-    <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
-    <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
-    <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
-    <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
-      </ul>
-</nav>
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
+      <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
+      <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
+      <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
+      <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
+      <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
+      <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
+      <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
+      <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
+      <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
+      <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
+      <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
+      <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
+      <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
+      <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
+      <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
+    </ul>
+  </nav>
 
-  <!-- ===== CARROSSEL COM 5 SLIDES ===== -->
+  <!-- CARROSSEL -->
   <section class="banner-carrossel">
     <div class="carrossel-container">
       <div class="carrossel-slides">
-
-        <!-- Slide 1 -->
         <div class="carrossel-slide active">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
           <div class="carrossel-texto">
@@ -338,8 +237,6 @@
             <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
           </div>
         </div>
-
-        <!-- Slide 2 -->
         <div class="carrossel-slide">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
           <div class="carrossel-texto">
@@ -347,8 +244,6 @@
             <p>Peças exclusivas capacidade 2 litros</p>
           </div>
         </div>
-
-        <!-- Slide 3 -->
         <div class="carrossel-slide">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato">
           <div class="carrossel-texto">
@@ -356,8 +251,6 @@
             <p>Para pisos /paredes/móveis demoliçao</p>
           </div>
         </div>
-
-        <!-- Slide 4 -->
         <div class="carrossel-slide">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg">
           <div class="carrossel-texto">
@@ -365,8 +258,6 @@
             <p>Sob medida para o seu espaço</p>
           </div>
         </div>
-
-        <!-- Slide 5 -->
         <div class="carrossel-slide">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
           <div class="carrossel-texto">
@@ -374,10 +265,7 @@
             <p>Peças exclusivas para sua decoração</p>
           </div>
         </div>
-
       </div>
-
-      <!-- Bolinhas de navegação (5) -->
       <div class="carrossel-indicadores">
         <span class="indicador ativo" onclick="mudarSlide(0)"></span>
         <span class="indicador" onclick="mudarSlide(1)"></span>
@@ -388,22 +276,24 @@
     </div>
   </section>
 
-  <!-- PRODUTOS -->
+  <!-- PRODUTOS - COM OS 8 ITENS DA SUA LISTA -->
   <div class="container">
     <div class="section-title">
       <h3>Coleção em <strong>Destaque</strong></h3>
-      <a href="#">Ver todos →</a>
+      <a href="#">→</a>
     </div>
 
     <div class="product-grid">
+      <!-- 1 - Esplendor -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/2026062413094813.jpg" alt="Mesa de Jantar">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Explendor%20divino1.jpg" alt="Esplendor do Divino Espírito Santo" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Mesa de Jantar Rústica</div>
-          <div class="product-price">R$ 1.099,00 <span class="product-old-price">R$ 1.349,00</span></div>
+          <div class="product-name">Esplendor do Divino Espírito Santo</div>
+          <div class="product-dimensao">📏 Altura: 70cm × Comprimento: 70cm</div>
+          <div class="product-price">R$ 270,00 <span class="product-old-price">R$ 344,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
@@ -411,28 +301,16 @@
         </div>
       </div>
 
+      <!-- 2 - Cacho Bananas -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309484.jpg" alt="Conjunto de Quarto">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Conjunto de Quarto</div>
-          <div class="product-price"><span class="from">a partir de</span> R$ 1.199,00 <span class="product-old-price">R$ 1.349,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Comprar Cartão</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309486.jpg" alt="Sofá Retrátil">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cacho%20banana2.jpg" alt="Cacho de Bananas Artesanal" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Sofá Retrátil</div>
-          <div class="product-price"><span class="from">a partir de</span> R$ 1.899,00 <span class="product-old-price">R$ 1.999,00</span></div>
+          <div class="product-name">Cacho de Bananas Artesanal para Parede</div>
+          <div class="product-dimensao">📏 Altura: 70cm × Comprimento: 50cm × Profundidade: 7cm</div>
+          <div class="product-price">R$ 523,00 <span class="product-old-price">R$ 607,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
@@ -440,13 +318,33 @@
         </div>
       </div>
 
+      <!-- 3 - Macaco Bananas -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309488.jpg" alt="Mesa de Centro">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Macaco%20banana3.jpg" alt="Macaco com cachos de Bananas" style="object-fit:contain;">
+          <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Mesa de Centro</div>
-          <div class="product-price"><span class="from">a partir de</span> R$ 489,00 <span class="product-old-price">R$ 599,00</span></div>
+          <div class="product-name">Macaco com cachos de Bananas em Madeira</div>
+          <div class="product-dimensao">📏 Altura: 86cm × Largura: 28cm × Espessura: 8cm</div>
+          <div class="product-price">R$ 749,00 <span class="product-old-price">R$ 817,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Comprar Cartão</button>
+        </div>
+      </div>
+
+      <!-- 4 - Fruteira Banana -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Fruteira%20banana4.jpg" alt="Fruteira Banana" style="object-fit:contain;">
+          <span class="badge">PROMOÇÃO</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Fruteira em Formato de Banana</div>
+          <div class="product-dimensao">📏 Altura: 15cm × Largura: 45cm</div>
+          <div class="product-price">R$ 250,00 <span class="product-old-price">R$ 299,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
@@ -457,32 +355,20 @@
 
     <div class="section-title">
       <h3>Novas <strong>Chegadas</strong></h3>
-      <a href="#">Ver todos →</a>
+      <a href="oferta.html">Ver todos →</a>
     </div>
 
     <div class="product-grid">
+      <!-- 5 - Fruteira Melância -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309481.jpg" alt="Cônsola">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Cônsola Rústica</div>
-          <div class="product-price">R$ 499,00 <span class="product-old-price">R$ 599,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Comprar Cartão</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309482.jpg" alt="Armário">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Fruteiramelancia5.jpg" alt="Fruteira Melância" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Armário Arqueado</div>
-          <div class="product-price">R$ 449,00 <span class="product-old-price">R$ 499,00</span></div>
+          <div class="product-name">Fruteira em Formato de Melância</div>
+          <div class="product-dimensao">📏 Altura: 15cm × Largura: 45cm</div>
+          <div class="product-price">R$ 250,00 <span class="product-old-price">R$ 299,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
@@ -490,13 +376,16 @@
         </div>
       </div>
 
+      <!-- 6 - Fruteira Mista -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309483.jpg" alt="Mesa Café">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Fruteiramista6.jpg" alt="Fruteira Mista" style="object-fit:contain;">
+          <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Conjunto de Café</div>
-          <div class="product-price">R$ 529,00 <span class="product-old-price">R$ 599,00</span></div>
+          <div class="product-name">Fruteira Modelo Misto de Banana e Melância</div>
+          <div class="product-dimensao">📏 Altura: 15cm × Largura: 45cm</div>
+          <div class="product-price">R$ 250,00 <span class="product-old-price">R$ 299,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
@@ -504,13 +393,33 @@
         </div>
       </div>
 
+      <!-- 7 - Gamela Cisne -->
       <div class="product-card">
         <div class="product-image">
-          <img src="https://github.com/Waldemylson/Tv-online-gratis-xtreambr/raw/main/202606241309489.jpg" alt="Mesa 6">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Gamelacisne.jpeg" alt="Gamela Cisne" style="object-fit:contain;">
+          <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Mesa 6 Lugares</div>
-          <div class="product-price">R$ 1.499,00 <span class="product-old-price">R$ 1.699,00</span></div>
+          <div class="product-name">GAMELA M - CISNE ENVERNIZADO</div>
+          <div class="product-dimensao">📏 Peça decorativa em madeira</div>
+          <div class="product-price">R$ 185,00 <span class="product-old-price">R$ 224,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Comprar Cartão</button>
+        </div>
+      </div>
+
+      <!-- 8 - Pavão -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Pavao.jpg" alt="Pavão" style="object-fit:contain;">
+          <span class="badge">PROMOÇÃO</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Escultura Pavão Macho em Madeira Pintado</div>
+          <div class="product-dimensao">📏 Altura: 48cm × Largura: 7cm × Comprimento: 10cm</div>
+          <div class="product-price">R$ 537,00 <span class="product-old-price">R$ 643,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> Comprar PIX</button>
@@ -525,7 +434,6 @@
     <div class="container">
       <div class="section-title">
         <h3>O que nossos <strong>clientes dizem</strong></h3>
-        
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-item">
@@ -565,14 +473,14 @@
         </div>
         <div>
           <h4>Links</h4>
-           <a href="sobre-nos.html">Sobre Nós</a>
+          <a href="sobre-nos.html">Sobre Nós</a>
           <a href="entrega.html">Entregas</a>
-          </div>
+        </div>
         <div>
           <h4>Redes Sociais</h4>
           <div class="social">
             <a href="#https://instagram.com/nobrerustico10"><i class="fab fa-instagram"></i></a>
-              <a href="https://wa.me/5591991120652"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/5591991120652"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
@@ -582,66 +490,16 @@
 
   <!-- BOTÕES FLUTUANTES -->
   <style>
-  .floating-container {
-    position: fixed;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    pointer-events: none;
-  }
-  .floating-container a,
-  .floating-container button {
-    pointer-events: auto;
-  }
-  .floating-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  }
-  .floating-btn:hover {
-    transform: scale(1.05);
-  }
-  .floating-btn svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-  }
-  .btn-whatsapp {
-    background: #25D366;
-  }
-  .btn-whatsapp:hover {
-    background: #1da851;
-  }
-  .btn-text-float {
-    background: #a40e0e;
-  }
-  .btn-text-float:hover {
-    background: #cc1111;
-  }
-  @media (max-width: 480px) {
-    .floating-btn {
-      padding: 8px 14px;
-      font-size: 12px;
-    }
-    .floating-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-  }
+  .floating-container{position:fixed;bottom:20px;left:0;right:0;z-index:9999;display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
+  .floating-container a,.floating-container button{pointer-events:auto}
+  .floating-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:600;color:#fff;border:none;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.25)}
+  .floating-btn:hover{transform:scale(1.05)}
+  .floating-btn svg{width:20px;height:20px;fill:currentColor}
+  .btn-whatsapp{background:#25D366}
+  .btn-whatsapp:hover{background:#1da851}
+  .btn-text-float{background:#a40e0e}
+  .btn-text-float:hover{background:#cc1111}
+  @media(max-width:480px){.floating-btn{padding:8px 14px;font-size:12px}.floating-btn svg{width:16px;height:16px}}
   </style>
 
   <div class="floating-container">
@@ -712,13 +570,11 @@
 
   <!-- SCRIPTS -->
   <script>
-    // MENU HAMBURGUER
     document.getElementById('menuToggle').addEventListener('click', function() {
       this.classList.toggle('active');
       document.getElementById('navMenu').classList.toggle('open');
     });
 
-    // MODAIS (fechar ao clicar fora)
     document.querySelectorAll('.modal, .text-modal').forEach(modal => {
       modal.addEventListener('click', function(e) {
         if (e.target === this) {
@@ -727,7 +583,6 @@
       });
     });
 
-    // FUNÇÃO COPIAR PIX
     function copiarChavePix() {
       const chave = 'xtreambr@gmail.com';
       navigator.clipboard.writeText(chave).then(() => {
@@ -737,7 +592,6 @@
       });
     }
 
-    // FUNÇÃO ENVIAR MENSAGEM (TEXTO)
     function sendTextMessage(event) {
       event.preventDefault();
       const name = document.getElementById('textName').value;
@@ -749,7 +603,6 @@
       window.open(url, '_blank');
     }
 
-    // ===== CARROSSEL AUTOMÁTICO =====
     let slideAtual = 0;
     const slides = document.querySelectorAll('.carrossel-slide');
     const indicadores = document.querySelectorAll('.indicador');
@@ -787,4 +640,4 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </body>
-                  </html>
+                                             </html>
