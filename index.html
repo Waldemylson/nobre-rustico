@@ -578,21 +578,29 @@
       <button class="close-btn" onclick="fecharModal('pixModal')">&times;</button>
       <h3>Pagamento via PIX</h3>
       <p>Escaneie ou copie a chave PIX abaixo para concluir sua compra:</p>
-      <div class="pix-key" id="pixKeyText">SUA_CHAVE_PIX_AQUI</div>
+      <div class="pix-key" id="pixKeyText">xtreambr@gmail.com</div>
       <button class="copy-btn" onclick="copiarPix()">Copiar Chave PIX</button>
     </div>
   </div>
 
   <!-- MODAL CARTÃO -->
-  <div class="modal" id="cartaoModal">
+    <div class="modal" id="cartaoModal">
     <div class="modal-content">
-      <button class="close-btn" onclick="fecharModal('cartaoModal')">&times;</button>
-      <h3>Opções de Cartão</h3>
+      <button class="close-btn" onclick="document.getElementById('cartaoModal').classList.remove('open')">&times;</button>
+      <h3><i class="fas fa-credit-card" style="color:#a40e0e;"></i> Pagamento com Cartão</h3>
+      <p>Selecione a forma de pagamento:</p>
       <div class="cartao-options">
-        <label><input type="radio" name="parcela" checked> Cartão de Crédito à vista</label>
-        <label><input type="radio" name="parcela"> Parcelado em até 12x</label>
+        <label>
+          <input type="radio" name="pagamento" value="credito" checked>
+          <span><strong>Cartão de Crédito</strong> <small>(até 12x c/juros)</small></span>
+        </label>
+        <label>
+          <input type="radio" name="pagamento" value="debito">
+          <span><strong>Cartão de Débito</strong> <small>(à vista)</small></span>
+        </label>
       </div>
-      <button class="btn" onclick="alert('Redirecionando para o checkout seguro...'); fecharModal('cartaoModal');">Continuar</button>
+      <button class="btn" style="width:100%;" onclick="alert('Redirecionando para pagamento...')">Continuar</button>
+      <p style="font-size:12px;color:#888;margin-top:10px;">Pagamento seguro processado por nosso parceiro.</p>
     </div>
   </div>
 
@@ -766,4 +774,4 @@
   </script>
 
 </body>
-  </html>
+            </html>
