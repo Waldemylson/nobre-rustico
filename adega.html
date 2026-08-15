@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#a40e0e">
-  <link rel="canonical" href="https://rusticonobre.com.br/">
+  <link rel="canonical" href="https://rusticonobre.com.br/adega.html">
   <title>Adegas - Nobre Rústico</title>
   <meta name="description" content="Adegas rústicas e planejadas da Nobre Rústico.">
 
@@ -50,7 +50,7 @@
     .announcement{background:#fc0000;color:#fff;text-align:center;padding:10px 0;font-weight:700}
     .announcement a{color:#fff;text-decoration:none}
     
-    /* ===== CARROSSEL ===== */
+    /* ===== CARROSSEL TOPO ===== */
     .banner-carrossel{position:relative;width:100%;overflow:hidden;margin-bottom:30px}
     .carrossel-container{position:relative;width:100%}
     .carrossel-slides{display:flex;width:100%;height:500px}
@@ -61,40 +61,55 @@
     .carrossel-texto h2{font-size:42px;font-weight:700;margin:0 0 8px 0;letter-spacing:1px}
     .carrossel-texto h2 strong{color:#ff6b35}
     .carrossel-texto p{font-size:20px;margin:0;font-weight:400}
-    .carrossel-texto .btn{display:none}
     .carrossel-indicadores{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10}
     .carrossel-indicadores .indicador{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:0.3s}
     .carrossel-indicadores .indicador.ativo{background:#a40e0e}
     .carrossel-indicadores .indicador:hover{background:#a40e0e}
-    @media(max-width:768px){.carrossel-slides{height:400px}.carrossel-texto h2{font-size:28px}.carrossel-texto p{font-size:16px}.carrossel-texto{bottom:40px}}
-    @media(max-width:480px){.carrossel-slides{height:350px}.carrossel-texto h2{font-size:22px}.carrossel-texto p{font-size:14px}.carrossel-texto{bottom:30px}}
     
+    /* ===== CARD DE PRODUTOS ===== */
     .section-title{display:flex;justify-content:space-between;align-items:center;margin:30px 0 18px;border-bottom:2px solid #e8e0d8;padding-bottom:8px}
     .section-title h3{font-size:22px;font-weight:300;color:#2c1810}
     .section-title h3 strong{font-weight:700}
     .section-title a{color:#a40e0e;font-size:13px;font-weight:600;text-decoration:none}
-    .section-title a:hover{color:#2c1810}
     
     .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
     .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
     .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .product-image img{width:100%;height:100%;object-fit:cover}
-    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase}
+    
+    /* Imagem do Card LIMPA */
+    .product-image-box{width:100%;height:200px;background:#e8e0d8;position:relative;overflow:hidden;cursor:pointer}
+    .product-image-box img{width:100%;height:100%;object-fit:contain;display:block}
+    .product-image-box .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase;z-index:2}
+    
     .product-info{padding:10px 12px 6px;flex:1}
     .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
     .product-dimensao{font-size:11px;color:#777;margin:2px 0 4px 0;line-height:1.3}
     .product-price{font-size:17px;font-weight:700;color:#2c1810}
-    .product-price .from{font-size:12px;font-weight:400;color:#888}
     .product-old-price{font-size:13px;color:#999;text-decoration:line-through;margin-left:6px;font-weight:400}
     
     .product-footer{display:flex;justify-content:space-between;align-items:center;padding:6px 12px 12px;gap:5px}
     .btn-left{display:inline-flex;align-items:center;gap:4px;background:#2c1810;color:#fff;padding:6px 12px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:600;border:none;cursor:pointer;transition:0.3s}
     .btn-left:hover{background:#4a3228}
-    .btn-left i{font-size:11px}
     .btn-right{display:inline-flex;align-items:center;gap:4px;background:#a40e0e;color:#fff;padding:6px 12px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer;transition:0.3s}
     .btn-right:hover{background:#cc1111}
-    .btn-right i{font-size:11px}
+    
+    /* ===== MODAL DE IMAGEM AMPLIADA (COM SETAS E TOUCH) ===== */
+    .image-lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:20000;align-items:center;justify-content:center;touch-action:pan-y}
+    .image-lightbox.open{display:flex}
+    .lightbox-content{position:relative;width:100%;max-width:800px;height:85vh;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none}
+    
+    .lightbox-wrapper{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+    .lightbox-content img{max-width:90%;max-height:75vh;object-fit:contain;border-radius:4px;pointer-events:none}
+    
+    .lightbox-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#fff;border:none;width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;transition:0.3s;z-index:20002}
+    .lightbox-btn:hover{background:#a40e0e}
+    .lightbox-btn.prev{left:15px}
+    .lightbox-btn.next{right:15px}
+    
+    .lightbox-close{position:absolute;top:15px;right:20px;background:rgba(0,0,0,0.5);border:none;color:#fff;font-size:28px;width:40px;height:40px;border-radius:50%;cursor:pointer;z-index:20003;display:flex;align-items:center;justify-content:center}
+    .lightbox-dots{display:flex;gap:8px;margin-top:15px}
+    .lightbox-dots .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer}
+    .lightbox-dots .dot.active{background:#a40e0e}
     
     .testimonials{background:#fff;padding:35px 0;margin:25px 0;border-top:2px solid #e8e0d8;border-bottom:2px solid #e8e0d8}
     .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
@@ -111,51 +126,44 @@
     .footer .social a{display:inline-block;margin-right:12px;font-size:18px}
     .footer-bottom{text-align:center;font-size:12px;color:#666}
     
-    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
-    .modal.open{display:flex}
-    .modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;text-align:center}
-    .modal-content .close-btn{position:absolute;top:12px;right:16px;font-size:24px;background:none;border:none;cursor:pointer;color:#999;transition:0.3s}
-    .modal-content .close-btn:hover{color:#333}
-    .modal-content h3{color:#2c1810;margin-top:0;margin-bottom:10px;font-size:20px}
-    .modal-content .pix-key{background:#f5f0eb;padding:15px;border-radius:8px;font-size:18px;font-weight:700;color:#00875A;word-break:break-all;margin:15px 0}
-    .modal-content .copy-btn{background:#00875A;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:0.3s}
-    .modal-content .copy-btn:hover{background:#00A86B}
+    .modal,.text-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
+    .modal.open,.text-modal.open{display:flex}
+    .modal-content,.text-modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;text-align:center}
+    .close-btn{position:absolute;top:12px;right:16px;font-size:24px;background:none;border:none;cursor:pointer;color:#999;transition:0.3s}
+    .pix-key{background:#f5f0eb;padding:15px;border-radius:8px;font-size:18px;font-weight:700;color:#00875A;word-break:break-all;margin:15px 0}
+    .copy-btn{background:#00875A;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:0.3s}
     
     .cartao-options{display:flex;flex-direction:column;gap:10px;margin:15px 0;text-align:left}
     .cartao-options label{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #ddd;border-radius:6px;cursor:pointer;transition:0.3s}
-    .cartao-options label:hover{background:#f5f0eb}
     .cartao-options input[type="radio"]{accent-color:#a40e0e;width:18px;height:18px}
     
-    .text-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
-    .text-modal.open{display:flex}
-    .text-modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto}
-    .text-modal-content .close-btn{position:absolute;top:12px;right:16px;font-size:24px;background:none;border:none;cursor:pointer;color:#999;transition:0.3s}
-    .text-modal-content .close-btn:hover{color:#333}
-    .text-modal-content h3{color:#2c1810;margin-top:0;margin-bottom:5px;font-size:20px}
-    .text-modal-content .sub{color:#666;font-size:14px;margin-bottom:20px}
-    .text-modal-content label{display:block;font-weight:600;font-size:14px;color:#333;margin-bottom:4px}
+    .text-modal-content label{display:block;font-weight:600;font-size:14px;color:#333;margin-bottom:4px;text-align:left}
     .text-modal-content input,.text-modal-content textarea{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:6px;font-size:14px;margin-bottom:14px;box-sizing:border-box;font-family:Arial,sans-serif}
     .text-modal-content textarea{height:80px;resize:vertical}
     .text-modal-content .send-btn{width:100%;padding:12px;background:#a40e0e;color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;transition:0.3s}
-    .text-modal-content .send-btn:hover{background:#cc1111}
-    .text-modal-content .legal{font-size:11px;color:#888;line-height:1.5;margin-top:14px;text-align:center}
-    .text-modal-content .powered{text-align:center;font-size:12px;color:#aaa;margin-top:8px}
     
     @media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.banner h2{font-size:24px}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:10px;padding:6px 8px}}
-    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr !important;gap:10px}.product-image{height:150px}.product-name{font-size:12px}.product-price{font-size:15px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.banner h2{font-size:20px}.banner .btn{padding:10px 25px;font-size:12px}.modal-content,.text-modal-content{padding:20px}}
-    
-    @media (max-width: 768px) {
-        .header-logo img { height: 50px; }
-        .logo { font-size: 22px; }
-        .logo small { font-size: 9px; }
-        .header-logo { gap: 8px; }
+    @media(max-width:768px){
+      .top-bar .container{flex-direction:column;text-align:center;gap:5px}
+      .product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}
+      .testimonial-grid{grid-template-columns:1fr;gap:20px}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .carrossel-slides{height:400px}.carrossel-texto h2{font-size:28px}.carrossel-texto p{font-size:16px}.carrossel-texto{bottom:40px}
+      .header-logo img { height: 50px; }
+      .logo { font-size: 22px; }
+      .lightbox-btn{width:40px;height:40px;font-size:16px}
+      .lightbox-btn.prev{left:5px}
+      .lightbox-btn.next{right:5px}
     }
-    @media (max-width: 480px) {
-        .header-logo img { height: 40px; }
-        .logo { font-size: 18px; }
-        .logo small { font-size: 8px; letter-spacing: 1px; }
-        .header-logo { gap: 6px; }
+    @media(max-width:480px){
+      .product-grid{grid-template-columns:1fr 1fr !important;gap:10px}
+      .product-image-box{height:150px}
+      .product-name{font-size:12px}
+      .product-price{font-size:15px}
+      .footer-grid{grid-template-columns:1fr;text-align:center}
+      .carrossel-slides{height:350px}.carrossel-texto h2{font-size:22px}.carrossel-texto p{font-size:14px}.carrossel-texto{bottom:30px}
+      .header-logo img { height: 40px; }
+      .logo { font-size: 18px; }
     }
   </style>
 </head>
@@ -177,7 +185,7 @@
   </div>
   
   <!-- ANÚNCIO -->
-  <a href="entrega.html" class="announcement" style="display:block; background:#fc0000; color:#fff; text-align:center; padding:10px 0; font-weight:700; text-decoration:none; transition:0.3s;" onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#fc0000'">
+  <a href="entrega.html" class="announcement" style="display:block; background:#fc0000; color:#fff; text-align:center; padding:10px 0; font-weight:700; text-decoration:none;">
     🎉 Entrega em toda Castanhal e região! Clique aqui para mais detalhes!
   </a>
 
@@ -204,71 +212,65 @@
     </div>
   </header>
 
-<!-- MENU CORRIGIDO -->
-<nav class="nav-menu" id="navMenu">
-  <ul>
-    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
-    <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
-    <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
-    <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
-    <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
-    <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
-    <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
-    <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
-    <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
-    <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
-    <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
-    <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
-    <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
-    <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
-    <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
-    <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
-    <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
-      </ul>
-</nav>
+  <!-- MENU -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
+      <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
+      <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
+      <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
+      <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
+      <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
+      <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
+      <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
+      <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
+      <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
+      <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
+      <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
+      <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
+      <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
+      <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
+      <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
+    </ul>
+  </nav>
 
-  <!-- ===== CARROSSEL COM 5 SLIDES ===== -->
+  <!-- CARROSSEL TOPO -->
   <section class="banner-carrossel">
     <div class="carrossel-container">
       <div class="carrossel-slides">
-
-        <!-- Slide 1 -->
         <div class="carrossel-slide active">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
           <div class="carrossel-texto">
-            <h2>TAPETES PREMIUM  <strong>PELE NATURAL</strong></h2>
+            <h2>TAPETES PREMIUM <strong>PELE NATURAL</strong></h2>
             <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
           </div>
         </div>
 
-        <!-- Slide 2 -->
         <div class="carrossel-slide">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
           <div class="carrossel-texto">
-            <h2>BOI MIJA PINHA<strong>TUNEL CACHAÇA</strong></h2>
+            <h2>BOI MIJA PINHA <strong>TUNEL CACHAÇA</strong></h2>
             <p>Peças exclusivas capacidade 2 litros</p>
           </div>
         </div>
 
-        <!-- Slide 3 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Ladrilho">
           <div class="carrossel-texto">
             <h2>LADRÍLIO <strong>HIDRÁULICO</strong></h2>
             <p>Para pisos /paredes/móveis demoliçao</p>
           </div>
         </div>
 
-        <!-- Slide 4 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg" alt="Planejados">
           <div class="carrossel-texto">
             <h2>MÓVEIS <strong>PLANEJADOS</strong></h2>
             <p>Sob medida para o seu espaço</p>
           </div>
         </div>
 
-        <!-- Slide 5 -->
         <div class="carrossel-slide">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
           <div class="carrossel-texto">
@@ -276,10 +278,8 @@
             <p>Peças exclusivas para sua decoração</p>
           </div>
         </div>
-
       </div>
 
-      <!-- Bolinhas de navegação (5) -->
       <div class="carrossel-indicadores">
         <span class="indicador ativo" onclick="mudarSlide(0)"></span>
         <span class="indicador" onclick="mudarSlide(1)"></span>
@@ -294,19 +294,25 @@
   <div class="container">
     <div class="section-title">
       <h3>Nossa coleção de <strong>Adegas</strong></h3>
-      <a href="adega.html">Página 1 →</a>
+      <a href="adega.html"></a>
     </div>
 
     <div class="product-grid">
+
       <!-- PRODUTO 1 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega1.webp" alt="Armário Adega Rústico Arbane em Madeira de Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Adega4.webp'
+        ])">
           <span class="badge">DESTAQUE</span>
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega1.webp" alt="Armário Adega">
         </div>
         <div class="product-info">
           <div class="product-name">Armário Adega Rústico Arbane em Madeira de Demolição</div>
-          <div class="product-dimensao">📏 0,85m (C) x 1,90m (A) x 0,50m (P) | Parte superior: 0,25m</div>
+          <div class="product-dimensao">📏 0,85m (C) x 1,90m (A) x 0,50m (P)</div>
           <div class="product-price">R$ 3.519,00 <span class="product-old-price">R$ 3.900,00</span></div>
         </div>
         <div class="product-footer">
@@ -317,8 +323,13 @@
 
       <!-- PRODUTO 2 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega2.webp" alt="Adega Livorno Em Madeira De Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Adega4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega5.webp'
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega2.webp" alt="Adega Livorno">
         </div>
         <div class="product-info">
           <div class="product-name">Adega Livorno Em Madeira De Demolição</div>
@@ -333,9 +344,14 @@
 
       <!-- PRODUTO 3 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega3.webp" alt="Adega Álamos Em Madeira De Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Adega4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega6.webp'
+        ])">
           <span class="badge">PROMOÇÃO</span>
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega3.webp" alt="Adega Álamos">
         </div>
         <div class="product-info">
           <div class="product-name">Adega Álamos Em Madeira De Demolição</div>
@@ -350,8 +366,13 @@
 
       <!-- PRODUTO 4 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Adega4.webp" alt="Adega Rústica Valência Em Madeira De Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Adega4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega7.webp'
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Adega4.webp" alt="Adega Valência">
         </div>
         <div class="product-info">
           <div class="product-name">Adega Rústica Valência Em Madeira De Demolição</div>
@@ -366,9 +387,14 @@
 
       <!-- PRODUTO 5 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega5.webp" alt="Adega Pérgola Em Madeira De Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega8.webp'
+        ])">
           <span class="badge">DESTAQUE</span>
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega5.webp" alt="Adega Pérgola">
         </div>
         <div class="product-info">
           <div class="product-name">Adega Pérgola Em Madeira De Demolição</div>
@@ -383,8 +409,13 @@
 
       <!-- PRODUTO 6 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega6.webp" alt="Bar Rústico Merlot Em Madeira De Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega9.webp'
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega6.webp" alt="Bar Merlot">
         </div>
         <div class="product-info">
           <div class="product-name">Bar Rústico Merlot Em Madeira De Demolição</div>
@@ -399,9 +430,14 @@
 
       <!-- PRODUTO 7 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega7.webp" alt="Adega Álamos Em Madeira De Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega10.webp'
+        ])">
           <span class="badge">DESTAQUE</span>
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega7.webp" alt="Adega Álamos">
         </div>
         <div class="product-info">
           <div class="product-name">Adega Álamos Em Madeira De Demolição</div>
@@ -416,8 +452,13 @@
 
       <!-- PRODUTO 8 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega8.webp" alt="Bar Rústico Grigio Em Madeira De Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega1.webp'
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega8.webp" alt="Bar Grigio">
         </div>
         <div class="product-info">
           <div class="product-name">Bar Rústico Grigio Em Madeira De Demolição</div>
@@ -432,9 +473,14 @@
 
       <!-- PRODUTO 9 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega9.webp" alt="Aparador Nápoles Com Adega Em Madeira De Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega2.webp'
+        ])">
           <span class="badge">PROMOÇÃO</span>
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega9.webp" alt="Aparador Nápoles">
         </div>
         <div class="product-info">
           <div class="product-name">Aparador Nápoles Com Adega Em Madeira De Demolição</div>
@@ -449,9 +495,14 @@
 
       <!-- PRODUTO 10 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega10.webp" alt="Armário Rústico Alonso Com Adega em Madeira de Demolição" style="object-fit:contain;">
+        <div class="product-image-box" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega3.webp'
+        ])">
           <span class="badge">DESTAQUE</span>
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/adega10.webp" alt="Armário Alonso">
         </div>
         <div class="product-info">
           <div class="product-name">Armário Rústico Alonso Com Adega em Madeira de Demolição</div>
@@ -463,9 +514,10 @@
           <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
         </div>
       </div>
+
     </div>
 
-    <!-- PAGINAÇÃO - PÁGINA 1 -->
+    <!-- PAGINAÇÃO -->
     <div style="text-align:center; margin:40px 0; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
       <span style="background:#ccc; color:#999; padding:8px 16px; border-radius:4px; font-weight:600; cursor:default;">← Anterior</span>
       <span style="background:#a40e0e; color:#fff; padding:8px 16px; border-radius:4px; font-weight:700;">1</span>
@@ -474,12 +526,25 @@
     </div>
   </div>
 
+  <!-- LIGHTBOX PARA VER IMAGENS MAIORES (COM SETAS E TOUCH/GESTO) -->
+  <div class="image-lightbox" id="imageLightbox">
+    <button class="lightbox-close" onclick="fecharGaleria()">&times;</button>
+    
+    <div class="lightbox-content">
+      <div class="lightbox-wrapper" id="lightboxWrapper">
+        <button class="lightbox-btn prev" onclick="mudarFotoGaleria(-1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <img id="lightboxImg" src="" alt="Imagem Ampliada">
+        <button class="lightbox-btn next" onclick="mudarFotoGaleria(1)" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="lightbox-dots" id="lightboxDots"></div>
+    </div>
+  </div>
+
   <!-- DEPOIMENTOS -->
   <section class="testimonials">
     <div class="container">
       <div class="section-title">
         <h3>O que nossos <strong>clientes dizem</strong></h3>
-        <a href="#">Ver todos →</a>
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-item">
@@ -520,7 +585,7 @@
         <div>
           <h4>Links</h4>
           <a href="sobre-nos.html">Sobre Nós</a>
-          <a href="entrega.html">Entregas</>
+          <a href="entrega.html">Entregas</a>
         </div>
         <div>
           <h4>Redes Sociais</h4>
@@ -599,7 +664,7 @@
     <div class="text-modal-content">
       <button class="close-btn" onclick="document.getElementById('textModal').classList.remove('open')">&times;</button>
       <h3>Envie uma mensagem</h3>
-      <p class="sub">Preencha seus dados e nossa equipe responderá em breve.</p>
+      <p class="sub" style="color:#666;font-size:14px;margin-bottom:20px;">Preencha seus dados e nossa equipe responderá em breve.</p>
       <form id="textForm" onsubmit="sendTextMessage(event)">
         <label for="textName">Nome</label>
         <input type="text" id="textName" placeholder="Seu nome completo" required>
@@ -609,8 +674,6 @@
         <textarea id="textMessage" placeholder="Escreva sua mensagem aqui..." required></textarea>
         <button type="submit" class="send-btn">Enviar</button>
       </form>
-      <p class="legal">Ao clicar em enviar, você autoriza a Nobre Rústico a enviar mensagens para o número informado para fins informativos. Mensagens e dados podem ser cobrados. Digite AJUDA para ajuda e SAIR para cancelar.</p>
-      <p class="powered">Site com envio de texto</p>
     </div>
   </div>
 
@@ -649,19 +712,15 @@
       window.open(url, '_blank');
     }
 
-    // ===== CARROSSEL AUTOMÁTICO =====
+    /* CARROSSEL PRINCIPAL DO TOPO */
     let slideAtual = 0;
     const slides = document.querySelectorAll('.carrossel-slide');
     const indicadores = document.querySelectorAll('.indicador');
     let intervalo;
 
     function mostrarSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      indicadores.forEach((ind, i) => {
-        ind.classList.toggle('ativo', i === index);
-      });
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      indicadores.forEach((ind, i) => ind.classList.toggle('ativo', i === index));
       slideAtual = index;
     }
 
@@ -672,8 +731,7 @@
     }
 
     function proximoSlide() {
-      const proximo = (slideAtual + 1) % slides.length;
-      mostrarSlide(proximo);
+      mostrarSlide((slideAtual + 1) % slides.length);
     }
 
     function iniciarAutoSlide() {
@@ -682,9 +740,91 @@
 
     mostrarSlide(0);
     iniciarAutoSlide();
+
+    /* GERENCIADOR DA GALERIA / LIGHTBOX (COM TOUCH/SWIPE E SETAS) */
+    let fotosAtuais = [];
+    let fotoIndexAtual = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function abrirGaleria(listaFotos) {
+      fotosAtuais = listaFotos;
+      fotoIndexAtual = 0;
+      atualizarGaleria();
+      document.getElementById('imageLightbox').classList.add('open');
+    }
+
+    function fecharGaleria() {
+      document.getElementById('imageLightbox').classList.remove('open');
+    }
+
+    function mudarFotoGaleria(direcao) {
+      fotoIndexAtual += direcao;
+      if (fotoIndexAtual >= fotosAtuais.length) fotoIndexAtual = 0;
+      if (fotoIndexAtual < 0) fotoIndexAtual = fotosAtuais.length - 1;
+      atualizarGaleria();
+    }
+
+    function irParaFotoGaleria(index) {
+      fotoIndexAtual = index;
+      atualizarGaleria();
+    }
+
+    function atualizarGaleria() {
+      const imgElem = document.getElementById('lightboxImg');
+      const dotsElem = document.getElementById('lightboxDots');
+      
+      imgElem.src = fotosAtuais[fotoIndexAtual];
+      
+      dotsElem.innerHTML = '';
+      fotosAtuais.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot' + (i === fotoIndexAtual ? ' active' : '');
+        dot.onclick = () => irParaFotoGaleria(i);
+        dotsElem.appendChild(dot);
+      });
+    }
+
+    /* DETECÇÃO DE GESTOS COM O DEDO (SWIPE) */
+    const lightboxEl = document.getElementById('imageLightbox');
+
+    lightboxEl.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    lightboxEl.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      tratarGestoSwipe();
+    }, false);
+
+    function tratarGestoSwipe() {
+      const diferenca = touchEndX - touchStartX;
+      if (Math.abs(diferenca) > 50) { // Sensibilidade do deslize
+        if (diferenca < 0) {
+          mudarFotoGaleria(1); // Deslizou para esquerda -> próxima foto
+        } else {
+          mudarFotoGaleria(-1); // Deslizou para direita -> foto anterior
+        }
+      }
+    }
+
+    /* FECHAR AO CLICAR FORA */
+    lightboxEl.addEventListener('click', function(e) {
+      if (e.target === this) {
+        fecharGaleria();
+      }
+    });
+
+    /* NAVEGAÇÃO POR TECLADO (SETAS ESQUERDA/DIREITA E ESC) */
+    document.addEventListener('keydown', function(e) {
+      if (lightboxEl.classList.contains('open')) {
+        if (e.key === 'ArrowRight') mudarFotoGaleria(1);
+        if (e.key === 'ArrowLeft') mudarFotoGaleria(-1);
+        if (e.key === 'Escape') fecharGaleria();
+      }
+    });
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </body>
-  </html>
+</html>
