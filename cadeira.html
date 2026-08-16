@@ -2,7 +2,7 @@
 <html class="js" lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content=" baseline,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#a40e0e">
   <link rel="canonical" href="https://rusticonobre.com.br/">
@@ -50,23 +50,21 @@
     .announcement{background:#fc0000;color:#fff;text-align:center;padding:10px 0;font-weight:700}
     .announcement a{color:#fff;text-decoration:none}
     
-    /* ===== CARROSSEL ===== */
+    /* ===== CARROSSEL PRINCIPAL LIMPO ===== */
     .banner-carrossel{position:relative;width:100%;overflow:hidden;margin-bottom:30px}
     .carrossel-container{position:relative;width:100%}
     .carrossel-slides{display:flex;width:100%;height:500px}
-    .carrossel-slide{flex:0 0 100%;height:100%;position:relative;display:none;align-items:center;justify-content:center}
+    .carrossel-slide{flex:0 0 100%;height:100%;position:relative;display:none;align-items:center;justify-content:center;cursor:pointer}
     .carrossel-slide.active{display:flex}
-    .carrossel-slide img{width:100%;height:100%;object-fit:cover}
-    .carrossel-texto{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;text-shadow:0 2px 15px rgba(0,0,0,0.9);width:90%;max-width:700px;padding:0;background:transparent;border-radius:0}
-    .carrossel-texto h2{font-size:42px;font-weight:700;margin:0 0 8px 0;letter-spacing:1px}
-    .carrossel-texto h2 strong{color:#ff6b35}
-    .carrossel-texto p{font-size:20px;margin:0;font-weight:400}
+    .carrossel-slide img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
+    .carrossel-slide:hover img{transform:scale(1.02)}
+    
     .carrossel-indicadores{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10}
     .carrossel-indicadores .indicador{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:0.3s}
     .carrossel-indicadores .indicador.ativo{background:#a40e0e}
     .carrossel-indicadores .indicador:hover{background:#a40e0e}
-    @media(max-width:768px){.carrossel-slides{height:400px}.carrossel-texto h2{font-size:28px}.carrossel-texto p{font-size:16px}.carrossel-texto{bottom:40px}}
-    @media(max-width:480px){.carrossel-slides{height:350px}.carrossel-texto h2{font-size:22px}.carrossel-texto p{font-size:14px}.carrossel-texto{bottom:30px}}
+    @media(max-width:768px){.carrossel-slides{height:400px}}
+    @media(max-width:480px){.carrossel-slides{height:350px}}
     
     .section-title{display:flex;justify-content:space-between;align-items:center;margin:30px 0 18px;border-bottom:2px solid #e8e0d8;padding-bottom:8px}
     .section-title h3{font-size:22px;font-weight:300;color:#2c1810}
@@ -108,13 +106,24 @@
     .footer .social a{display:inline-block;margin-right:12px;font-size:18px}
     .footer-bottom{text-align:center;font-size:12px;color:#666}
     
-    /* MODAL DE IMAGEM AMPLIADA */
-    .image-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:10000;align-items:center;justify-content:center;padding:20px}
+    /* ===== LIGHTBOX / MODAL DE GALERIA ===== */
+    .image-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:10000;align-items:center;justify-content:center;touch-action:pan-y}
     .image-modal.open{display:flex}
-    .image-modal-content{position:relative;max-width:800px;width:100%;text-align:center}
-    .image-modal-content img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-    .image-modal-content .close-btn{position:absolute;top:-45px;right:0;font-size:32px;background:none;border:none;cursor:pointer;color:#fff;transition:0.3s}
-    .image-modal-content .close-btn:hover{color:#a40e0e}
+    .image-modal-content{position:relative;max-width:90%;max-height:85vh;display:flex;align-items:center;justify-content:center}
+    .image-modal-content img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,0.8);user-select:none;-webkit-user-drag:none}
+    
+    /* Botões do Lightbox */
+    .modal-close-btn{position:absolute;top:20px;right:25px;font-size:35px;background:none;border:none;color:#fff;cursor:pointer;z-index:10002;transition:0.3s}
+    .modal-close-btn:hover{color:#a40e0e}
+    .modal-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;font-size:24px;padding:15px 12px;cursor:pointer;z-index:10001;border-radius:4px;transition:0.3s}
+    .modal-nav-btn:hover{background:rgba(164,14,14,0.8)}
+    .modal-nav-prev{left:15px}
+    .modal-nav-next{right:15px}
+    
+    /* Dots do Lightbox */
+    .modal-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10001}
+    .modal-dots .dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:0.3s}
+    .modal-dots .dot.active{background:#a40e0e;transform:scale(1.2)}
 
     .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
     .modal.open{display:flex}
@@ -232,44 +241,24 @@
     </ul>
   </nav>
 
-  <!-- CARROSSEL -->
+  <!-- CARROSSEL PRINCIPAL LIMPO -->
   <section class="banner-carrossel">
     <div class="carrossel-container">
       <div class="carrossel-slides">
-        <div class="carrossel-slide active">
+        <div class="carrossel-slide active" onclick="abrirGaleriaMain(0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
-          <div class="carrossel-texto">
-            <h2>TAPETES PREMIUM  <strong>PELE NATURAL</strong></h2>
-            <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
-          </div>
         </div>
-        <div class="carrossel-slide">
+        <div class="carrossel-slide" onclick="abrirGaleriaMain(1)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
-          <div class="carrossel-texto">
-            <h2>BOI MIJA PINHA<strong>TUNEL CACHAÇA</strong></h2>
-            <p>Peças exclusivas capacidade 2 litros</p>
-          </div>
         </div>
-        <div class="carrossel-slide">
+        <div class="carrossel-slide" onclick="abrirGaleriaMain(2)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato">
-          <div class="carrossel-texto">
-            <h2>LADRÍLIO <strong>HIDRÁULICO</strong></h2>
-            <p>Para pisos /paredes/móveis demoliçao</p>
-          </div>
         </div>
-        <div class="carrossel-slide">
+        <div class="carrossel-slide" onclick="abrirGaleriaMain(3)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg" alt="Móveis Planejados">
-          <div class="carrossel-texto">
-            <h2>MÓVEIS <strong>PLANEJADOS</strong></h2>
-            <p>Sob medida para o seu espaço</p>
-          </div>
         </div>
-        <div class="carrossel-slide">
+        <div class="carrossel-slide" onclick="abrirGaleriaMain(4)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
-          <div class="carrossel-texto">
-            <h2>APARADORES <strong>RÚSTICOS</strong></h2>
-            <p>Peças exclusivas para sua decoração</p>
-          </div>
         </div>
       </div>
       <div class="carrossel-indicadores">
@@ -292,7 +281,12 @@
     <div class="product-grid">
       <!-- PRODUTO 1 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera4.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera1.webp" alt="Cadeira Rústica Mosaic" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -309,7 +303,12 @@
 
       <!-- PRODUTO 2 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera5.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera2.webp" alt="Cadeira Rústica Fiori" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -325,7 +324,12 @@
 
       <!-- PRODUTO 3 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera6.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera3.webp" alt="Cadeira Rústica Florença" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -342,7 +346,12 @@
 
       <!-- PRODUTO 4 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera7.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera4.webp" alt="Cadeira Rústica Dandara" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -358,7 +367,12 @@
 
       <!-- PRODUTO 5 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera8.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera5.webp" alt="Cadeira Rústica Flávia" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -375,7 +389,12 @@
 
       <!-- PRODUTO 6 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera9.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera6.webp" alt="Cadeira Rústica Arco-Íris" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -391,7 +410,12 @@
 
       <!-- PRODUTO 7 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera11.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera7.webp" alt="Cadeira Rústica Charmeaut" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -408,7 +432,12 @@
 
       <!-- PRODUTO 8 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera11.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera1.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera8.webp" alt="Cadeira Rústica Miami" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -424,7 +453,12 @@
 
       <!-- PRODUTO 9 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera11.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera2.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera9.webp" alt="Cadeira Miley Rústica" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -441,7 +475,12 @@
 
       <!-- PRODUTO 11 -->
       <div class="product-card">
-        <div class="product-image" onclick="ampliarImagem(this)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera11.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera3.webp'
+        ])">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cadera11.webp" alt="Cadeira Rústica Alpes" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -552,15 +591,18 @@
     </button>
   </div>
 
-  <!-- MODAL DE IMAGEM AMPLIADA -->
+  <!-- LIGHTBOX / MODAL DE GALERIA -->
   <div class="image-modal" id="imageModal">
+    <button class="modal-close-btn" onclick="fecharModalImagem()">&times;</button>
+    <button class="modal-nav-btn modal-nav-prev" onclick="mudarImagemGaleria(-1)">&#10094;</button>
     <div class="image-modal-content">
-      <button class="close-btn" onclick="fecharModalImagem()">&times;</button>
       <img id="modalImg" src="" alt="Imagem Ampliada">
     </div>
+    <button class="modal-nav-btn modal-nav-next" onclick="mudarImagemGaleria(1)">&#10095;</button>
+    <div class="modal-dots" id="modalDots"></div>
   </div>
 
-  <!-- MODAIS -->
+  <!-- OUTROS MODAIS -->
   <div class="modal" id="pixModal">
     <div class="modal-content">
       <button class="close-btn" onclick="document.getElementById('pixModal').classList.remove('open')">&times;</button>
@@ -618,7 +660,7 @@
       document.getElementById('navMenu').classList.toggle('open');
     });
 
-    document.querySelectorAll('.modal, .text-modal, .image-modal').forEach(modal => {
+    document.querySelectorAll('.modal, .text-modal').forEach(modal => {
       modal.addEventListener('click', function(e) {
         if (e.target === this) {
           this.classList.remove('open');
@@ -626,18 +668,103 @@
       });
     });
 
-    function ampliarImagem(elemento) {
-      const img = elemento.querySelector('img');
+    // ===== LIGHTBOX / MODAL DE GALERIA AVANÇADO =====
+    let galeriaAtual = [];
+    let galeriaIndex = 0;
+
+    const bannerImagensMain = [
+      'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg',
+      'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg',
+      'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg',
+      'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg',
+      'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg'
+    ];
+
+    function abrirGaleriaMain(index) {
+      abrirGaleria(bannerImagensMain, index);
+    }
+
+    function abrirGaleria(imagens, index = 0) {
+      galeriaAtual = imagens;
+      galeriaIndex = index;
       const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('modalImg');
-      modalImg.src = img.src;
       modal.classList.add('open');
+      atualizarImagemModal();
     }
 
     function fecharModalImagem() {
       document.getElementById('imageModal').classList.remove('open');
     }
 
+    function mudarImagemGaleria(direcao) {
+      galeriaIndex += direcao;
+      if (galeriaIndex < 0) galeriaIndex = galeriaAtual.length - 1;
+      if (galeriaIndex >= galeriaAtual.length) galeriaIndex = 0;
+      atualizarImagemModal();
+    }
+
+    function irParaImagemGaleria(index) {
+      galeriaIndex = index;
+      atualizarImagemModal();
+    }
+
+    function atualizarImagemModal() {
+      const modalImg = document.getElementById('modalImg');
+      const modalDots = document.getElementById('modalDots');
+      
+      modalImg.src = galeriaAtual[galeriaIndex];
+      modalDots.innerHTML = '';
+      
+      if(galeriaAtual.length > 1) {
+        galeriaAtual.forEach((_, i) => {
+          const dot = document.createElement('span');
+          dot.className = `dot ${i === galeriaIndex ? 'active' : ''}`;
+          dot.onclick = () => irParaImagemGaleria(i);
+          modalDots.appendChild(dot);
+        });
+      }
+    }
+
+    // Suporte a Fechar Clicando fora da imagem
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+      if (e.target === this || e.target.classList.contains('image-modal-content')) {
+        fecharModalImagem();
+      }
+    });
+
+    // ===== GESTOS DE SWIPE (TOQUE PARA DISPOSITIVOS MÓVEIS) =====
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const imageModal = document.getElementById('imageModal');
+
+    imageModal.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    imageModal.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      tratarSwipe();
+    }, false);
+
+    function tratarSwipe() {
+      const limite = 40; // distância mínima de deslize
+      if (touchEndX < touchStartX - limite) {
+        mudarImagemGaleria(1); // Swipe Esquerda -> Próximo
+      }
+      if (touchEndX > touchStartX + limite) {
+        mudarImagemGaleria(-1); // Swipe Direita -> Anterior
+      }
+    }
+
+    // Suporte para teclas do teclado
+    document.addEventListener('keydown', function(e) {
+      if (!imageModal.classList.contains('open')) return;
+      if (e.key === 'Escape') fecharModalImagem();
+      if (e.key === 'ArrowRight') mudarImagemGaleria(1);
+      if (e.key === 'ArrowLeft') mudarImagemGaleria(-1);
+    });
+
+    // PIX & Formulários
     function copiarChavePix() {
       const chave = 'xtreambr@gmail.com';
       navigator.clipboard.writeText(chave).then(() => {
