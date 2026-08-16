@@ -78,9 +78,10 @@
     .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
     .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
     .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .product-image img{width:100%;height:100%;object-fit:cover}
-    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase}
+    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:zoom-in}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease}
+    .product-image:hover img{transform:scale(1.05)}
+    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase;z-index:2}
     .product-info{padding:10px 12px 6px;flex:1}
     .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
     .product-dimensao{font-size:11px;color:#777;margin:2px 0 4px 0;line-height:1.3}
@@ -121,6 +122,15 @@
     .modal-content .copy-btn{background:#00875A;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:0.3s}
     .modal-content .copy-btn:hover{background:#00A86B}
     
+    /* MODAL DE ZOOM DE IMAGEM */
+    .image-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:20000;align-items:center;justify-content:center;padding:20px}
+    .image-modal.open{display:flex}
+    .image-modal-content{position:relative;max-width:90%;max-height:90%;display:flex;flex-direction:column;align-items:center}
+    .image-modal-content img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:4px;box-shadow:0 5px 25px rgba(0,0,0,0.5)}
+    .image-modal-content .close-btn{position:absolute;top:-40px;right:0;font-size:32px;background:none;border:none;cursor:pointer;color:#fff;transition:0.3s}
+    .image-modal-content .close-btn:hover{color:#a40e0e}
+    .image-modal-caption{color:#fff;margin-top:15px;font-size:16px;text-align:center;font-weight:600}
+
     .cartao-options{display:flex;flex-direction:column;gap:10px;margin:15px 0;text-align:left}
     .cartao-options label{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #ddd;border-radius:6px;cursor:pointer;transition:0.3s}
     .cartao-options label:hover{background:#f5f0eb}
@@ -300,7 +310,7 @@
     <div class="product-grid">
       <!-- PRODUTO 1 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama1.webp', 'Cama De Casal Rústica Agnela em Madeira de Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama1.webp" alt="Cama De Casal Rústica Agnela em Madeira de Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -317,7 +327,7 @@
 
       <!-- PRODUTO 2 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama12.webp', 'Cama De Casal Loryn Em Madeira De Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama12.webp" alt="Cama De Casal Loryn Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -333,7 +343,7 @@
 
       <!-- PRODUTO 3 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama3.webp', 'Cama De Casal Carlton Em Madeira De Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama3.webp" alt="Cama De Casal Carlton Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -350,7 +360,7 @@
 
       <!-- PRODUTO 5 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama5.webp', 'Beliche Home Em Madeira De Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama5.webp" alt="Beliche Home Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -367,7 +377,7 @@
 
       <!-- PRODUTO 6 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama6.webp', 'Sofá Cama Saul Em Madeira De Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama6.webp" alt="Sofá Cama Saul Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -384,12 +394,12 @@
 
       <!-- PRODUTO 7 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama13.webp', 'Cama De Casal Medina Em Madeira De Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama13.webp" alt="Cama De Casal Medina Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Cama De Casal Medina Em Madeira De Demoliçãoo</div>
+          <div class="product-name">Cama De Casal Medina Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 1,97m (C) x 1,10m (A) x 1,50m (P) | Estrado: 0,34m</div>
           <div class="product-price">R$ 2.299,00 <span class="product-old-price">R$ 2.445,00</span></div>
         </div>
@@ -401,7 +411,7 @@
 
       <!-- PRODUTO 8 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama14.webp', 'Cama De Solteiro Rich Em Madeira De Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama14.webp" alt="Cama De Solteiro Rich Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -417,7 +427,7 @@
 
       <!-- PRODUTO 9 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama9.webp', 'Cama de Casal Milani em Madeira de Demolição e Ferro')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama9.webp" alt="Cama de Casal Milani em Madeira de Demolição e Ferro" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -431,9 +441,10 @@
           <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
         </div>
       </div>
-            <!-- PRODUTO 9 -->
+      
+      <!-- PRODUTO 9 (Extra) -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama15.webp', 'Bicama Solteiro Magnólia Em Madeira De Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama15.webp" alt="Bicama Solteiro Magnólia Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -450,7 +461,7 @@
 
       <!-- PRODUTO 10 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirZoom('https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama10.webp', 'Cama de Casal Gianni em Madeira de Demolição')">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Cama10.webp" alt="Cama de Casal Gianni em Madeira de Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -518,7 +529,7 @@
         <div>
           <h4>Links</h4>
           <a href="sobre-nos.html">Sobre Nós</a>
-          <a href="entrega.html">Entregas</>
+          <a href="entrega.html">Entregas</a>
         </div>
         <div>
           <h4>Redes Sociais</h4>
@@ -559,6 +570,15 @@
       </svg>
       Texto
     </button>
+  </div>
+
+  <!-- MODAL DE ZOOM DA IMAGEM -->
+  <div class="image-modal" id="imageModal">
+    <div class="image-modal-content">
+      <button class="close-btn" onclick="fecharZoom()">&times;</button>
+      <img id="zoomImage" src="" alt="Imagem Ampliada">
+      <div class="image-modal-caption" id="zoomCaption"></div>
+    </div>
   </div>
 
   <!-- MODAIS -->
@@ -619,13 +639,23 @@
       document.getElementById('navMenu').classList.toggle('open');
     });
 
-    document.querySelectorAll('.modal, .text-modal').forEach(modal => {
+    document.querySelectorAll('.modal, .text-modal, .image-modal').forEach(modal => {
       modal.addEventListener('click', function(e) {
         if (e.target === this) {
           this.classList.remove('open');
         }
       });
     });
+
+    function abrirZoom(src, nome) {
+      document.getElementById('zoomImage').src = src;
+      document.getElementById('zoomCaption').textContent = nome;
+      document.getElementById('imageModal').classList.add('open');
+    }
+
+    function fecharZoom() {
+      document.getElementById('imageModal').classList.remove('open');
+    }
 
     function copiarChavePix() {
       const chave = 'xtreambr@gmail.com';
@@ -685,4 +715,4 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </body>
-  </html>
+</html>
