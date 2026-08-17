@@ -56,7 +56,8 @@
     .carrossel-slides{display:flex;width:100%;height:500px}
     .carrossel-slide{flex:0 0 100%;height:100%;position:relative;display:none;align-items:center;justify-content:center}
     .carrossel-slide.active{display:flex}
-    .carrossel-slide img{width:100%;height:100%;object-fit:cover}
+    .carrossel-slide img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:opacity 0.3s}
+    .carrossel-slide img:hover{opacity:0.9;filter:brightness(0.95)}
     .carrossel-texto{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;text-shadow:0 2px 15px rgba(0,0,0,0.9);width:90%;max-width:700px;padding:0;background:transparent;border-radius:0}
     .carrossel-texto h2{font-size:42px;font-weight:700;margin:0 0 8px 0;letter-spacing:1px}
     .carrossel-texto h2 strong{color:#ff6b35}
@@ -78,9 +79,12 @@
     .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
     .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
     .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .product-image img{width:100%;height:100%;object-fit:cover}
-    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase}
+    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease, filter 0.3s ease}
+    .product-image:hover img{transform:scale(1.05);filter:brightness(0.95)}
+    .product-image::after{content:"\f00e";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.6);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:0;transition:opacity 0.3s ease}
+    .product-image:hover::after{opacity:1}
+    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase;z-index:2}
     .product-info{padding:10px 12px 6px;flex:1}
     .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
     .product-dimensao{font-size:11px;color:#777;margin:2px 0 4px 0;line-height:1.3}
@@ -140,6 +144,23 @@
     .text-modal-content .send-btn:hover{background:#cc1111}
     .text-modal-content .legal{font-size:11px;color:#888;line-height:1.5;margin-top:14px;text-align:center}
     .text-modal-content .powered{text-align:center;font-size:12px;color:#aaa;margin-top:8px}
+
+    /* ===== LIGHTBOX / MODAL DE GALERIA ===== */
+    .galeria-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:20000;align-items:center;justify-content:center}
+    .galeria-modal.open{display:flex}
+    .galeria-container{position:relative;max-width:90%;max-height:90%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .galeria-imagem-wrapper{position:relative;max-width:100%;max-height:75vh;display:flex;align-items:center;justify-content:center}
+    .galeria-imagem-wrapper img{max-width:100%;max-height:75vh;object-fit:contain;border-radius:4px;box-shadow:0 5px 25px rgba(0,0,0,0.5)}
+    .galeria-close{position:absolute;top:-45px;right:0;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;z-index:20002;transition:0.3s}
+    .galeria-close:hover{color:#a40e0e}
+    .galeria-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;width:50px;height:50px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:0.3s;z-index:20001}
+    .galeria-nav:hover{background:#a40e0e}
+    .galeria-prev{left:-70px}
+    .galeria-next{right:-70px}
+    .galeria-dots{display:flex;gap:10px;margin-top:20px;z-index:20001}
+    .galeria-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:0.3s}
+    .galeria-dot.active{background:#a40e0e;transform:scale(1.2)}
+    @media(max-width:768px){.galeria-prev{left:10px}.galeria-next{right:10px}.galeria-nav{width:40px;height:40px;font-size:16px}}
     
     @media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:10px;padding:6px 8px}}
@@ -234,7 +255,12 @@
 
         <!-- Slide 1 -->
         <div class="carrossel-slide active">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>TAPETES PREMIUM <strong>PELE NATURAL</strong></h2>
             <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
@@ -243,7 +269,12 @@
 
         <!-- Slide 2 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>BOI MIJA PINGA <strong>TUNEL CACHAÇA</strong></h2>
             <p>Peças exclusivas capacidade 2 litros</p>
@@ -252,7 +283,12 @@
 
         <!-- Slide 3 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Ladrilho Hidráulico">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Ladrilho Hidráulico" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>LADRILHO <strong>HIDRÁULICO</strong></h2>
             <p>Para pisos / paredes / móveis demolição</p>
@@ -261,7 +297,12 @@
 
         <!-- Slide 4 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg" alt="Móveis Planejados">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg" alt="Móveis Planejados" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>MÓVEIS <strong>PLANEJADOS</strong></h2>
             <p>Sob medida para o seu espaço</p>
@@ -270,7 +311,12 @@
 
         <!-- Slide 5 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>APARADORES <strong>RÚSTICOS</strong></h2>
             <p>Peças exclusivas para sua decoração</p>
@@ -300,7 +346,12 @@
     <div class="product-grid">
       <!-- RACK 1 - Carambola -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack4.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack1.webp" alt="Rack Carambola" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -317,7 +368,12 @@
 
       <!-- RACK 2 - Jodie -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack5.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack2.webp" alt="Rack Jodie" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -334,7 +390,12 @@
 
       <!-- RACK 3 - Fênix -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack6.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack3.webp" alt="Rack Fênix" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -350,7 +411,12 @@
 
       <!-- RACK 4 - Krust -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack7.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack4.webp" alt="Rack Krust" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -367,7 +433,12 @@
 
       <!-- RACK 5 - Lais -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack8.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack5.webp" alt="Rack Lais" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -383,7 +454,12 @@
 
       <!-- RACK 6 - Acapulco -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack9.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack6.webp" alt="Rack Acapulco" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -400,7 +476,12 @@
 
       <!-- RACK 7 - Tavares -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack10.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack7.webp" alt="Rack Tavares" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -416,7 +497,12 @@
 
       <!-- RACK 8 - Elegance -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack1.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack8.webp" alt="Rack Elegance" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -433,7 +519,12 @@
 
       <!-- RACK 9 - Alfid -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack2.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack9.webp" alt="Rack Alfid" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -449,7 +540,12 @@
 
       <!-- RACK 10 - Maxxi -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack3.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Rack10.webp" alt="Rack Maxxi" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -613,6 +709,19 @@
     </div>
   </div>
 
+  <!-- LIGHTBOX / MODAL DE GALERIA -->
+  <div class="galeria-modal" id="galeriaModal">
+    <div class="galeria-container">
+      <button class="galeria-close" onclick="fecharGaleria()">&times;</button>
+      <button class="galeria-nav galeria-prev" onclick="mudarFotoGaleria(-1)"><i class="fas fa-chevron-left"></i></button>
+      <div class="galeria-imagem-wrapper">
+        <img id="galeriaImg" src="" alt="Zoom da Imagem">
+      </div>
+      <button class="galeria-nav galeria-next" onclick="mudarFotoGaleria(1)"><i class="fas fa-chevron-right"></i></button>
+      <div class="galeria-dots" id="galeriaDots"></div>
+    </div>
+  </div>
+
   <!-- SCRIPTS -->
   <script>
     // MENU HAMBURGUER
@@ -683,9 +792,87 @@
 
     mostrarSlide(0);
     iniciarAutoSlide();
+
+    // ===== LIGHTBOX / GALERIA COM SUPORTE A SWIPE =====
+    let fotosGaleria = [];
+    let indiceFotoAtual = 0;
+
+    function abrirGaleria(fotos, indexInicial = 0) {
+      fotosGaleria = fotos;
+      indiceFotoAtual = indexInicial;
+      atualizarConteudoGaleria();
+      document.getElementById('galeriaModal').classList.add('open');
+    }
+
+    function fecharGaleria() {
+      document.getElementById('galeriaModal').classList.remove('open');
+    }
+
+    function mudarFotoGaleria(direcao) {
+      indiceFotoAtual += direcao;
+      if (indiceFotoAtual < 0) {
+        indiceFotoAtual = fotosGaleria.length - 1;
+      } else if (indiceFotoAtual >= fotosGaleria.length) {
+        indiceFotoAtual = 0;
+      }
+      atualizarConteudoGaleria();
+    }
+
+    function irParaFotoGaleria(index) {
+      indiceFotoAtual = index;
+      atualizarConteudoGaleria();
+    }
+
+    function atualizarConteudoGaleria() {
+      const imgElement = document.getElementById('galeriaImg');
+      const dotsContainer = document.getElementById('galeriaDots');
+      
+      imgElement.src = fotosGaleria[indiceFotoAtual];
+      
+      // Renderizar Dots
+      dotsContainer.innerHTML = '';
+      fotosGaleria.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = `galeria-dot ${i === indiceFotoAtual ? 'active' : ''}`;
+        dot.onclick = () => irParaFotoGaleria(i);
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    // Fechar lightbox ao clicar fora da imagem
+    document.getElementById('galeriaModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        fecharGaleria();
+      }
+    });
+
+    // Suporte a gestos Touch (Swipe) para celular
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const modalGaleriaEl = document.getElementById('galeriaModal');
+    modalGaleriaEl.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    modalGaleriaEl.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      tratarSwipe();
+    }, false);
+
+    function tratarSwipe() {
+      const limiteSwipe = 50;
+      if (touchEndX + limiteSwipe < touchStartX) {
+        // Deslizou para a esquerda (próxima foto)
+        mudarFotoGaleria(1);
+      } else if (touchEndX > touchStartX + limiteSwipe) {
+        // Deslizou para a direita (foto anterior)
+        mudarFotoGaleria(-1);
+      }
+    }
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </body>
-            </html>
+</html>
