@@ -56,7 +56,8 @@
     .carrossel-slides{display:flex;width:100%;height:500px}
     .carrossel-slide{flex:0 0 100%;height:100%;position:relative;display:none;align-items:center;justify-content:center}
     .carrossel-slide.active{display:flex}
-    .carrossel-slide img{width:100%;height:100%;object-fit:cover}
+    .carrossel-slide img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:opacity 0.3s}
+    .carrossel-slide img:hover{opacity:0.9;filter:brightness(0.95)}
     .carrossel-texto{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;text-shadow:0 2px 15px rgba(0,0,0,0.9);width:90%;max-width:700px;padding:0;background:transparent;border-radius:0}
     .carrossel-texto h2{font-size:42px;font-weight:700;margin:0 0 8px 0;letter-spacing:1px}
     .carrossel-texto h2 strong{color:#ff6b35}
@@ -78,9 +79,12 @@
     .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
     .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
     .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .product-image img{width:100%;height:100%;object-fit:cover}
-    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase}
+    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s, filter 0.3s}
+    .product-image:hover img{transform:scale(1.03);filter:brightness(0.95)}
+    .product-image::after{content:'\f00e';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.6);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:0;transition:opacity 0.3s}
+    .product-image:hover::after{opacity:1}
+    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase;z-index:2}
     .product-info{padding:10px 12px 6px;flex:1}
     .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
     .product-dimensao{font-size:11px;color:#777;margin:2px 0 4px 0;line-height:1.3}
@@ -140,6 +144,22 @@
     .text-modal-content .send-btn:hover{background:#cc1111}
     .text-modal-content .legal{font-size:11px;color:#888;line-height:1.5;margin-top:14px;text-align:center}
     .text-modal-content .powered{text-align:center;font-size:12px;color:#aaa;margin-top:8px}
+
+    /* ===== LIGHTBOX / MODAL DE GALERIA ===== */
+    .gallery-lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:20000;align-items:center;justify-content:center;flex-direction:column}
+    .gallery-lightbox.open{display:flex}
+    .lightbox-close{position:absolute;top:20px;right:30px;font-size:35px;color:#fff;background:none;border:none;cursor:pointer;z-index:20002;transition:0.3s}
+    .lightbox-close:hover{color:#a40e0e}
+    .lightbox-container{position:relative;max-width:90%;max-height:80vh;display:flex;align-items:center;justify-content:center}
+    .lightbox-container img{max-width:100%;max-height:75vh;object-fit:contain;border-radius:4px}
+    .lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;font-size:24px;padding:15px 12px;cursor:pointer;z-index:20002;border-radius:4px;transition:0.3s}
+    .lightbox-arrow:hover{background:rgba(164,14,14,0.8)}
+    .lightbox-prev{left:-50px}
+    .lightbox-next{right:-50px}
+    .lightbox-dots{display:flex;gap:8px;margin-top:20px;z-index:20002}
+    .lightbox-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;border:none;transition:0.3s}
+    .lightbox-dot.active{background:#a40e0e}
+    @media(max-width:768px){.lightbox-prev{left:10px}.lightbox-next{right:10px}.lightbox-arrow{padding:10px 8px;font-size:18px}}
     
     @media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.banner h2{font-size:24px}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:10px;padding:6px 8px}}
@@ -234,7 +254,7 @@
 
         <!-- Slide 1 -->
         <div class="carrossel-slide active">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg'], 0)">
           <div class="carrossel-texto">
             <h2>TAPETES PREMIUM  <strong>PELE NATURAL</strong></h2>
             <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
@@ -243,7 +263,7 @@
 
         <!-- Slide 2 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg'], 1)">
           <div class="carrossel-texto">
             <h2>BOI MIJA PINHA<strong>TUNEL CACHAÇA</strong></h2>
             <p>Peças exclusivas capacidade 2 litros</p>
@@ -252,7 +272,7 @@
 
         <!-- Slide 3 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg'], 2)">
           <div class="carrossel-texto">
             <h2>LADRÍLIO <strong>HIDRÁULICO</strong></h2>
             <p>Para pisos /paredes/móveis demoliçao</p>
@@ -261,7 +281,7 @@
 
         <!-- Slide 4 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg" alt="Móveis Planejados" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg'], 3)">
           <div class="carrossel-texto">
             <h2>MÓVEIS <strong>PLANEJADOS</strong></h2>
             <p>Sob medida para o seu espaço</p>
@@ -270,7 +290,7 @@
 
         <!-- Slide 5 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg'], 0)">
           <div class="carrossel-texto">
             <h2>APARADORES <strong>RÚSTICOS</strong></h2>
             <p>Peças exclusivas para sua decoração</p>
@@ -300,7 +320,7 @@
     <div class="product-grid">
       <!-- PRODUTO 1 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular1.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular2.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular3.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular4.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular1.webp" alt="Jogo De Mesa Renata Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -317,7 +337,7 @@
 
       <!-- PRODUTO 2 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular2.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular3.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular4.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular5.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular2.webp" alt="Jogo De Mesa Raissa Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -333,7 +353,7 @@
 
       <!-- PRODUTO 3 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular3.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular4.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular5.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular6.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular3.webp" alt="Jogo Mesa Julia Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -350,7 +370,7 @@
 
       <!-- PRODUTO 4 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular4.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular5.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular6.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular7.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular4.webp" alt="Jogo Mesa Rústico Reta em Madeira de Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -366,7 +386,7 @@
 
       <!-- PRODUTO 5 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular5.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular6.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular7.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular8.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular5.webp" alt="Jogo de Mesa Tatiane Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -383,7 +403,7 @@
 
       <!-- PRODUTO 6 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular6.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular7.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular8.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular9.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular6.webp" alt="Jogo de Mesa Rústico Stefany em Madeira de Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -399,7 +419,7 @@
 
       <!-- PRODUTO 7 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular7.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular8.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular9.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular10.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular7.webp" alt="Jogo De Mesa Harpia Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -416,7 +436,7 @@
 
       <!-- PRODUTO 8 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular8.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular9.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular10.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular11.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular8.webp" alt="Jogo De Mesa Mosaico Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -432,7 +452,7 @@
 
       <!-- PRODUTO 9 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular9.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular10.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular11.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular12.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular9.webp" alt="Jogo De Mesa Flávia Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -449,7 +469,7 @@
 
       <!-- PRODUTO 10 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular10.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular11.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular12.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular13.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular10.webp" alt="Jogo De Mesa Mariana Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -466,7 +486,7 @@
 
       <!-- PRODUTO 11 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular11.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular12.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular13.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular14.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular11.webp" alt="Jogo De Mesa Arco-íris Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -483,7 +503,7 @@
 
       <!-- PRODUTO 12 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular12.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular13.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular14.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular15.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular12.webp" alt="Jogo De Mesa Aline Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -499,7 +519,7 @@
 
       <!-- PRODUTO 13 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular13.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular14.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular15.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular16.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular13.webp" alt="Jogo De Mesa Jéssica Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -516,7 +536,7 @@
 
       <!-- PRODUTO 14 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular14.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular15.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular16.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular1.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular14.webp" alt="Jogo De Mesa Marina Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
@@ -532,7 +552,7 @@
 
       <!-- PRODUTO 15 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular15.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular16.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular1.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular2.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular15.webp" alt="Jogo De Mesa Manuela Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
@@ -549,7 +569,7 @@
 
       <!-- PRODUTO 16 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria(['https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular16.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular1.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular2.webp', 'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular3.webp'], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Retangular16.webp" alt="Jogo De Mesa Mila Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
@@ -620,7 +640,7 @@
         <div>
           <h4>Links</h4>
           <a href="sobre-nos.html">Sobre Nós</a>
-          <a href="entrega.html">Entregas</>
+          <a href="entrega.html">Entregas</a>
         </div>
         <div>
           <h4>Redes Sociais</h4>
@@ -714,6 +734,17 @@
     </div>
   </div>
 
+  <!-- LIGHTBOX / MODAL DE GALERIA -->
+  <div class="gallery-lightbox" id="galleryLightbox">
+    <button class="lightbox-close" onclick="fecharGaleria()">&times;</button>
+    <div class="lightbox-container" id="lightboxContainer">
+      <button class="lightbox-arrow lightbox-prev" onclick="mudarGaleria(-1)"><i class="fas fa-chevron-left"></i></button>
+      <img id="lightboxImage" src="" alt="Zoom da Imagem">
+      <button class="lightbox-arrow lightbox-next" onclick="mudarGaleria(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="lightbox-dots" id="lightboxDots"></div>
+  </div>
+
   <!-- SCRIPTS -->
   <script>
     document.getElementById('menuToggle').addEventListener('click', function() {
@@ -782,9 +813,84 @@
 
     mostrarSlide(0);
     iniciarAutoSlide();
+
+    // ===== LIGHTBOX / MODAL DE GALERIA & SWIPE =====
+    let galeriaImagens = [];
+    let galeriaIndexAtual = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function abrirGaleria(imagens, index) {
+      galeriaImagens = imagens;
+      galeriaIndexAtual = index;
+      atualizarLightbox();
+      document.getElementById('galleryLightbox').classList.add('open');
+    }
+
+    function fecharGaleria() {
+      document.getElementById('galleryLightbox').classList.remove('open');
+    }
+
+    function mudarGaleria(direcao) {
+      galeriaIndexAtual += direcao;
+      if (galeriaIndexAtual < 0) {
+        galeriaIndexAtual = galeriaImagens.length - 1;
+      } else if (galeriaIndexAtual >= galeriaImagens.length) {
+        galeriaIndexAtual = 0;
+      }
+      atualizarLightbox();
+    }
+
+    function irParaFoto(index) {
+      galeriaIndexAtual = index;
+      atualizarLightbox();
+    }
+
+    function atualizarLightbox() {
+      const imgElement = document.getElementById('lightboxImage');
+      const dotsContainer = document.getElementById('lightboxDots');
+      
+      imgElement.src = galeriaImagens[galeriaIndexAtual];
+      
+      // Atualizar bolinhas (dots)
+      dotsContainer.innerHTML = '';
+      galeriaImagens.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'lightbox-dot' + (i === galeriaIndexAtual ? ' active' : '');
+        dot.onclick = () => irParaFoto(i);
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    // Suporte a Swipe no celular
+    const lightboxContainer = document.getElementById('lightboxContainer');
+    lightboxContainer.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightboxContainer.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      tratarSwipe();
+    });
+
+    function tratarSwipe() {
+      if (touchEndX < touchStartX - 50) {
+        mudarGaleria(1); // Deslizou para esquerda (próxima)
+      }
+      if (touchEndX > touchStartX + 50) {
+        mudarGaleria(-1); // Deslizou para direita (anterior)
+      }
+    }
+
+    // Fechar lightbox ao clicar fora da imagem
+    document.getElementById('galleryLightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        fecharGaleri();
+      }
+    });
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </body>
-      </html>
+</html>
