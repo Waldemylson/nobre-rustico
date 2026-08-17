@@ -56,12 +56,12 @@
     .carrossel-slides{display:flex;width:100%;height:500px}
     .carrossel-slide{flex:0 0 100%;height:100%;position:relative;display:none;align-items:center;justify-content:center}
     .carrossel-slide.active{display:flex}
-    .carrossel-slide img{width:100%;height:100%;object-fit:cover}
-    .carrossel-texto{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;text-shadow:0 2px 15px rgba(0,0,0,0.9);width:90%;max-width:700px;padding:0;background:transparent;border-radius:0}
+    .carrossel-slide img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:opacity 0.3s}
+    .carrossel-slide img:hover{opacity:0.9;filter:brightness(0.95)}
+    .carrossel-texto{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;text-shadow:0 2px 15px rgba(0,0,0,0.9);width:90%;max-width:700px;padding:0;background:transparent;border-radius:0;pointer-events:none}
     .carrossel-texto h2{font-size:42px;font-weight:700;margin:0 0 8px 0;letter-spacing:1px}
     .carrossel-texto h2 strong{color:#ff6b35}
     .carrossel-texto p{font-size:20px;margin:0;font-weight:400}
-    .carrossel-texto .btn{display:none}
     .carrossel-indicadores{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10}
     .carrossel-indicadores .indicador{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:0.3s}
     .carrossel-indicadores .indicador.ativo{background:#a40e0e}
@@ -70,31 +70,32 @@
     @media(max-width:480px){.carrossel-slides{height:350px}.carrossel-texto h2{font-size:22px}.carrossel-texto p{font-size:14px}.carrossel-texto{bottom:30px}}
     
     .section-title{display:flex;justify-content:space-between;align-items:center;margin:30px 0 18px;border-bottom:2px solid #e8e0d8;padding-bottom:8px}
-    .section-title h3{font-size:22px;font-weight:300;color:#2c1810}
+    .section-title h3{font-size:22px;font-weight:300;color:#2c1810;margin:0}
     .section-title h3 strong{font-weight:700}
     .section-title a{color:#a40e0e;font-size:13px;font-weight:600;text-decoration:none}
     .section-title a:hover{color:#2c1810}
     
-    .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
-    .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:25px}
+    .product-card{background:#fff;border-radius:6px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
     .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .product-image img{width:100%;height:100%;object-fit:cover}
-    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase}
-    .product-info{padding:10px 12px 6px;flex:1}
-    .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
-    .product-dimensao{font-size:11px;color:#777;margin:2px 0 4px 0;line-height:1.3}
-    .product-price{font-size:17px;font-weight:700;color:#2c1810}
-    .product-price .from{font-size:12px;font-weight:400;color:#888}
+    .product-image{width:100%;height:220px;background:#f9f6f0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s, opacity 0.3s}
+    .product-image:hover img{transform:scale(1.03);opacity:0.92}
+    .product-image::after{content:'\f00e';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.6);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:0;transition:opacity 0.3s}
+    .product-image:hover::after{opacity:1}
+    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase;z-index:2}
+    .product-info{padding:12px 15px 8px;flex:1;display:flex;flex-direction:column}
+    .product-name{font-size:14px;font-weight:600;color:#2c1810;margin-bottom:6px;line-height:1.3}
+    .product-dimensao{font-size:12px;color:#777;margin:0 0 8px 0;line-height:1.4}
+    .product-price-wrapper{margin-top:auto}
+    .product-price{font-size:18px;font-weight:700;color:#2c1810}
     .product-old-price{font-size:13px;color:#999;text-decoration:line-through;margin-left:6px;font-weight:400}
     
-    .product-footer{display:flex;justify-content:space-between;align-items:center;padding:6px 12px 12px;gap:5px}
-    .btn-left{display:inline-flex;align-items:center;gap:4px;background:#2c1810;color:#fff;padding:6px 12px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:600;border:none;cursor:pointer;transition:0.3s}
+    .product-footer{display:flex;justify-content:space-between;align-items:center;padding:10px 15px 15px;gap:8px}
+    .btn-left{display:inline-flex;align-items:center;justify-content:center;gap:5px;background:#2c1810;color:#fff;padding:8px 12px;border-radius:4px;text-decoration:none;font-size:12px;font-weight:600;border:none;cursor:pointer;transition:0.3s;flex:1}
     .btn-left:hover{background:#4a3228}
-    .btn-left i{font-size:11px}
-    .btn-right{display:inline-flex;align-items:center;gap:4px;background:#a40e0e;color:#fff;padding:6px 12px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer;transition:0.3s}
+    .btn-right{display:inline-flex;align-items:center;justify-content:center;gap:5px;background:#a40e0e;color:#fff;padding:8px 12px;border-radius:4px;text-decoration:none;font-size:12px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer;transition:0.3s;flex:1}
     .btn-right:hover{background:#cc1111}
-    .btn-right i{font-size:11px}
     
     .testimonials{background:#fff;padding:35px 0;margin:25px 0;border-top:2px solid #e8e0d8;border-bottom:2px solid #e8e0d8}
     .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
@@ -140,10 +141,61 @@
     .text-modal-content .send-btn:hover{background:#cc1111}
     .text-modal-content .legal{font-size:11px;color:#888;line-height:1.5;margin-top:14px;text-align:center}
     .text-modal-content .powered{text-align:center;font-size:12px;color:#aaa;margin-top:8px}
+
+    /* ===== LIGHTBOX / MODAL DE GALERIA ===== */
+    .gallery-lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 20000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .gallery-lightbox.open { display: flex; }
+    .gallery-lightbox .lb-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      color: #fff; font-size: 35px;
+      background: none; border: none; cursor: pointer;
+      z-index: 20002;
+      transition: 0.3s;
+    }
+    .gallery-lightbox .lb-close:hover { color: #a40e0e; }
+    .gallery-container {
+      position: relative;
+      max-width: 90%; max-height: 75vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery-container img {
+      max-width: 100%; max-height: 75vh;
+      object-fit: contain; border-radius: 4px;
+      user-select: none;
+    }
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.2); color: #fff;
+      border: none; font-size: 24px; padding: 15px 20px;
+      cursor: pointer; border-radius: 50%; transition: 0.3s;
+      z-index: 20001;
+    }
+    .lb-nav:hover { background: rgba(255,255,255,0.4); }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .gallery-dots {
+      display: flex; gap: 10px; margin-top: 20px; z-index: 20001;
+    }
+    .gallery-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: rgba(255,255,255,0.4); cursor: pointer; border: none;
+      transition: 0.3s;
+    }
+    .gallery-dot.active { background: #a40e0e; }
     
     @media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.banner h2{font-size:24px}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:10px;padding:6px 8px}}
-    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr !important;gap:10px}.product-image{height:150px}.product-name{font-size:12px}.product-price{font-size:15px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.banner h2{font-size:20px}.banner .btn{padding:10px 25px;font-size:12px}.modal-content,.text-modal-content{padding:20px}}
+    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{font-size:11px;padding:8px 6px}.lb-nav{padding:10px 14px;font-size:18px}}
+    @media(max-width:480px){.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:8px}.product-image{height:160px}.product-name{font-size:12px}.product-price{font-size:15px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.modal-content,.text-modal-content{padding:20px}}
     
     @media (max-width: 768px) {
         .header-logo img { height: 50px; }
@@ -204,7 +256,7 @@
     </div>
   </header>
 
-<!-- MENU CORRIGIDO -->
+<!-- MENU -->
 <nav class="nav-menu" id="navMenu">
   <ul>
     <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
@@ -224,7 +276,7 @@
     <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
     <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
     <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
-      </ul>
+  </ul>
 </nav>
 
   <!-- ===== CARROSSEL COM 5 SLIDES ===== -->
@@ -234,7 +286,12 @@
 
         <!-- Slide 1 -->
         <div class="carrossel-slide active">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>TAPETES PREMIUM  <strong>PELE NATURAL</strong></h2>
             <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
@@ -243,7 +300,12 @@
 
         <!-- Slide 2 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>BOI MIJA PINHA<strong>TUNEL CACHAÇA</strong></h2>
             <p>Peças exclusivas capacidade 2 litros</p>
@@ -252,7 +314,12 @@
 
         <!-- Slide 3 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>LADRÍLIO <strong>HIDRÁULICO</strong></h2>
             <p>Para pisos /paredes/móveis demoliçao</p>
@@ -261,7 +328,12 @@
 
         <!-- Slide 4 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg" alt="Móveis Planejados" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>MÓVEIS <strong>PLANEJADOS</strong></h2>
             <p>Sob medida para o seu espaço</p>
@@ -270,7 +342,12 @@
 
         <!-- Slide 5 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos" onclick="abrirGaleria([
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg',
+            'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg'
+          ], 0)">
           <div class="carrossel-texto">
             <h2>APARADORES <strong>RÚSTICOS</strong></h2>
             <p>Peças exclusivas para sua decoração</p>
@@ -293,21 +370,28 @@
   <!-- PRODUTOS -->
   <div class="container">
     <div class="section-title">
-      <h3>Nossa coleção de <strong>Mesas Centro e Lateral</strong> <span style="font-size:14px;font-weight:400;color:#888;"></span></h3>
-      <a href="mesa-centro-lateral.html"> →</a>
+      <h3>Nossa coleção de <strong>Mesas Centro e Lateral</strong></h3>
+      <a href="mesa-centro-lateral.html">Ver Tudo →</a>
     </div>
 
     <div class="product-grid">
       <!-- PRODUTO 1 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral4.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral1.webp" alt="Mesa Lateral Hidden Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
           <div class="product-name">Mesa Lateral Hidden Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 0,50m x 0,60m x 0,50m</div>
-          <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 522,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 522,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -317,13 +401,20 @@
 
       <!-- PRODUTO 2 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral5.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral2.webp" alt="Conjunto Mesas de Apoio Campone em Madeira de Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
           <div class="product-name">Conjunto Mesas de Apoio Campone em Madeira de Demolição</div>
           <div class="product-dimensao">📏 G: 0,75m x 0,70m x 0,45m | M: 0,55m x 0,55m x 0,35m | P: 0,35m x 0,40m x 0,30m</div>
-          <div class="product-price">R$ 1.539,00 <span class="product-old-price">R$ 1.653,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 1.539,00 <span class="product-old-price">R$ 1.653,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -333,14 +424,21 @@
 
       <!-- PRODUTO 3 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral3.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral6.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral3.webp" alt="Mesa Lateral Bubble Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
           <div class="product-name">Mesa Lateral Bubble Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 0,50m x 0,60m x 0,50m</div>
-          <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 537,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 537,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -350,13 +448,20 @@
 
       <!-- PRODUTO 4 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral4.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral7.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral4.webp" alt="Mesa Rústica Requinte em Madeira de Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
           <div class="product-name">Mesa Rústica Requinte em Madeira de Demolição</div>
           <div class="product-dimensao">📏 Diâmetro: 0,50m / Altura: 0,70m</div>
-          <div class="product-price">R$ 429,00 <span class="product-old-price">R$ 537,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 429,00 <span class="product-old-price">R$ 537,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -366,14 +471,21 @@
 
       <!-- PRODUTO 5 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral5.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral8.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral5.webp" alt="Mesa De Canto Cora Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
           <div class="product-name">Mesa De Canto Cora Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 0,60m x 0,70m x 0,60m</div>
-          <div class="product-price">R$ 559,00 <span class="product-old-price">R$ 622,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 559,00 <span class="product-old-price">R$ 622,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -383,13 +495,20 @@
 
       <!-- PRODUTO 6 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral6.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral9.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral6.webp" alt="Mesa Lateral Elis em Madeira de Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
           <div class="product-name">Mesa Lateral Elis em Madeira de Demolição</div>
           <div class="product-dimensao">📏 0,50m x 0,60m x 0,50m</div>
-          <div class="product-price">R$ 439,00 <span class="product-old-price">R$ 592,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 439,00 <span class="product-old-price">R$ 592,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -399,14 +518,21 @@
 
       <!-- PRODUTO 7 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral7.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral10.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral7.webp" alt="Mesa De Canto Taurus Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
           <div class="product-name">Mesa De Canto Taurus Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 0,80m x 0,65m x 0,40m</div>
-          <div class="product-price">R$ 649,00 <span class="product-old-price">R$ 745,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 649,00 <span class="product-old-price">R$ 745,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -416,13 +542,20 @@
 
       <!-- PRODUTO 8 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral8.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral11.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral8.webp" alt="Mesa De Canto Lisa Madeira Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
           <div class="product-name">Mesa De Canto Lisa Madeira Demolição</div>
           <div class="product-dimensao">📏 0,50m x 0,70m x 0,35m</div>
-          <div class="product-price">R$ 429,00 <span class="product-old-price">R$ 499,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 429,00 <span class="product-old-price">R$ 499,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -432,14 +565,21 @@
 
       <!-- PRODUTO 9 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral9.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral11.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral12.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral9.webp" alt="Mesa Lateral Nemêsis em Madeira de Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
           <div class="product-name">Mesa Lateral Nemêsis em Madeira de Demolição</div>
           <div class="product-dimensao">📏 0,50m x 0,60m x 0,50m</div>
-          <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 499,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 499,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -449,14 +589,21 @@
 
       <!-- PRODUTO 10 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral10.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral11.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral12.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral1.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral10.webp" alt="Mesa Lateral Hidden Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
           <div class="product-name">Mesa Lateral Hidden Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 0,50m x 0,60m x 0,50m</div>
-          <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 503,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 503,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -466,14 +613,21 @@
 
       <!-- PRODUTO 11 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral11.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral12.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral2.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral11.webp" alt="Mesa De Canto Ubaldi Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
           <div class="product-name">Mesa De Canto Ubaldi Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 0,50m x 0,60m x 0,50m</div>
-          <div class="product-price">R$ 449,00 <span class="product-old-price">R$ 529,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 449,00 <span class="product-old-price">R$ 529,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -483,14 +637,21 @@
 
       <!-- PRODUTO 12 -->
       <div class="product-card">
-        <div class="product-image">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral12.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral1.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral2.webp',
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral3.webp'
+        ], 0)">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Lateral12.webp" alt="Mesa De Canto Xangai Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
           <div class="product-name">Mesa De Canto Xangai Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 0,50m x 0,60m x 0,50m</div>
-          <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 489,00</span></div>
+          <div class="product-price-wrapper">
+            <div class="product-price">R$ 419,00 <span class="product-old-price">R$ 489,00</span></div>
+          </div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -499,7 +660,7 @@
       </div>
     </div>
 
-    <!-- PAGINAÇÃO - MESAS CENTRO/LATERAL PÁGINA 2 -->
+    <!-- PAGINAÇÃO -->
     <div style="text-align:center; margin:40px 0; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
       <a href="mesa-centro-lateral.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">← Anterior</a>
       <a href="mesa-centro-lateral.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">1</a>
@@ -513,7 +674,7 @@
     <div class="container">
       <div class="section-title">
         <h3>O que nossos <strong>clientes dizem</strong></h3>
-        <a href="#"> →</a>
+        <a href="#">Ver Todos →</a>
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-item">
@@ -554,7 +715,7 @@
         <div>
           <h4>Links</h4>
           <a href="sobre-nos.html">Sobre Nós</a>
-          <a href="entrega.html">Entregas</>
+          <a href="entrega.html">Entregas</a>
         </div>
         <div>
           <h4>Redes Sociais</h4>
@@ -648,6 +809,17 @@
     </div>
   </div>
 
+  <!-- LIGHTBOX / MODAL DE GALERIA -->
+  <div class="gallery-lightbox" id="galleryLightbox">
+    <button class="lb-close" onclick="fecharGaleria()">&times;</button>
+    <div class="gallery-container">
+      <button class="lb-nav lb-prev" onclick="mudarFotoGaleria(-1)"><i class="fas fa-chevron-left"></i></button>
+      <img id="lbImage" src="" alt="Galeria">
+      <button class="lb-nav lb-next" onclick="mudarFotoGaleria(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="gallery-dots" id="galleryDots"></div>
+  </div>
+
   <!-- SCRIPTS -->
   <script>
     document.getElementById('menuToggle').addEventListener('click', function() {
@@ -716,6 +888,81 @@
 
     mostrarSlide(0);
     iniciarAutoSlide();
+
+    // ===== LIGHTBOX / GALERIA COM SWIPE =====
+    let galeriaFotos = [];
+    let indiceAtualGaleria = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function abrirGaleria(fotos, index) {
+      galeriaFotos = fotos;
+      indiceAtualGaleria = index;
+      atualizarGaleriaModal();
+      document.getElementById('galleryLightbox').classList.add('open');
+    }
+
+    function fecharGaleria() {
+      document.getElementById('galleryLightbox').classList.remove('open');
+    }
+
+    function mudarFotoGaleria(direcao) {
+      indiceAtualGaleria += direcao;
+      if (indiceAtualGaleria < 0) {
+        indiceAtualGaleria = galeriaFotos.length - 1;
+      } else if (indiceAtualGaleria >= galeriaFotos.length) {
+        indiceAtualGaleria = 0;
+      }
+      atualizarGaleriaModal();
+    }
+
+    function irParaFoto(index) {
+      indiceAtualGaleria = index;
+      atualizarGaleriaModal();
+    }
+
+    function atualizarGaleriaModal() {
+      const imgEl = document.getElementById('lbImage');
+      const dotsContainer = document.getElementById('galleryDots');
+      
+      imgEl.src = galeriaFotos[indiceAtualGaleria];
+
+      dotsContainer.innerHTML = '';
+      galeriaFotos.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'gallery-dot' + (i === indiceAtualGaleria ? ' active' : '');
+        dot.onclick = () => irParaFoto(i);
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const lb = document.getElementById('galleryLightbox');
+      if (lb.classList.contains('open')) {
+        if (e.key === 'Escape') fecharGaleria();
+        if (e.key === 'ArrowLeft') mudarFotoGaleria(-1);
+        if (e.key === 'ArrowRight') mudarFotoGaleria(1);
+      }
+    });
+
+    const lbModal = document.getElementById('galleryLightbox');
+    lbModal.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    lbModal.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      tratarSwipe();
+    }, false);
+
+    function tratarSwipe() {
+      const limiteSwipe = 50;
+      if (touchEndX + limiteSwipe < touchStartX) {
+        mudarFotoGaleria(1);
+      } else if (touchEndX > touchStartX + limiteSwipe) {
+        mudarFotoGaleria(-1);
+      }
+    }
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
