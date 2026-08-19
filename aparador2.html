@@ -9,9 +9,6 @@
   <title>Aparadores - Nobre Rústico</title>
   <meta name="description" content="Aparadores rústicos e planejados da Nobre Rústico.">
 
-  <!-- ========================================================== -->
-  <!-- [TRECHO: ESTILOS CSS - COLOCAR CSS AQUI]                  -->
-  <!-- ========================================================== -->
   <style>
     *{box-sizing:border-box}body{margin:0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#01040b;line-height:1.5}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
@@ -53,79 +50,132 @@
     .announcement{background:#fc0000;color:#fff;text-align:center;padding:10px 0;font-weight:700}
     .announcement a{color:#fff;text-decoration:none}
     
-    /* CARROSSEL DO TOPO */
-    .banner-carrossel{position:relative;width:100%;overflow:hidden;margin-bottom:30px}
-    .carrossel-container{position:relative;width:100%}
-    .carrossel-slides{display:flex;width:100%;height:500px}
-    .carrossel-slide{flex:0 0 100%;height:100%;position:relative;display:none;align-items:center;justify-content:center}
-    .carrossel-slide.active{display:flex}
-    .carrossel-slide img{width:100%;height:100%;object-fit:cover}
-    .carrossel-texto{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;text-shadow:0 2px 15px rgba(0,0,0,0.9);width:90%;max-width:700px}
-    .carrossel-texto h2{font-size:42px;font-weight:700;margin:0 0 8px 0;letter-spacing:1px}
-    .carrossel-texto h2 strong{color:#ff6b35}
-    .carrossel-texto p{font-size:20px;margin:0;font-weight:400}
-    .carrossel-indicadores{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10}
-    .carrossel-indicadores .indicador{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:0.3s}
-    .carrossel-indicadores .indicador.ativo{background:#a40e0e}
+    /* ===== CARROSSEL SEM RETÂNGULO E SEM BOTÃO ===== */
+    .banner-carrossel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    .carrossel-container {
+      position: relative;
+      width: 100%;
+    }
+    .carrossel-slides {
+      display: flex;
+      width: 100%;
+      height: 500px;
+    }
+    .carrossel-slide {
+      flex: 0 0 100%;
+      height: 100%;
+      position: relative;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .carrossel-slide.active {
+      display: flex;
+    }
+    .carrossel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carrossel-texto {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+      width: 90%;
+      max-width: 700px;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+    .carrossel-texto h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      letter-spacing: 1px;
+    }
+    .carrossel-texto h2 strong {
+      color: #ff6b35;
+    }
+    .carrossel-texto p {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 400;
+    }
+    .carrossel-texto .btn {
+      display: none;
+    }
+    .carrossel-indicadores {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+    .carrossel-indicadores .indicador {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .carrossel-indicadores .indicador.ativo {
+      background: #a40e0e;
+    }
+    .carrossel-indicadores .indicador:hover {
+      background: #a40e0e;
+    }
+
+    @media(max-width:768px) {
+      .carrossel-slides { height: 400px; }
+      .carrossel-texto h2 { font-size: 28px; }
+      .carrossel-texto p { font-size: 16px; }
+      .carrossel-texto { bottom: 40px; }
+    }
+    @media(max-width:480px) {
+      .carrossel-slides { height: 350px; }
+      .carrossel-texto h2 { font-size: 22px; }
+      .carrossel-texto p { font-size: 14px; }
+      .carrossel-texto { bottom: 30px; }
+    }
     
     .section-title{display:flex;justify-content:space-between;align-items:center;margin:30px 0 18px;border-bottom:2px solid #e8e0d8;padding-bottom:8px}
     .section-title h3{font-size:22px;font-weight:300;color:#2c1810}
     .section-title h3 strong{font-weight:700}
     .section-title a{color:#a40e0e;font-size:13px;font-weight:600;text-decoration:none}
+    .section-title a:hover{color:#2c1810}
     
-    /* GRADE E FERRAMENTAS */
     .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
     .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
     .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-    
-    .product-image{width:100%;height:200px;background:#e8e0d8;position:relative;overflow:hidden;cursor:pointer;}
-    .prod-slides{display:flex;width:100%;height:100%;transition:transform 0.3s ease}
-    .prod-slide{min-width:100%;height:100%;flex-shrink:0}
-    .prod-slide img{width:100%;height:100%;object-fit:cover}
-    
-    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase;z-index:5}
-    
-    /* Setas e Bolinhas do card pequeno */
-    .prod-nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#fff;border:none;cursor:pointer;padding:8px 10px;font-size:12px;z-index:6;border-radius:3px;opacity:0;transition:opacity 0.3s ease;}
-    .product-image:hover .prod-nav-btn, .product-image.active-touch .prod-nav-btn {opacity: 1;}
-    .prod-prev{left:5px}
-    .prod-next{right:5px}
-
-    .prod-dots {position: absolute; bottom: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; z-index: 6; opacity: 0; transition: opacity 0.3s ease;}
-    .product-image:hover .prod-dots, .product-image.active-touch .prod-dots {opacity: 1;}
-    .prod-dot {width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.6); border: 1px solid rgba(0,0,0,0.3); cursor: pointer;}
-    .prod-dot.active {background: #a40e0e; border-color: #fff;}
-
+    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer}
+    .product-image img{width:100%;height:100%;object-fit:cover}
+    .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase;z-index:2}
     .product-info{padding:10px 12px 6px;flex:1}
     .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
     .product-dimensao{font-size:11px;color:#777;margin:2px 0 4px 0;line-height:1.3}
     .product-price{font-size:17px;font-weight:700;color:#2c1810}
+    .product-price .from{font-size:12px;font-weight:400;color:#888}
     .product-old-price{font-size:13px;color:#999;text-decoration:line-through;margin-left:6px;font-weight:400}
     
     .product-footer{display:flex;justify-content:space-between;align-items:center;padding:6px 12px 12px;gap:5px}
     .btn-left{display:inline-flex;align-items:center;gap:4px;background:#2c1810;color:#fff;padding:6px 12px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:600;border:none;cursor:pointer;transition:0.3s}
     .btn-left:hover{background:#4a3228}
+    .btn-left i{font-size:11px}
     .btn-right{display:inline-flex;align-items:center;gap:4px;background:#a40e0e;color:#fff;padding:6px 12px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer;transition:0.3s}
     .btn-right:hover{background:#cc1111}
-
-    /* ESTILO DO MODAL DE ZOOM COM SETAS E BOLINHAS COMPLETAS */
-    .zoom-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:20000;align-items:center;justify-content:center}
-    .zoom-modal.open{display:flex}
-    .zoom-content{position:relative;max-width:90%;max-height:90%;display:flex;flex-direction:column;align-items:center;justify-content:center}
-    .zoom-image-wrapper{position:relative;display:flex;align-items:center;justify-content:center}
-    .zoom-content img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:4px}
-    .zoom-close{position:absolute;top:-45px;right:0;font-size:36px;color:#fff;background:none;border:none;cursor:pointer;z-index:20005}
-    
-    /* Setas do Zoom */
-    .zoom-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#fff;border:none;cursor:pointer;padding:15px 18px;font-size:24px;border-radius:4px;transition:0.3s;z-index:20002}
-    .zoom-btn:hover{background:rgba(255,255,255,0.3)}
-    .zoom-prev{left:10px}
-    .zoom-next{right:10px}
-
-    /* Bolinhas do Zoom */
-    .zoom-dots {display:flex; justify-content:center; gap:8px; margin-top:15px; z-index:20002;}
-    .zoom-dot {width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); border: 2px solid rgba(0,0,0,0.5); cursor: pointer; transition:0.3s;}
-    .zoom-dot.active {background: #a40e0e; border-color: #fff;}
+    .btn-right i{font-size:11px}
     
     .testimonials{background:#fff;padding:35px 0;margin:25px 0;border-top:2px solid #e8e0d8;border-bottom:2px solid #e8e0d8}
     .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
@@ -142,22 +192,67 @@
     .footer .social a{display:inline-block;margin-right:12px;font-size:18px}
     .footer-bottom{text-align:center;font-size:12px;color:#666}
     
-    .modal,.text-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
-    .modal.open,.text-modal.open{display:flex}
-    .modal-content,.text-modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;text-align:center}
-    .text-modal-content{text-align:left}
-    .close-btn{position:absolute;top:12px;right:16px;font-size:24px;background:none;border:none;cursor:pointer;color:#999}
-    .pix-key{background:#f5f0eb;padding:15px;border-radius:8px;font-size:18px;font-weight:700;color:#00875A;word-break:break-all;margin:15px 0}
-    .copy-btn,.send-btn{background:#00875A;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;width:100%}
-    .send-btn{background:#a40e0e;margin-top:10px}
+    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
+    .modal.open{display:flex}
+    .modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto;text-align:center}
+    .modal-content .close-btn{position:absolute;top:12px;right:16px;font-size:24px;background:none;border:none;cursor:pointer;color:#999;transition:0.3s}
+    .modal-content .close-btn:hover{color:#333}
+    .modal-content h3{color:#2c1810;margin-top:0;margin-bottom:10px;font-size:20px}
+    .modal-content .pix-key{background:#f5f0eb;padding:15px;border-radius:8px;font-size:18px;font-weight:700;color:#00875A;word-break:break-all;margin:15px 0}
+    .modal-content .copy-btn{background:#00875A;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:0.3s}
+    .modal-content .copy-btn:hover{background:#00A86B}
+    
     .cartao-options{display:flex;flex-direction:column;gap:10px;margin:15px 0;text-align:left}
-    .cartao-options label{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #ddd;border-radius:6px;cursor:pointer}
-    .text-modal-content input,.text-modal-content textarea{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:6px;font-size:14px;margin-bottom:14px}
+    .cartao-options label{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #ddd;border-radius:6px;cursor:pointer;transition:0.3s}
+    .cartao-options label:hover{background:#f5f0eb}
+    .cartao-options input[type="radio"]{accent-color:#a40e0e;width:18px;height:18px}
+    
+    .text-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;align-items:center;justify-content:center}
+    .text-modal.open{display:flex}
+    .text-modal-content{background:#fff;max-width:450px;width:90%;padding:30px;border-radius:12px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto}
+    .text-modal-content .close-btn{position:absolute;top:12px;right:16px;font-size:24px;background:none;border:none;cursor:pointer;color:#999;transition:0.3s}
+    .text-modal-content .close-btn:hover{color:#333}
+    .text-modal-content h3{color:#2c1810;margin-top:0;margin-bottom:5px;font-size:20px}
+    .text-modal-content .sub{color:#666;font-size:14px;margin-bottom:20px}
+    .text-modal-content label{display:block;font-weight:600;font-size:14px;color:#333;margin-bottom:4px}
+    .text-modal-content input,.text-modal-content textarea{width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:6px;font-size:14px;margin-bottom:14px;box-sizing:border-box;font-family:Arial,sans-serif}
     .text-modal-content textarea{height:80px;resize:vertical}
+    .text-modal-content .send-btn{width:100%;padding:12px;background:#a40e0e;color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;transition:0.3s}
+    .text-modal-content .send-btn:hover{background:#cc1111}
+    .text-modal-content .legal{font-size:11px;color:#888;line-height:1.5;margin-top:14px;text-align:center}
+    .text-modal-content .powered{text-align:center;font-size:12px;color:#aaa;margin-top:8px}
+
+    /* ===== ESTILOS DA GALERIA DE FOTOS AMPLIADA ===== */
+    .galeria-modal{display:none;position:fixed;z-index:99999;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.9);justify-content:center;align-items:center;flex-direction:column}
+    .galeria-conteudo{position:relative;max-width:90%;max-height:75vh;display:flex;justify-content:center;align-items:center}
+    .galeria-conteudo img{max-width:100%;max-height:75vh;object-fit:contain;border-radius:8px;user-select:none}
+    .galeria-fechar{position:absolute;top:20px;right:30px;color:#fff;font-size:40px;font-weight:bold;cursor:pointer;z-index:100000}
+    .galeria-fechar:hover{color:#ddd}
+    .galeria-seta{position:absolute;top:50%;transform:translateY(-50%);background-color:rgba(0,0,0,0.5);color:white;border:none;font-size:24px;padding:12px 16px;cursor:pointer;border-radius:50%;transition:background 0.3s;z-index:100000}
+    .galeria-seta:hover{background-color:rgba(255,255,255,0.8);color:black}
+    .galeria-seta.esquerda{left:-60px}
+    .galeria-seta.direita{right:-60px}
+    .galeria-indicadores{display:flex;gap:10px;margin-top:20px}
+    .galeria-ponto{width:12px;height:12px;background-color:rgba(255,255,255,0.4);border-radius:50%;cursor:pointer;transition:background 0.3s}
+    .galeria-ponto.ativo{background-color:#fff}
+    @media(max-width:768px){.galeria-seta.esquerda{left:10px}.galeria-seta.direita{right:10px}.galeria-seta{padding:8px 12px;font-size:18px}}
     
     @media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr !important;gap:10px}.product-image{height:150px}.product-name{font-size:12px}.product-price{font-size:15px}}
+    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr) !important;gap:12px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.banner h2{font-size:24px}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:10px;padding:6px 8px}}
+    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr !important;gap:10px}.product-image{height:150px}.product-name{font-size:12px}.product-price{font-size:15px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.banner h2{font-size:20px}.banner .btn{padding:10px 25px;font-size:12px}.modal-content,.text-modal-content{padding:20px}}
+    
+    @media (max-width: 768px) {
+        .header-logo img { height: 50px; }
+        .logo { font-size: 22px; }
+        .logo small { font-size: 9px; }
+        .header-logo { gap: 8px; }
+    }
+    @media (max-width: 480px) {
+        .header-logo img { height: 40px; }
+        .logo { font-size: 18px; }
+        .logo small { font-size: 8px; letter-spacing: 1px; }
+        .header-logo { gap: 6px; }
+    }
   </style>
 </head>
 
@@ -171,24 +266,20 @@
         <i class="fas fa-envelope" style="margin-left:15px;"></i> rusticosmoveis12@gmail.com
       </div>
       <div>
-        <a href="https://instagram.com/rusticonobre10" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/351939799836" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/rusticonobre10"><i class="fab fa-instagram"></i></a>
+         <a href="https://wa.me/351939799836"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
   
   <!-- ANÚNCIO -->
-  <a href="entrega.html" class="announcement" style="display:block; background:#fc0000; color:#fff; text-align:center; padding:10px 0; font-weight:700; text-decoration:none;">
+  <a href="entrega.html" class="announcement" style="display:block; background:#fc0000; color:#fff; text-align:center; padding:10px 0; font-weight:700; text-decoration:none; transition:0.3s;" onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#fc0000'">
     🎉 Entrega em toda Castanhal e região! Clique aqui para mais detalhes!
   </a>
 
-  <!-- ========================================================== -->
-  <!-- [TRECHO: MENU ALINHADO]                                    -->
-  <!-- ========================================================== -->
+  <!-- HEADER -->
   <header class="header">
     <div class="container">
-      
-      <!-- Logo e Nome (Lado Esquerdo) -->
       <div class="header-logo">
         <img src="https://raw.githubusercontent.com/Waldemylson/Tv-online-gratis-xtreambr/refs/heads/main/HtmLa.jpg" alt="Logo Nobre Rústico">
         <div class="logo">
@@ -196,8 +287,6 @@
           <small>MÓVEIS RÚSTICOS<br>&amp; PLANEJADOS</small>
         </div>
       </div>
-
-      <!-- Ícones e Botão do Menu (Lado Direito) -->
       <div class="header-right">
         <a href="#"><i class="far fa-user"></i></a>
         <a href="#"><i class="far fa-heart"></i></a>
@@ -208,36 +297,38 @@
           <span></span>
         </button>
       </div>
-
     </div>
   </header>
 
-  <nav class="nav-menu" id="navMenu">
-    <ul>
-      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
-      <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
-      <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
-      <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
-      <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
-      <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
-      <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
-      <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
-      <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
-      <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
-      <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
-      <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
-      <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
-      <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
-      <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
-      <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
-      <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
-    </ul>
-  </nav>
+<!-- MENU CORRIGIDO -->
+<nav class="nav-menu" id="navMenu">
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+    <li><a href="aparador.html"><i class="fas fa-arrow-right"></i> Aparadores</a></li>
+    <li><a href="adega.html"><i class="fas fa-wine-bottle"></i> Adegas</a></li>
+    <li><a href="banco.html"><i class="fas fa-chair"></i> Bancos</a></li>
+    <li><a href="cadeira.html"><i class="fas fa-chair"></i> Cadeiras</a></li>
+    <li><a href="comoda.html"><i class="fas fa-archive"></i> Cômodas</a></li>
+    <li><a href="cama.html"><i class="fas fa-bed"></i> Camas</a></li>
+    <li><a href="cristaleira.html"><i class="fas fa-arrows-alt-h"></i> Cristaleiras</a></li>
+    <li><a href="mesa-retangular.html"><i class="fas fa-arrows-alt-h"></i> Mesas / Retangular</a></li>
+    <li><a href="mesa-redonda.html"><i class="fas fa-circle"></i> Mesas / Redondas</a></li>
+    <li><a href="mesa-centro-lateral.html"><i class="fas fa-arrows-alt"></i> Mesas / Centro I Lateral</a></li>
+    <li><a href="sofa.html"><i class="fas fa-couch"></i> Sofás</a></li>
+    <li><a href="rack.html"><i class="fas fa-tv"></i> Racks</a></li>
+    <li><a href="planejado.html"><i class="fas fa-tools"></i> Móveis Planejados (MDF)</a></li>
+    <li><a href="tapete-almofada.html"><i class="fas fa-rug"></i> Tapetes</a></li>
+    <li><a href="boi-artesanato.html"><i class="fas fa-paint-brush"></i> Boi Mija Pinga / Artesanatos</a></li>
+    <li><a href="sobre-nos.html"><i class="fas fa-info-circle"></i> Quem Somos</a></li>
+  </ul>
+</nav>
 
-  <!-- CARROSSEL PRINCIPAL DO TOPO -->
+  <!-- ===== CARROSSEL COM 5 SLIDES ===== -->
   <section class="banner-carrossel">
     <div class="carrossel-container">
       <div class="carrossel-slides">
+
+        <!-- Slide 1 -->
         <div class="carrossel-slide active">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg" alt="Promoção">
           <div class="carrossel-texto">
@@ -245,6 +336,8 @@
             <p>10% OFF em compras acima de R$ 2.500,00 qualquer produto</p>
           </div>
         </div>
+
+        <!-- Slide 2 -->
         <div class="carrossel-slide">
           <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg" alt="Móveis Rústicos">
           <div class="carrossel-texto">
@@ -252,28 +345,37 @@
             <p>Peças exclusivas capacidade 2 litros</p>
           </div>
         </div>
+
+        <!-- Slide 3 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Ladrilho">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg" alt="Entrega Ajato">
           <div class="carrossel-texto">
             <h2>LADRÍLIO <strong>HIDRÁULICO</strong></h2>
             <p>Para pisos /paredes/móveis demoliçao</p>
           </div>
         </div>
+
+        <!-- Slide 4 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg" alt="Planejados">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg">
           <div class="carrossel-texto">
             <h2>MÓVEIS <strong>PLANEJADOS</strong></h2>
             <p>Sob medida para o seu espaço</p>
           </div>
         </div>
+
+        <!-- Slide 5 -->
         <div class="carrossel-slide">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg" alt="Aparadores Rústicos">
           <div class="carrossel-texto">
             <h2>APARADORES <strong>RÚSTICOS</strong></h2>
             <p>Peças exclusivas para sua decoração</p>
           </div>
         </div>
+
       </div>
+
+      <!-- Bolinhas de navegação (5) -->
       <div class="carrossel-indicadores">
         <span class="indicador ativo" onclick="mudarSlide(0)"></span>
         <span class="indicador" onclick="mudarSlide(1)"></span>
@@ -284,43 +386,68 @@
     </div>
   </section>
 
-  <!-- ========================================================== -->
-  <!-- [TRECHO: GRADE DE PRODUTOS]                                -->
-  <!-- ========================================================== -->
+  <!-- PRODUTOS -->
   <div class="container">
     <div class="section-title">
       <h3>Nossa coleção de <strong>Aparadores</strong></h3>
-      <a href="aparador.html">Página 1 →</a>
+      <a href="aparador.html"></a>
     </div>
 
     <div class="product-grid">
-
-      <!-- PRODUTO 11 -->
+      <!-- PRODUTO 1 -->
       <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 11)" ontouchmove="moverToque(event, 11)" ontouchend="fimToque(11)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador1.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/1064-11-17fa5c7d187e9290bc16654952038307-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador1.webp" alt="Aparador Rústico Comune Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
-          
-          <div class="prod-slides" id="slides-11" onclick="abrirZoom(11)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador11.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador12.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador13.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador14.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(11, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(11, 1)">&#10095;</button>
-          
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(11, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(11, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(11, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(11, 3)"></span>
-          </div>
         </div>
         <div class="product-info">
-          <div class="product-name">Aparador Rústico Toronto em Madeira de Demolição</div>
+          <div class="product-name">Aparador Rústico Comune Em Madeira De Demolição</div>
+          <div class="product-dimensao">📏 1,20m (C) x 0,80m (A) x 0,35m (P)</div>
+          <div class="product-price">R$ 693,00 <span class="product-old-price">R$ 960,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 2 -->
+      <div class="product-card">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador2.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador2.webp" alt="Aparador Ágatha Em Madeira De Demolição" style="object-fit:contain;">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Aparador Ágatha Em Madeira De Demolição</div>
+          <div class="product-dimensao">📏 1,20m (C) x 0,80m (A) x 0,40m (P)</div>
+          <div class="product-price">R$ 1.239,00 <span class="product-old-price">R$ 1.449,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 3 -->
+      <div class="product-card">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador3.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/1001307814-107e26e0f61a4eaa4d17586549131280-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador3.webp" alt="Aparador Rústico Fiore Em Madeira De Demolição" style="object-fit:contain;">
+          <span class="badge">PROMOÇÃO</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Aparador Rústico Fiore Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 1,80m (C) x 0,80m (A) x 0,40m (P)</div>
-          <div class="product-price">R$ 1.739,00 <span class="product-old-price">R$ 1.935,00</span></div>
+          <div class="product-price">R$ 1.659,00 <span class="product-old-price">R$ 1.899,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -328,30 +455,18 @@
         </div>
       </div>
 
-      <!-- PRODUTO 12 -->
+      <!-- PRODUTO 4 -->
       <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 12)" ontouchmove="moverToque(event, 12)" ontouchend="fimToque(12)">
-          <div class="prod-slides" id="slides-12" onclick="abrirZoom(12)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador12.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador13.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador14.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador15.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(12, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(12, 1)">&#10095;</button>
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador4.webp',
           
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(12, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(12, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(12, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(12, 3)"></span>
-          </div>
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador4.webp" alt="Aparador Rústico Gallery em Madeira de Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
-          <div class="product-name">Aparador Arlo em Madeira de Demolição</div>
-          <div class="product-dimensao">📏 1,50m (C) x 0,80m (A) x 0,40m (P)</div>
-          <div class="product-price">R$ 1.609,00 <span class="product-old-price">R$ 1.935,00</span></div>
+          <div class="product-name">Aparador Rústico Gallery em Madeira de Demolição</div>
+          <div class="product-dimensao">📏 1,50m (C) x 0,80m (A) x 0,45m (P)</div>
+          <div class="product-price">R$ 1.947,00 <span class="product-old-price">R$ 2.249,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -359,187 +474,18 @@
         </div>
       </div>
 
-      <!-- PRODUTO 13 -->
+      <!-- PRODUTO 5 -->
       <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 13)" ontouchmove="moverToque(event, 13)" ontouchend="fimToque(13)">
-          <span class="badge">PROMOÇÃO</span>
-          <div class="prod-slides" id="slides-13" onclick="abrirZoom(13)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador13.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador14.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador15.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador16.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(13, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(13, 1)">&#10095;</button>
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador5.webp',
           
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(13, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(13, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(13, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(13, 3)"></span>
-          </div>
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador5.webp" alt="Aparador Rústico Isla Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
-          <div class="product-name">Aparador Rústico Tristan em Madeira de Demolição</div>
-          <div class="product-dimensao">📏 1,20m (C) x 0,80m (A) x 0,40m (P)</div>
-          <div class="product-price">R$ 1.189,00 <span class="product-old-price">R$ 1.335,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 14 -->
-      <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 14)" ontouchmove="moverToque(event, 14)" ontouchend="fimToque(14)">
-          <div class="prod-slides" id="slides-14" onclick="abrirZoom(14)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador14.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador15.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador16.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador17.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(14, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(14, 1)">&#10095;</button>
-          
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(14, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(14, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(14, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(14, 3)"></span>
-          </div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Aparador Rustique Em Madeira De Demolição</div>
-          <div class="product-dimensao">📏 0,90m (C) x 0,80m (A) x 0,30m (P)</div>
-          <div class="product-price">R$ 749,00 <span class="product-old-price">R$ 935,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 15 -->
-      <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 15)" ontouchmove="moverToque(event, 15)" ontouchend="fimToque(15)">
-          <div class="prod-slides" id="slides-15" onclick="abrirZoom(15)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador15.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador16.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador17.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador18.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(15, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(15, 1)">&#10095;</button>
-          
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(15, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(15, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(15, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(15, 3)"></span>
-          </div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Aparador Rústico Perla em Madeira de Demolição</div>
-          <div class="product-dimensao">📏 0,90m (C) x 0,80m (A) x 0,40m (P)</div>
-          <div class="product-price">R$ 1.197,00 <span class="product-old-price">R$ 1.375,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 16 -->
-      <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 16)" ontouchmove="moverToque(event, 16)" ontouchend="fimToque(16)">
-          <div class="prod-slides" id="slides-16" onclick="abrirZoom(16)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador16.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador17.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador18.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador19.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(16, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(16, 1)">&#10095;</button>
-          
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(16, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(16, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(16, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(16, 3)"></span>
-          </div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Aparador Caleb Em Madeira De Demolição</div>
-          <div class="product-dimensao">📏 1,20m (C) x 0,90m (A) x 0,40m (P)</div>
-          <div class="product-price">R$ 1.597,00 <span class="product-old-price">R$ 1.975,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 17 -->
-      <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 17)" ontouchmove="moverToque(event, 17)" ontouchend="fimToque(17)">
-          <span class="badge">DESTAQUE</span>
-          <div class="prod-slides" id="slides-17" onclick="abrirZoom(17)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador17.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador18.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador19.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador20.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(17, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(17, 1)">&#10095;</button>
-          
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(17, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(17, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(17, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(17, 3)"></span>
-          </div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Aparador Canabrava Em Madeira De Demolição</div>
-          <div class="product-dimensao">📏 1,20m (C) x 0,80m (A) x 0,40m (P)</div>
-          <div class="product-price">R$ 1.497,00 <span class="product-old-price">R$ 1.575,00</span></div>
-        </div>
-        <div class="product-footer">
-          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
-        </div>
-      </div>
-
-      <!-- PRODUTO 18 -->
-      <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 18)" ontouchmove="moverToque(event, 18)" ontouchend="fimToque(18)">
-          <div class="prod-slides" id="slides-18" onclick="abrirZoom(18)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador18.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador19.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador20.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador11.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(18, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(18, 1)">&#10095;</button>
-          
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(18, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(18, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(18, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(18, 3)"></span>
-          </div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">Aparador Donatela Em Madeira De Demolição</div>
+          <div class="product-name">Aparador Rústico Isla Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 1,60m (C) x 0,80m (A) x 0,40m (P)</div>
-          <div class="product-price">R$ 2.729,00 <span class="product-old-price">R$ 2.975,00</span></div>
+          <div class="product-price">R$ 1.599,00 <span class="product-old-price">R$ 1.895,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -547,30 +493,18 @@
         </div>
       </div>
 
-      <!-- PRODUTO 19 -->
+      <!-- PRODUTO 6 -->
       <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 19)" ontouchmove="moverToque(event, 19)" ontouchend="fimToque(19)">
-          <div class="prod-slides" id="slides-19" onclick="abrirZoom(19)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador19.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador20.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador11.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador12.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(19, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(19, 1)">&#10095;</button>
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador6.webp',
           
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(19, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(19, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(19, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(19, 3)"></span>
-          </div>
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador6.webp" alt="Aparador Rústico Líbano em Madeira de Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
-          <div class="product-name">Aparador Gaia Em Madeira De Demolição</div>
-          <div class="product-dimensao">📏 0,90m (C) x 0,80m (A) x 0,30m (P)</div>
-          <div class="product-price">R$ 759,00 <span class="product-old-price">R$ 934,00</span></div>
+          <div class="product-name">Aparador Rústico Líbano em Madeira de Demolição</div>
+          <div class="product-dimensao">📏 1,60m (C) x 0,80m (A) x 0,40m (P)</div>
+          <div class="product-price">R$ 1.715,00 <span class="product-old-price">R$ 1.945,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -578,31 +512,41 @@
         </div>
       </div>
 
-      <!-- PRODUTO 20 -->
+      <!-- PRODUTO 7 -->
       <div class="product-card">
-        <div class="product-image" onclick="ativarToqueMobile(this)" ontouchstart="iniciarToque(event, 20)" ontouchmove="moverToque(event, 20)" ontouchend="fimToque(20)">
-          <span class="badge">PROMOÇÃO</span>
-          <div class="prod-slides" id="slides-20" onclick="abrirZoom(20)">
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador20.webp" alt="Foto 1"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador11.webp" alt="Foto 2"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador12.webp" alt="Foto 3"></div>
-            <div class="prod-slide"><img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador13.webp" alt="Foto 4"></div>
-          </div>
-
-          <button class="prod-nav-btn prod-prev" onclick="event.stopPropagation(); mudarFotoProduto(20, -1)">&#10094;</button>
-          <button class="prod-nav-btn prod-next" onclick="event.stopPropagation(); mudarFotoProduto(20, 1)">&#10095;</button>
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador7.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/253-21-a6c025b315664533fe16658454271300-1024-1024.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/253-31-2653354ab3f48b137516658454270553-1024-1024.webp',
           
-          <div class="prod-dots">
-            <span class="prod-dot active" onclick="event.stopPropagation(); irParaFoto(20, 0)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(20, 1)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(20, 2)"></span>
-            <span class="prod-dot" onclick="event.stopPropagation(); irParaFoto(20, 3)"></span>
-          </div>
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador7.webp" alt="Aparador Rústico Marian Em Madeira De Demolição" style="object-fit:contain;">
+          <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
-          <div class="product-name">Aparador Pequim Em Madeira De Demolição</div>
+          <div class="product-name">Aparador Rústico Marian Em Madeira De Demolição</div>
+          <div class="product-dimensao">📏 1,00m (C) x 0,80m (A) x 0,30m (P)</div>
+          <div class="product-price">R$ 927,00 <span class="product-old-price">R$ 1.215,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 8 -->
+      <div class="product-card">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador8.webp',
+          
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador8.webp" alt="Aparador Hamburgo Em Madeira De Demolição" style="object-fit:contain;">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Aparador Hamburgo Em Madeira De Demolição</div>
           <div class="product-dimensao">📏 1,20m (C) x 0,80m (A) x 0,40m (P)</div>
-          <div class="product-price">R$ 779,00 <span class="product-old-price">R$ 975,00</span></div>
+          <div class="product-price">R$ 1.115,00 <span class="product-old-price">R$ 1.305,00</span></div>
         </div>
         <div class="product-footer">
           <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
@@ -610,15 +554,54 @@
         </div>
       </div>
 
+      <!-- PRODUTO 9 -->
+      <div class="product-card">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador9.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador9.webp" alt="Aparador Rústico Oscar em Madeira de Demolição" style="object-fit:contain;">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Aparador Rústico Oscar em Madeira de Demolição</div>
+          <div class="product-dimensao">📏 1,20m (C) x 0,80m (A) x 0,40m (P)</div>
+          <div class="product-price">R$ 815,00 <span class="product-old-price">R$ 1.105,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
+
+      <!-- PRODUTO 10 -->
+      <div class="product-card">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador10.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/21841-f4cb0f1750cf816b0816652369379617-1024-1024.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/2184-21-a31b0833a59186060316652369379866-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/aparador10.webp" alt="Aparador Rústico Rostok em Madeira de Demolição" style="object-fit:contain;">
+          <span class="badge">PROMOÇÃO</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Aparador Rústico Rostok em Madeira de Demolição</div>
+          <div class="product-dimensao">📏 1,20m (C) x 0,80m (A) x 0,40m (P)</div>
+          <div class="product-price">R$ 1.575,00 <span class="product-old-price">R$ 1.735,00</span></div>
+        </div>
+        <div class="product-footer">
+          <button class="btn-left" onclick="document.getElementById('pixModal').classList.add('open')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="btn-right" onclick="document.getElementById('cartaoModal').classList.add('open')"><i class="fas fa-credit-card"></i> Cartão</button>
+        </div>
+      </div>
     </div>
 
     <!-- PAGINAÇÃO -->
     <div style="text-align:center; margin:40px 0; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
-      <a href="aparador.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">← Anterior</a>
-      <a href="aparador.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">1</a>
-      <span style="background:#a40e0e; color:#fff; padding:8px 16px; border-radius:4px; font-weight:700;">2</span>
+      <span style="background:#a40e0e; color:#fff; padding:8px 16px; border-radius:4px; font-weight:700;">1</span>
+      <a href="aparador2.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">2</a>
       <a href="aparador3.html" style="background:#f0ebe5; color:#2c1810; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">3</a>
-      <a href="aparador3.html" style="background:#2c1810; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">Próxima →</a>
+      <a href="aparador2.html" style="background:#2c1810; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none; font-weight:600;">Próxima →</a>
     </div>
   </div>
 
@@ -627,7 +610,7 @@
     <div class="container">
       <div class="section-title">
         <h3>O que nossos <strong>clientes dizem</strong></h3>
-        <a href="#">Ver todos →</a>
+        <a href="#"></a>
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-item">
@@ -673,8 +656,8 @@
         <div>
           <h4>Redes Sociais</h4>
           <div class="social">
-            <a href="https://instagram.com/rusticonobre10" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/351939799836" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/rusticonobre10"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/351939799836"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
@@ -684,42 +667,42 @@
 
   <!-- BOTÕES FLUTUANTES -->
   <style>
-  .floating-container {position: fixed; bottom: 20px; left: 0; right: 0; z-index: 9999; display: flex; justify-content: space-between; padding: 0 20px; pointer-events: none;}
-  .floating-container a, .floating-container button { pointer-events: auto; }
-  .floating-btn {display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 30px; text-decoration: none; font-size: 14px; font-weight: 600; color: #fff; border: none; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);}
-  .floating-btn:hover { transform: scale(1.05); }
-  .floating-btn svg { width: 20px; height: 20px; fill: currentColor; }
-  .btn-whatsapp { background: #25D366; }
-  .btn-text-float { background: #a40e0e; }
+  .floating-container{position:fixed;bottom:20px;left:0;right:0;z-index:9999;display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
+  .floating-container a,.floating-container button{pointer-events:auto}
+  .floating-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:600;color:#fff;border:none;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.25)}
+  .floating-btn:hover{transform:scale(1.05)}
+  .floating-btn svg{width:20px;height:20px;fill:currentColor}
+  .btn-whatsapp{background:#25D366}
+  .btn-whatsapp:hover{background:#1da851}
+  .btn-text-float{background:#a40e0e}
+  .btn-text-float:hover{background:#cc1111}
+  @media(max-width:480px){.floating-btn{padding:8px 14px;font-size:12px}.floating-btn svg{width:16px;height:16px}}
   </style>
 
   <div class="floating-container">
-    <a href="https://wa.me/351939799836" target="_blank" class="floating-btn btn-whatsapp">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    <a href="https://wa.me/5591991120652" target="_blank" class="floating-btn btn-whatsapp">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
       WhatsApp
     </a>
     <button class="floating-btn btn-text-float" onclick="document.getElementById('textModal').classList.add('open')">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/>
+      </svg>
       Texto
     </button>
   </div>
 
-  <!-- MODAL DE ZOOM COM SETAS E BOLINHAS -->
-  <div class="zoom-modal" id="zoomModal">
-    <div class="zoom-content">
-      <button class="zoom-close" onclick="fecharZoom()">&times;</button>
-      <div class="zoom-image-wrapper">
-        <button class="zoom-btn zoom-prev" onclick="mudarZoom(-1)">&#10094;</button>
-        <img id="zoomImg" src="" alt="Imagem Ampliada">
-        <button class="zoom-btn zoom-next" onclick="mudarZoom(1)">&#10095;</button>
-      </div>
-      <div class="zoom-dots" id="zoomDots">
-        <span class="zoom-dot active" onclick="irParaFotoZoom(0)"></span>
-        <span class="zoom-dot" onclick="irParaFotoZoom(1)"></span>
-        <span class="zoom-dot" onclick="irParaFotoZoom(2)"></span>
-        <span class="zoom-dot" onclick="irParaFotoZoom(3)"></span>
-      </div>
+  <!-- MODAL DA GALERIA DE FOTOS (LIGHTBOX) -->
+  <div id="galeriaModal" class="galeria-modal">
+    <span class="galeria-fechar" onclick="fecharGaleria()">&times;</span>
+    <div class="galeria-conteudo" id="galeriaConteudo">
+      <img id="galeriaImagemAtual" src="" alt="Imagem ampliada">
+      <button class="galeria-seta esquerda" onclick="mudarFotoGaleria(-1)">&#10094;</button>
+      <button class="galeria-seta direita" onclick="mudarFotoGaleria(1)">&#10095;</button>
     </div>
+    <div class="galeria-indicadores" id="galeriaIndicadores"></div>
   </div>
 
   <!-- MODAIS -->
@@ -740,10 +723,17 @@
       <h3><i class="fas fa-credit-card" style="color:#a40e0e;"></i> Pagamento com Cartão</h3>
       <p>Selecione a forma de pagamento:</p>
       <div class="cartao-options">
-        <label><input type="radio" name="pagamento" value="credito" checked> <span><strong>Cartão de Crédito</strong></span></label>
-        <label><input type="radio" name="pagamento" value="debito"> <span><strong>Cartão de Débito</strong></span></label>
+        <label>
+          <input type="radio" name="pagamento" value="credito" checked>
+          <span><strong>Cartão de Crédito</strong> <small>(até 12x c/juros)</small></span>
+        </label>
+        <label>
+          <input type="radio" name="pagamento" value="debito">
+          <span><strong>Cartão de Débito</strong> <small>(à vista)</small></span>
+        </label>
       </div>
       <button class="btn" style="width:100%;" onclick="alert('Redirecionando para pagamento...')">Continuar</button>
+      <p style="font-size:12px;color:#888;margin-top:10px;">Pagamento seguro processado por nosso parceiro.</p>
     </div>
   </div>
 
@@ -751,187 +741,169 @@
     <div class="text-modal-content">
       <button class="close-btn" onclick="document.getElementById('textModal').classList.remove('open')">&times;</button>
       <h3>Envie uma mensagem</h3>
+      <p class="sub">Preencha seus dados e nossa equipe responderá em breve.</p>
       <form id="textForm" onsubmit="sendTextMessage(event)">
-        <label>Nome</label>
-        <input type="text" id="textName" placeholder="Seu nome" required>
-        <label>Celular</label>
+        <label for="textName">Nome</label>
+        <input type="text" id="textName" placeholder="Seu nome completo" required>
+        <label for="textPhone">Celular</label>
         <input type="tel" id="textPhone" placeholder="(91) 99999-9999" required>
-        <label>Mensagem</label>
-        <textarea id="textMessage" placeholder="Escreva sua mensagem..." required></textarea>
+        <label for="textMessage">Mensagem</label>
+        <textarea id="textMessage" placeholder="Escreva sua mensagem aqui..." required></textarea>
         <button type="submit" class="send-btn">Enviar</button>
       </form>
+      <p class="legal">Ao clicar em enviar, você autoriza a Nobre Rústico a enviar mensagens para o número informado para fins informativos. Mensagens e dados podem ser cobrados. Digite AJUDA para ajuda e SAIR para cancelar.</p>
+      <p class="powered">Site com envio de texto</p>
     </div>
   </div>
 
-  <!-- ========================================================== -->
-  <!-- [TRECHO: SCRIPTS DE CONTROLE]                              -->
-  <!-- ========================================================== -->
+  <!-- SCRIPTS -->
   <script>
     document.getElementById('menuToggle').addEventListener('click', function() {
       this.classList.toggle('active');
       document.getElementById('navMenu').classList.toggle('open');
     });
 
-    document.querySelectorAll('.modal, .text-modal, .zoom-modal').forEach(modal => {
+    document.querySelectorAll('.modal, .text-modal').forEach(modal => {
       modal.addEventListener('click', function(e) {
-        if (e.target === this) this.classList.remove('open');
+        if (e.target === this) {
+          this.classList.remove('open');
+        }
       });
     });
 
     function copiarChavePix() {
-      navigator.clipboard.writeText('xtreambr@gmail.com').then(() => alert('Chave PIX copiada!'));
+      const chave = 'xtreambr@gmail.com';
+      navigator.clipboard.writeText(chave).then(() => {
+        alert('Chave PIX copiada!');
+      }).catch(() => {
+        prompt('Copie manualmente:', chave);
+      });
     }
 
     function sendTextMessage(event) {
       event.preventDefault();
       const name = document.getElementById('textName').value;
       const message = document.getElementById('textMessage').value;
-      window.open(`https://wa.me/351939799836?text=Olá! Meu nome é ${name}.%0A%0A${message}`, '_blank');
+      const numero = '5591991120652';
+      const texto = `Olá! Meu nome é ${name}.%0A%0A${message}`;
+      const url = `https://wa.me/${numero}?text=${texto}`;
+      document.getElementById('textModal').classList.remove('open');
+      window.open(url, '_blank');
     }
 
-    // Carrossel do Topo
+    // ===== CARROSSEL AUTOMÁTICO =====
     let slideAtual = 0;
     const slides = document.querySelectorAll('.carrossel-slide');
     const indicadores = document.querySelectorAll('.indicador');
     let intervalo;
 
     function mostrarSlide(index) {
-      slides.forEach((s, i) => s.classList.toggle('active', i === index));
-      indicadores.forEach((ind, i) => ind.classList.toggle('ativo', i === index));
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      indicadores.forEach((ind, i) => {
+        ind.classList.toggle('ativo', i === index);
+      });
       slideAtual = index;
     }
+
     function mudarSlide(index) {
       clearInterval(intervalo);
       mostrarSlide(index);
-      intervalo = setInterval(() => mostrarSlide((slideAtual + 1) % slides.length), 5000);
-    }
-    if (slides.length > 0) intervalo = setInterval(() => mostrarSlide((slideAtual + 1) % slides.length), 5000);
-
-    // Controle dos produtos (Carrossel interno e Zoom)
-    const produtoIndices = {};
-    let produtoZoomAtual = null;
-
-    function atualizarVisualProduto(idProduto) {
-      const indiceAtual = produtoIndices[idProduto] || 0;
-      const container = document.getElementById('slides-' + idProduto);
-      if(!container) return;
-      container.style.transform = `translateX(-${indiceAtual * 100}%)`;
-      
-      const card = container.closest('.product-card');
-      const dots = card.querySelectorAll('.prod-dot');
-      dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === indiceAtual);
-      });
+      iniciarAutoSlide();
     }
 
-    function mudarFotoProduto(idProduto, direcao) {
-      if (!produtoIndices[idProduto]) produtoIndices[idProduto] = 0;
-      produtoIndices[idProduto] += direcao;
-      if (produtoIndices[idProduto] > 3) produtoIndices[idProduto] = 0;
-      if (produtoIndices[idProduto] < 0) produtoIndices[idProduto] = 3;
-      atualizarVisualProduto(idProduto);
+    function proximoSlide() {
+      const proximo = (slideAtual + 1) % slides.length;
+      mostrarSlide(proximo);
     }
 
-    function irParaFoto(idProduto, indice) {
-      produtoIndices[idProduto] = indice;
-      atualizarVisualProduto(idProduto);
+    function iniciarAutoSlide() {
+      intervalo = setInterval(proximoSlide, 5000);
     }
 
-    // Funções de Zoom / Ampliação
-    function abrirZoom(idProduto) {
-      produtoZoomAtual = idProduto;
-      if (!produtoIndices[idProduto]) produtoIndices[idProduto] = 0;
-      atualizarTelaZoom();
-      document.getElementById('zoomModal').classList.add('open');
-    }
+    mostrarSlide(0);
+    iniciarAutoSlide();
 
-    function fecharZoom() {
-      document.getElementById('zoomModal').classList.remove('open');
-    }
-
-    function atualizarTelaZoom() {
-      if (!produtoZoomAtual) return;
-      const indiceAtual = produtoIndices[produtoZoomAtual] || 0;
-      const container = document.getElementById('slides-' + produtoZoomAtual);
-      const imgs = container.querySelectorAll('img');
-      
-      document.getElementById('zoomImg').src = imgs[indiceAtual].src;
-      atualizarVisualProduto(produtoZoomAtual);
-
-      const zoomDots = document.querySelectorAll('.zoom-dot');
-      zoomDots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === indiceAtual);
-      });
-    }
-
-    function mudarZoom(direcao) {
-      if (!produtoZoomAtual) return;
-      if (!produtoIndices[produtoZoomAtual]) produtoIndices[produtoZoomAtual] = 0;
-      
-      produtoIndices[produtoZoomAtual] += direcao;
-      if (produtoIndices[produtoZoomAtual] > 3) produtoIndices[produtoZoomAtual] = 0;
-      if (produtoIndices[produtoZoomAtual] < 0) produtoIndices[produtoZoomAtual] = 3;
-      
-      atualizarTelaZoom();
-    }
-
-    function irParaFotoZoom(indice) {
-      if (!produtoZoomAtual) return;
-      produtoIndices[produtoZoomAtual] = indice;
-      atualizarTelaZoom();
-    }
-
-    // Suporte ao toque para rolar com o dedo nos cards
-    let toqueXInicial = 0;
-    function iniciarToque(e, idProduto) {
-      toqueXInicial = e.touches[0].clientX;
-    }
-    function moverToque(e, idProduto) {
-      // Previne comportamento padrão caso queira apenas o deslize horizontal customizado
-    }
-    function fimToque(e, idProduto) {
-      // Opcional se houver lógica adicional de threshold horizontal
-    }
-
+    // ===== GALERIA DE FOTOS DOS PRODUTOS (COM SUPORTE A TOQUE/SWIPE) =====
+    let imagensGaleria = [];
+    let indiceAtual = 0;
     let touchStartX = 0;
-    function iniciarToque(e, idProduto) {
-      touchStartX = e.changedTouches[0].screenX;
+    let touchEndX = 0;
+
+    function abrirGaleria(listaImagens) {
+      imagensGaleria = listaImagens;
+      indiceAtual = 0;
+      document.getElementById('galeriaModal').style.display = 'flex';
+      atualizarGaleria();
     }
 
-    function fimToque(idProduto) {
-      // Implementado no evento touchend global/direto se necessário, ou via swipe nativo
+    function fecharGaleria() {
+      document.getElementById('galeriaModal').style.display = 'none';
     }
 
-    document.querySelectorAll('.product-image').forEach(el => {
-      let startX = 0;
-      let idProd = el.querySelector('.prod-slides').id.replace('slides-', '');
+    function mudarFotoGaleria(direcao) {
+      indiceAtual += direcao;
+      if (indiceAtual < 0) {
+        indiceAtual = imagensGaleria.length - 1;
+      } else if (indiceAtual >= imagensGaleria.length) {
+        indiceAtual = 0;
+      }
+      atualizarGaleria();
+    }
+
+    function irParaFoto(indice) {
+      indiceAtual = indice;
+      atualizarGaleria();
+    }
+
+    function atualizarGaleria() {
+      const imgElement = document.getElementById('galeriaImagemAtual');
+      imgElement.src = imagensGaleria[indiceAtual];
       
-      el.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-        ativarToqueMobile(el);
-      }, {passive: true});
-
-      el.addEventListener('touchend', e => {
-        let endX = e.changedTouches[0].clientX;
-        let diff = startX - endX;
-        if (Math.abs(diff) > 50) {
-          if (diff > 0) {
-            mudarFotoProduto(idProd, 1); // Deslizou para esquerda (próxima foto)
-          } else {
-            mudarFotoProduto(idProd, -1); // Deslizou para direita (foto anterior)
-          }
+      const indicadoresContainer = document.getElementById('galeriaIndicadores');
+      indicadoresContainer.innerHTML = '';
+      
+      imagensGaleria.forEach((_, index) => {
+        const ponto = document.createElement('span');
+        ponto.classList.add('galeria-ponto');
+        if (index === indiceAtual) {
+          ponto.classList.add('ativo');
         }
-      }, {passive: true});
+        ponto.onclick = () => irParaFoto(index);
+        indicadoresContainer.appendChild(ponto);
+      });
+    }
+
+    const conteudoGaleria = document.getElementById('galeriaConteudo');
+    conteudoGaleria.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
     });
 
-    function ativarToqueMobile(elemento) {
-      document.querySelectorAll('.product-image').forEach(el => {
-        if (el !== elemento) el.classList.remove('active-touch');
-      });
-      elemento.classList.toggle('active-touch');
+    conteudoGaleria.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      tratarGestoSwipe();
+    });
+
+    function tratarGestoSwipe() {
+      const limiteSwipe = 50;
+      if (touchEndX < touchStartX - limiteSwipe) {
+        mudarFotoGaleria(1);
+      }
+      if (touchEndX > touchStartX + limiteSwipe) {
+        mudarFotoGaleria(-1);
+      }
     }
+
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('galeriaModal');
+      if (event.target === modal) {
+        fecharGaleria();
+      }
+    });
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </body>
-</html>
+  </html>
