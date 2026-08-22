@@ -83,8 +83,9 @@
     .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-bottom:25px}
     .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
     .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .product-image img{width:100%;height:100%;object-fit:cover}
+    .product-image{width:100%;height:200px;background:#e8e0d8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease, filter 0.3s ease}
+    .product-image:hover img{transform:scale(1.03);filter:brightness(1.08)}
     .product-image .badge{position:absolute;top:10px;left:10px;background:#a40e0e;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;text-transform:uppercase;z-index:2;pointer-events:none}
     .product-info{padding:10px 12px 6px;flex:1}
     .product-name{font-size:13px;font-weight:600;color:#2c1810;margin-bottom:3px}
@@ -389,14 +390,19 @@
   <div class="container">
     <div class="section-title">
       <h3>Nossa coleção de <strong>Cômodas</strong></h3>
-      <a href="comoda.html">Página 1 →</a>
+      <a href="comoda.html"></a>
     </div>
 
     <div class="product-grid">
       <!-- PRODUTO 11 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda11.webp" alt="Cômoda Zafira em Madeira de Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod11Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda11.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/20250424_161903-a1f7cf41469a78ddd317510437739548-1024-1024.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/20250424_161728-64947555300acc9e3117510437738531-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda11.webp" alt="Cômoda Zafira em Madeira de Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
@@ -412,8 +418,11 @@
 
       <!-- PRODUTO 12 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda12.webp" alt="Cômoda Rústica Samanta em Madeira de Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod12Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda12.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda12.webp" alt="Cômoda Rústica Samanta em Madeira de Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
           <div class="product-name">Cômoda Rústica Samanta em Madeira de Demolição</div>
@@ -428,8 +437,11 @@
 
       <!-- PRODUTO 13 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda13.webp" alt="Cômoda Rústica Leopoldina em Madeira de Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod13Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda13.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda13.webp" alt="Cômoda Rústica Leopoldina em Madeira de Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
@@ -445,8 +457,12 @@
 
       <!-- PRODUTO 14 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda14.webp" alt="Cômoda Rústica Sofia Em Madeira De Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod14Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda14.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/279-11-bc52901aea7830599316875491894068-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda14.webp" alt="Cômoda Rústica Sofia Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
           <div class="product-name">Cômoda Rústica Sofia Em Madeira De Demolição</div>
@@ -461,8 +477,12 @@
 
       <!-- PRODUTO 15 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda15.webp" alt="Cômoda Rústica Tiana Em Madeira De Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod15Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda15.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/31-11-1d49cffa4a2364af6c16658507360292-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda15.webp" alt="Cômoda Rústica Tiana Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
@@ -478,8 +498,12 @@
 
       <!-- PRODUTO 16 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda16.webp" alt="Cômoda Rústica Aurora Em Madeira De Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod16Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda16.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/366-11-c91904d4e1c0e7ad3416875470931170-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda16.webp" alt="Cômoda Rústica Aurora Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
           <div class="product-name">Cômoda Rústica Aurora Em Madeira De Demolição</div>
@@ -494,8 +518,13 @@
 
       <!-- PRODUTO 17 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp" alt="Cômoda Rústica Viera em Madeira de Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod17Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/67-11-316229d02a6fee695a16875349297477-1024-1024.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/67-21-c7fc924d40e32a310516875349296855-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp" alt="Cômoda Rústica Viera em Madeira de Demolição" style="object-fit:contain;">
           <span class="badge">PROMOÇÃO</span>
         </div>
         <div class="product-info">
@@ -511,8 +540,13 @@
 
       <!-- PRODUTO 18 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda18.webp" alt="Cômoda Rústica Nepal Em Madeira De Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod18Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda18.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/767-1-7a2c58ec2326e3de8f17607085172563-1024-1024.webp',
+          'https://acdn-us.mitiendanube.com/stores/002/377/511/products/767-3-4f1f226a93e5235a8317607085166152-1024-1024.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda18.webp" alt="Cômoda Rústica Nepal Em Madeira De Demolição" style="object-fit:contain;">
         </div>
         <div class="product-info">
           <div class="product-name">Cômoda Rústica Nepal Em Madeira De Demolição</div>
@@ -527,8 +561,11 @@
 
       <!-- PRODUTO 19 -->
       <div class="product-card">
-        <div class="product-image">
-          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda19.webp" alt="Cômoda Rústica Framie Em Madeira De Demolição" class="clickable-img" style="object-fit:contain;" onclick="abrirGaleria(prod19Fotos, 0)">
+        <div class="product-image" onclick="abrirGaleria([
+          'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda19.webp',
+          
+        ])">
+          <img src="https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda19.webp" alt="Cômoda Rústica Framie Em Madeira De Demolição" style="object-fit:contain;">
           <span class="badge">DESTAQUE</span>
         </div>
         <div class="product-info">
@@ -557,7 +594,7 @@
     <div class="container">
       <div class="section-title">
         <h3>O que nossos <strong>clientes dizem</strong></h3>
-        <a href="#">Ver todos →</a>
+        <a href="#"></a>
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-item">
@@ -774,76 +811,13 @@
     mostrarSlide(0);
     iniciarAutoSlide();
 
-    // ===== LISTAS DE 4 FOTOS PARA CADA PRODUTO E BANNER =====
+    // ===== LISTAS DE IMAGENS DO CARROSSEL PRINCIPAL =====
     const carrosselImagens = [
       "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/pele.jpg",
       "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Boi0.jpg_play_BR.jpg",
       "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/IMG-20260728-WA0016.jpg",
       "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Planejado0.jpg",
       "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Baneraparador.jpg"
-    ];
-
-    const prod11Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda11.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda12.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda13.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda14.webp"
-    ];
-
-    const prod12Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda12.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda11.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda13.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda15.webp"
-    ];
-
-    const prod13Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda13.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda14.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda15.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda16.webp"
-    ];
-
-    const prod14Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda14.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda13.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda15.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp"
-    ];
-
-    const prod15Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda15.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda16.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda18.webp"
-    ];
-
-    const prod16Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda16.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda15.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda19.webp"
-    ];
-
-    const prod17Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda18.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda19.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda11.webp"
-    ];
-
-    const prod18Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda18.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda19.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda12.webp"
-    ];
-
-    const prod19Fotos = [
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda19.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda18.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda17.webp",
-      "https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Comoda13.webp"
     ];
 
     // ===== LÓGICA DO MODAL LIGHTBOX / GALERIA =====
