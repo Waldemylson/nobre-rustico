@@ -23,19 +23,20 @@
     .top-bar i{color:#b8956a;margin-right:4px}
     
     .header{background:#fff;padding:15px 0;border-bottom:2px solid #e8e0d8;position:relative;z-index:100}
-    .header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .header .container{display:flex;justify-content:space-between;align-items:center}
     
-    .header-logo{display:flex;align-items:center;gap:12px}
-    .header-logo img{height:70px;width:auto;display:block}
-    .logo{font-size:28px;font-weight:700;color:#2c1810}
+    .header-logo{display:flex;align-items:center;gap:15px;text-decoration:none}
+    .header-logo img{height:55px;width:auto;display:block;object-fit:contain}
+    .logo{font-size:24px;font-weight:700;color:#2c1810;line-height:1.1}
     .logo span{color:#a40e0e}
-    .logo small{display:block;font-size:11px;font-weight:400;color:#888;letter-spacing:2px}
-    .header-right{display:flex;align-items:center;gap:18px}
-    .header-right a{color:#2c1810;font-size:18px;text-decoration:none}
+    .logo small{display:block;font-size:10px;font-weight:400;color:#888;letter-spacing:1.5px}
+    
+    .header-right{display:flex;align-items:center;gap:20px}
+    .header-right a{color:#2c1810;font-size:18px;text-decoration:none;transition:0.2s}
     .header-right a:hover{color:#a40e0e}
     
-    .menu-toggle{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:5px;background:none;border:none}
-    .menu-toggle span{display:block;width:26px;height:3px;background:#2c1810;border-radius:2px;transition:0.3s}
+    .menu-toggle{display:flex;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;padding:0;background:none;border:none}
+    .menu-toggle span{display:block;width:100%;height:3px;background:#2c1810;border-radius:2px;transition:0.3s}
     .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
     .menu-toggle.active span:nth-child(2){opacity:0}
     .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
@@ -78,7 +79,6 @@
     .product-card{background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e8e0d8;transition:0.3s;display:flex;flex-direction:column}
     .product-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08)}
     
-    /* FOTO NO CARD */
     .product-gallery{position:relative;width:100%;height:220px;background:#e8e0d8;overflow:hidden;cursor:pointer}
     .product-gallery img{width:100%;height:100%;object-fit:contain;transition:transform 0.3s ease}
     .product-gallery img:hover{transform:scale(1.05)}
@@ -143,7 +143,6 @@
     .text-modal-content .send-btn:hover{background:#cc1111}
     .text-modal-content .legal{font-size:11px;color:#888;line-height:1.5;margin-top:14px;text-align:center}
 
-    /* MODAL DE AMPLIAÇÃO COM CARROSSEL REAL */
     .image-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:20000;align-items:center;justify-content:center}
     .image-modal.open{display:flex}
     .image-modal-content{position:relative;width:90%;max-width:800px;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -155,13 +154,11 @@
 
     .image-modal .close-btn{position:absolute;top:-45px;right:0;font-size:35px;color:#fff;background:none;border:none;cursor:pointer;font-weight:bold;z-index:15}
     
-    /* SETAS NO MODAL */
     .modal-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#fff;border:none;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;font-size:18px;transition:0.3s}
     .modal-arrow:hover{background:#a40e0e}
     .modal-arrow.prev{left:-55px}
     .modal-arrow.next{right:-55px}
 
-    /* BOLINHAS NO MODAL */
     .modal-dots{display:flex;gap:8px;margin-top:15px;z-index:10}
     .modal-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:0.3s}
     .modal-dot.active{background:#a40e0e;transform:scale(1.2)}
@@ -173,8 +170,8 @@
     }
     
     @media(max-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr);gap:15px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.banner h2{font-size:24px}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:11px;padding:8px 10px}}
-    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr;gap:12px}.product-gallery{height:150px}.product-name{font-size:13px}.product-price{font-size:16px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.banner h2{font-size:20px}.modal-content,.text-modal-content{padding:20px}}
+    @media(max-width:768px){.top-bar .container{flex-direction:column;text-align:center;gap:5px}.product-grid{grid-template-columns:repeat(2,1fr);gap:15px}.testimonial-grid{grid-template-columns:1fr;gap:20px}.footer-grid{grid-template-columns:1fr 1fr}.product-footer{flex-wrap:wrap}.btn-left,.btn-right{flex:1;justify-content:center;text-align:center;font-size:11px;padding:8px 10px}}
+    @media(max-width:480px){.product-grid{grid-template-columns:1fr 1fr;gap:12px}.product-gallery{height:150px}.product-name{font-size:13px}.product-price{font-size:16px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer .social a{margin:0 8px}.modal-content,.text-modal-content{padding:20px}}
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -200,10 +197,10 @@
     🎉 Entrega em toda Belém e região! Clique aqui para mais detalhes!
   </a>
 
-  <!-- HEADER + MENU DROPDOWN CORRIGIDO -->
+  <!-- HEADER + MENU DROPDOWN -->
   <header class="header">
     <div class="container">
-      <a href="index.html" style="text-decoration:none;" class="header-logo">
+      <a href="index.html" class="header-logo">
         <img src="https://raw.githubusercontent.com/Waldemylson/Tv-online-gratis-xtreambr/refs/heads/main/HtmLa.jpg" alt="Logo Nobre Rústico">
         <div class="logo">
           Nobre <span>Rústico</span>
@@ -222,7 +219,7 @@
       </div>
     </div>
 
-    <!-- NAV MENU DENTRO DA ÁREA DO HEADER -->
+    <!-- NAV MENU -->
     <nav class="nav-menu" id="navMenu">
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
@@ -403,7 +400,7 @@
       <div class="product-card">
         <div class="product-gallery" onclick="abrirGaleriaZoom([
           'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Fruteiramelancia5.jpg',
- 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlQUdwx_33lHa6UBg-Rxlx0_-N3Q0XT1mrtDvnbCqGLA&s',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlQUdwx_33lHa6UBg-Rxlx0_-N3Q0XT1mrtDvnbCqGLA&s',
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt4mvXRd3fuiNBpHNvbQiPP3JZSk8gk6wnW9AkkkRXqw&s=10',
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXgoX-gkZKzqB-FXoXLBDrgfWDKsmpZcjhvUoMuYuOaA&s'
         ])">
@@ -425,10 +422,8 @@
       <div class="product-card">
         <div class="product-gallery" onclick="abrirGaleriaZoom([
           'https://raw.githubusercontent.com/Waldemylson/Nobre-rustico-imagem/refs/heads/main/Fruteiramista6.jpg',
-
-'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdl4e97vU-DLq_u0vFKl6wCo_fVT05zHo8gfpQo3L-mQ&s',
-          
- 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEDmf8uaiv-UTXIH9Q2_mfGgt06zo50RoBbVnzEHJ2kg&s=10',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdl4e97vU-DLq_u0vFKl6wCo_fVT05zHo8gfpQo3L-mQ&s',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEDmf8uaiv-UTXIH9Q2_mfGgt06zo50RoBbVnzEHJ2kg&s=10',
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu5Dr2JBgD24rks4YXExiAy4j8JWly5lpv7MSEREnS7g&s=10'
         ])">
           <span class="badge">PROMOÇÃO</span>
@@ -586,7 +581,7 @@
   </div>
 
   <!-- MODAL CARTÃO -->
-    <div class="modal" id="cartaoModal">
+  <div class="modal" id="cartaoModal">
     <div class="modal-content">
       <button class="close-btn" onclick="document.getElementById('cartaoModal').classList.remove('open')">&times;</button>
       <h3><i class="fas fa-credit-card" style="color:#a40e0e;"></i> Pagamento com Cartão</h3>
@@ -621,28 +616,24 @@
     </div>
   </div>
 
-  <!-- MODAL DA GALERIA ZOOM COM CARROSSEL REAL DESLIZANTE -->
+  <!-- MODAL DA GALERIA ZOOM -->
   <div class="image-modal" id="imageModal" onclick="fecharZoom()">
     <div class="image-modal-content" onclick="event.stopPropagation()">
       <button class="close-btn" onclick="fecharZoom()">&times;</button>
       
-      <!-- SETAS -->
       <button class="modal-arrow prev" onclick="mudarFotoZoom(-1)"><i class="fas fa-chevron-left"></i></button>
       <button class="modal-arrow next" onclick="mudarFotoZoom(1)"><i class="fas fa-chevron-right"></i></button>
       
-      <!-- ÁREA DESLIZANTE DO CARROSSEL -->
       <div class="modal-carousel-wrapper" id="carouselWrapper">
         <div class="modal-carousel-track" id="modalTrack"></div>
       </div>
 
-      <!-- BOLINHAS INDICADORAS -->
       <div class="modal-dots" id="modalDots"></div>
     </div>
   </div>
 
   <!-- SCRIPTS GERAIS -->
   <script>
-    // MENU MOBILE DA CABEÇA DA PÁGINA
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     if (menuToggle && navMenu) {
@@ -652,7 +643,6 @@
       });
     }
 
-    // CONTROLE DOS MODAIS
     function abrirModal(id) {
       const modal = document.getElementById(id);
       if (modal) modal.classList.add('open');
@@ -672,7 +662,6 @@
       });
     }
 
-    // CARROSSEL BANNER PRINCIPAL
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carrossel-slide');
     const indicadores = document.querySelectorAll('.carrossel-indicadores .indicador');
@@ -692,7 +681,6 @@
       mudarSlide(slideIndex + 1);
     }, 5000);
 
-    // LÓGICA DO CARROSSEL DESLIZANTE NO MODAL AO CLICAR NA IMAGEM
     let imagensAtuaisModal = [];
     let indiceFotoAtual = 0;
     let startX = 0;
@@ -713,20 +701,17 @@
       dotsContainer.innerHTML = '';
 
       imagensAtuaisModal.forEach((url, idx) => {
-        // Criar Slide
         const slide = document.createElement('div');
         slide.className = 'modal-carousel-slide';
         slide.innerHTML = `<img src="${url}" alt="Foto ${idx + 1}">`;
         track.appendChild(slide);
 
-        // Criar Bolinha
         const dot = document.createElement('div');
         dot.className = `modal-dot ${idx === 0 ? 'active' : ''}`;
         dot.onclick = () => exibirFotoZoom(idx);
         dotsContainer.appendChild(dot);
       });
 
-      // Adicionar Gestos de Arraste (Touch / Mouse)
       const wrapper = document.getElementById('carouselWrapper');
       wrapper.ontouchstart = (e) => { startX = e.touches[0].clientX; };
       wrapper.ontouchend = (e) => {
@@ -754,11 +739,9 @@
       if (index < 0) index = imagensAtuaisModal.length - 1;
       indiceFotoAtual = index;
 
-      // Mover a pista do carrossel suavemente
       const track = document.getElementById('modalTrack');
       track.style.transform = `translateX(-${indiceFotoAtual * 100}%)`;
 
-      // Atualizar as bolinhas ativas
       const dots = document.querySelectorAll('#modalDots .modal-dot');
       dots.forEach((dot, idx) => {
         if (idx === indiceFotoAtual) dot.classList.add('active');
@@ -776,4 +759,4 @@
   </script>
 
 </body>
-  </html>
+</html>
